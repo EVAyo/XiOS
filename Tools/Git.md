@@ -181,6 +181,21 @@ $ git reset --hard
 
 
 
+### 4.5、【重要】若已经commit远程
+
+```
+1. 输入git log命令查看commit记录
+$ git log
+
+2. 本地回滚到指定的commit
+$ git reset --hard c503cffa099332911d4fce2fc1399cb4bc3ba9d6
+
+3. 远程回滚，强制提交。
+$ git push -f
+// 等价于
+$ git push origin HEAD --force
+```
+
 
 
 ## 五、删除远程/本地分支
