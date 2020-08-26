@@ -6,6 +6,22 @@
 
 
 
+iOS自动打包脚本： [AutoPacking-iOS](https://github.com/monetking/AutoPacking-iOS)
+
+
+
+# 名词
+
+ruby
+
+RubyGems 是 Ruby 的一个包管理器，它提供一个分发 Ruby 程序和库的标准格式，还提供一个管理程序包安装的工具。
+
+Bundler - [Bundler 的作用及原理](https://ruby-china.org/topics/25530)
+
+gym 是 fastlane 下的一个工具，针对于 iOS 编译打包生成 ipa 文件，
+
+
+
 # 一、前期准备
 
 ## 1. 安装 Xcode 命令行工具
@@ -186,20 +202,6 @@ end
 ## 8. 安装包
 
  真机扫一扫蒲公英二维码，成功！！！
-
-
-
-
-
-# 名词
-
-ruby
-
-RubyGems 是 Ruby 的一个包管理器，它提供一个分发 Ruby 程序和库的标准格式，还提供一个管理程序包安装的工具。
-
-Bundler - [Bundler 的作用及原理](https://ruby-china.org/topics/25530)
-
-gym 是 fastlane 下的一个工具，针对于 iOS 编译打包生成 ipa 文件，
 
 
 
