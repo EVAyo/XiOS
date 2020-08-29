@@ -62,7 +62,7 @@ fastlane installation at path:
 
 ## 1. Setting up fastlane
 
-**终端进入工程主目录，输入：**
+**【重要】终端进入工程主目录，输入：**
 
 ```
 ➜ fastlane init
@@ -205,7 +205,94 @@ end
 
 
 
-# 踩坑
+# 三、尝试免证书打包
+
+## 3.1. 前提
+
+>  由于个人开发者没有购买$99的苹果账号，所以我尝试用自己的Apple Id进行免证书打包，并通过fastlane自动化打包。
+
+
+
+## 3.2. 手动免证书打包
+
+### 1. Apple ID 配置
+
+![](media_fastlane/009.jpg)
+
+![](media_fastlane/010.jpg)
+
+![](media_fastlane/011.jpg)
+
+![](media_fastlane/012.jpg)
+
+
+
+### 2. 真机运行
+
+安装成功！但不能运行？？？
+
+原来需要我们信任一下证书即可。
+
+
+
+## 3.3. fastlane免证书打包
+
+### 1. Fastfile 配置如下：
+
+```
+default_platform(:ios)
+
+platform :ios do
+  desc "Description of what the lane does"
+  lane :custom_lane do
+    # add actions here: https://docs.fastlane.tools/actions
+gym(scheme: "FFF", 
+        configuration: "Debug",
+        export_method: "development",
+        silent: true,  # 隐藏没有必要的信息
+        clean: true,  # 在构建前先clean
+        output_directory: "../App" # Destination directory. Defaults to current directory.
+    )
+pgyer(api_key: "c2ee006efdc4ade0085921e8b05xxxxxx", 
+          user_key: "f6a62972d4f3f6d0d02a8ff7bfxxxxxx", 
+          update_description: "update by fastlane",
+          password: "111111",
+          install_type: "2")
+  end
+end
+```
+
+
+
+### 2. 打包成功，并成功上传蒲公英分发
+
+![](media_fastlane/013.jpg)
+
+
+
+## 3.4 真机安装免证书ipa包 - 失败！！
+
+### 1. iTools Pro 安装ipa
+
+>  由于证书问题，真机安装！！！
+
+![](media_fastlane/014.jpg)
+
+<img src="media_fastlane/015.jpg" style="zoom:50%;" />
+
+
+
+### 2. 安装蒲公英分发包
+
+> 由于证书问题，真机无法下载安装！！！
+
+![](media_fastlane/016.jpg)
+
+
+
+
+
+# 四、踩坑
 
 ## 1. 无法上传到蒲公英
 
@@ -214,6 +301,5 @@ Could not find action, lane or variable 'pgyer'. Check out the documentation for
 ```
 
 【原因】：`fastlane add_plugin pgyer` 蒲公英插件安装目录错了，应该在项目目录下。
-
 
 
