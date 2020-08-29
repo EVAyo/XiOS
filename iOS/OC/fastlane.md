@@ -31,3 +31,17 @@ Navigate your terminal to your project's directory and run
 fastlane init
 ```
 
+
+
+# 二、Ruby脚本
+
+**Ruby** 是一种[面向对象](https://zh.wikipedia.org/wiki/面向对象的程序设计)、[命令式](https://zh.wikipedia.org/wiki/命令式编程)、[函数式](https://zh.wikipedia.org/wiki/函數程式語言)、[动态](https://zh.wikipedia.org/wiki/动态语言)的[通用编程语言](https://zh.wikipedia.org/wiki/通用编程语言)。在20世纪90年代中期由[日本](https://zh.wikipedia.org/wiki/日本)[计算机科学家](https://zh.wikipedia.org/wiki/電腦科學家)[松本行弘](https://zh.wikipedia.org/wiki/松本行弘)（Matz）设计并开发。
+
+
+
+
+
+
+
+
+
