@@ -28,7 +28,7 @@ armv6: iPhone、iPhone 2、iPhone 3G、iPod Touch(第一代)、iPod Touch(第二
 
 ### 1.1、创建项目
 
-![](media/media_Library/自制001.jpg)
+![](media_Library/自制001.jpg)
 
 
 
@@ -36,7 +36,7 @@ armv6: iPhone、iPhone 2、iPhone 3G、iPod Touch(第一代)、iPod Touch(第二
 
 设置 `Build Active Architecture Only 设为 NO`
 
-![](media/media_Library/自制002.jpg)
+![](media_Library/自制002.jpg)
 
 
 
