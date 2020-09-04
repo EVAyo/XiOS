@@ -1,6 +1,20 @@
 
 
-[Flutter中文网 - 快速开始](https://flutterchina.club/get-started/install/)
+# 网站
+
+[https://flutter.dev](https://flutter.dev/)
+
+[Flutter SDK releases](https://flutter.dev/docs/development/tools/sdk/releases)
+
+[Flutter SDK releases in Github](https://github.com/flutter/flutter/releases)
+
+
+
+[Flutter中文网](https://flutterchina.club/)
+
+[Flutter中文社区](https://flutter.cn/)
+
+[【书籍】Flutter实战](https://book.flutterchina.club/)
 
 
 
@@ -126,9 +140,9 @@ $ flutter doctor
 
 
 
-![](media/002.jpg)
+![](media_Flutter/002.jpg)
 
-![](media/003.jpg)
+![](media_Flutter/003.jpg)
 
 
 
@@ -205,7 +219,7 @@ Your application code is in my_first/lib/main.dart.
 
 > **【提示】第一次运行模拟器，会非常慢！！！因为要安装一些必备的工具！**
 
-![](media/005.jpg)
+![](media_Flutter/005.jpg)
 
 
 
@@ -242,7 +256,7 @@ Your application code is in my_first/lib/main.dart.
 1. 下载并安装 [Android Studio](https://developer.android.com/studio/index.html)
 2. 启动Android Studio，然后执行“Android Studio安装向导”。这将安装最新的Android SDK，Android SDK平台工具和Android SDK构建工具，这是Flutter为Android开发时所必需的。
 
-![](media/004.jpg)
+![](media_Flutter/004.jpg)
 
 
 
@@ -258,7 +272,7 @@ Your application code is in my_first/lib/main.dart.
 重启Android Studio后插件生效.
 ```
 
-![](media/001.jpg)
+![](media_Flutter/001.jpg)
 
 
 
@@ -266,7 +280,7 @@ Your application code is in my_first/lib/main.dart.
 
 ### 第一步：创建Android模拟器
 
-![](media/006.jpg)
+![](media_Flutter/006.jpg)
 
 ### 第二步：查看可用模拟器
 
@@ -287,4 +301,6 @@ Your application code is in my_first/lib/main.dart.
 
 
 ## 4、Android真机运行
+
+没有真机，暂时不测！
 
