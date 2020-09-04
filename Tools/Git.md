@@ -293,6 +293,16 @@ $ git checkout -b chuanhua V7.12.0
 
 
 
+### 7.1. 删除tag
+
+
+
+
+
+
+
+
+
 ## 八、GitHub提交无法添加统计到Contribution图
 
 **问题**
