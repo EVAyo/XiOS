@@ -260,6 +260,21 @@ Your application code is in my_first/lib/main.dart.
 
 
 
+### Android license status unknown.
+
+```
+[!] Android toolchain - develop for Android devices (Android SDK version 29.0.3)
+    ✗ Android license status unknown.
+      Try re-installing or updating your Android SDK Manager.
+      See https://developer.android.com/studio/#downloads or visit visit https://flutter.dev/docs/get-started/install/macos#android-setup for detailed instructions.
+```
+
+
+
+暂未找到原因
+
+
+
 ## 2、安装插件
 
 * `Flutter`插件： 支持Flutter开发工作流 (运行、调试、热重载等).
