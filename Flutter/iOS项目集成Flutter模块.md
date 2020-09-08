@@ -1,3 +1,9 @@
+[Flutter中文网 - 将 Flutter module 集成到 iOS 项目](https://flutter.cn/docs/development/add-to-app/ios/project-setup)
+
+[Flutter中文网 - 在 iOS 应用中添加 Flutter 页面](https://flutter.cn/docs/development/add-to-app/ios/add-flutter-screen#create-a-flutterengine)
+
+
+
 
 
 # 一、创建 Flutter module
@@ -5,8 +11,6 @@
 ```
 $ flutter create --template module my_flutter
 ```
-
-
 
 
 
@@ -69,9 +73,29 @@ $ flutter build ios-framework --output=../myFlutterApp
 
 
 
-# 三、Xcode调试Flutter
 
 
+# 三、在 iOS 应用中添加 Flutter 页面
+
+
+
+
+
+# 四、Xcode中使用Flutter『热重启』『热加载』
+
+
+
+```
+flutter attach
+```
+
+
+
+
+
+
+
+# 五、调试Dart代码
 
 
 
