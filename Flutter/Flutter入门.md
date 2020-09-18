@@ -79,7 +79,24 @@ pubspec.yaml
 
 
 
+包引入
 
+```
+//pub方式
+dependencies:
+  flutter_easyrefresh: ^2.1.5
+
+//导入方式
+dependencies:
+  flutter_easyrefresh:
+    path: 项目路径
+
+//git方式
+dependencies:
+  flutter_easyrefresh:
+    git:
+      url: git://github.com/xuelongqy/flutter_easyrefresh.git
+```
 
 
 
