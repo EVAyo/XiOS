@@ -1,8 +1,76 @@
-#CentOS安装Docker
 
-[Dockor官网 - CentOS install Dockor](https://docs.docker.com/engine/install/centos/)
 
-[阿里云官网 - Alibaba Cloud Linux部署并使用Docker](https://help.aliyun.com/document_detail/51853.html?spm=a2c4g.11186623.6.1184.5e022487yfAtAN)
+[Docker官网](https://www.docker.com/)
+
+[Docker docs](https://docs.docker.com/)
+
+[Dockor docs - CentOS install Dockor](https://docs.docker.com/engine/install/centos/)
+
+
+
+[GitBook - Docker从入门到实践](https://yeasy.gitbook.io/docker_practice/)
+
+
+
+# 一、Docker历史
+
+
+
+
+
+
+
+# 二、Docker能做什么
+
+
+
+
+
+
+
+# 三、Docker名词
+
+
+
+## 1、镜像（image）
+
+> Docker镜像好比一个模板，可以通过这个模板来创建容器服务。通过这个镜像可以创建多个容器，最终服务或项目运行就是在容器中。
+>
+> 类比：镜像 = Class，容器 = 实例。
+>
+> tomcat镜像 ===> run  ===> tomcat01容器
+>
+> tomcat镜像 ===> run  ===> tomcat02容器
+
+
+
+## 2、容器（container）
+
+> 容器是由镜像创建的。Docker利用容器技术，独立运行一个或一组应用。
+>
+> 类比：可以把容器理解为一个简易的linux系统。
+
+基本命令：启动、停止、删除等；
+
+
+
+## 3、仓库（repository）
+
+> 仓库就是放镜像的地方！
+>
+> 仓库分为公有仓库和私有仓库。
+>
+> Docker Hub （默认国外的）
+>
+> 阿里云...都有容器服务（配置镜像加速）
+
+
+
+#四、CentOS安装Docker
+
+> 参考自官方文档 
+>
+> [Dockor docs - CentOS install Dockor](https://docs.docker.com/engine/install/centos/)
 
 
 
@@ -39,19 +107,27 @@ c.在测试和开发环境中，一些用户选择使用自动 便利脚本来�
 
 ## 3、使用存储库安装
 
-安装`yum-utils`软件包（提供`yum-config-manager` 实用程序），
-
-并设置**稳定的**存储库。
+安装`yum-utils`软件包（提供`yum-config-manager` 实用程序）
 
 ```
 $ sudo yum install -y yum-utils
+```
 
+设置镜像仓库，默认是国外的，推荐阿里云的。
+
+```shell
 $ sudo yum-config-manager \
     --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
+    https://download.docker.com/linux/centos/docker-ce.repo      # 默认国外的
+    
+$ sudo yum-config-manager \
+    --add-repo \
+    http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo  # 推荐阿里云
 ```
 
 
+
+![](media_Docker/001.jpg)
 
 ## 4、可选项：
 
@@ -78,6 +154,8 @@ $ sudo yum-config-manager --disable docker-ce-nightly
 ## 5、安装 Docker Engine
 
 安装 **最新版本** 的Docker Engine和容器
+
+> docker-ce 社区版    ee 企业版
 
 ```
 $ sudo yum install docker-ce docker-ce-cli containerd.io
@@ -142,7 +220,7 @@ $ sudo yum install docker-ce docker-ce-cli
 
 
 
-## 7、启动Docker
+## 7、启动Docker Engine
 
 ```
 $ sudo systemctl start docker
@@ -150,7 +228,7 @@ $ sudo systemctl start docker
 
 
 
-## 8、设置Docker为开机自启
+## 8、设置Docker Engine为开机自启
 
 ```
 [root@localhost ~]# sudo systemctl enable docker
@@ -160,11 +238,21 @@ Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /
 
 
 
-## 9、验证是否正确安装了Docker Engine
+## 9、验证是否安装成功
+
+```
+$ docker version
+```
+
+![](media_Docker/002.jpg)
+
+
+
+## 10、运行hello-world
 
 通过运行`hello-world` 映像来验证是否正确安装了Docker Engine 。
 
-```
+```shell
 $ sudo docker run hello-world
 
 // ...
@@ -175,9 +263,97 @@ This message shows that your installation appears to be working correctly.
 
 
 
-##  10、升级DOCKER引擎
+## 11、查看hello-world镜像
+
+```Shell
+$ docker iamges
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hello-world         latest              bf756fb1ae65        8 months ago        13.3kB
+```
+
+
+
+##  12、升级Docker Engine
 
 要升级Docker Engine，请按照[安装说明](https://docs.docker.com/engine/install/centos/#install-using-the-repository)，选择要安装的新版本。
+
+
+
+## 13、卸载Docker Engine
+
+卸载Docker Engine，CLI和Containerd软件包：
+
+```
+$ sudo yum remove docker-ce docker-ce-cli containerd.io
+```
+
+主机上的映像，容器，卷或自定义配置文件不会自动删除。 要删除所有图像，容器和卷：
+
+```
+$ sudo rm -rf /var/lib/docker
+```
+
+
+
+# 五、阿里云镜像加速
+
+## 1、打开阿里云，找到『容器镜像服务』
+
+![](media_Docker/003.jpg)
+
+
+
+## 2、找到镜像加速
+
+![](media_Docker/004.jpg)
+
+
+
+## 3、设置
+
+```
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://5hd5simo.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+
+
+## 六、docker run hello-world流程
+
+![](media_Docker/005.jpg)
+
+![](media_Docker/006.jpg)
+
+![](media_Docker/007.jpg)
+
+
+
+# 六、底层原理
+
+## 1、Docker是怎么工作的？
+
+Docker是一个 Client-Server 结构的系统，Docker的守护进程在主机上。通过Socket从客户端访问。
+
+DockerServer接收到 DockerClient的指令，就会执行这个指令！
+
+![](media_Docker/008.jpg)
+
+
+
+## 2、Docker为什么比VM快？
+
+1. Dcoker有着比虚拟机更少的抽象层；
+2. Docker利用宿主主机的内核，VM需要Guest OS。
+
+![](media_Docker/009.jpg)
+
+
 
 
 

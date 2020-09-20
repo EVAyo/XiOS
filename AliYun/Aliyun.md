@@ -238,6 +238,13 @@ yum update
 
 # 【备】CentOS 常用命令
 
+* 系统内核：`$ uname -r`
+
+```
+[root@iZbp1hyj00tfq6s5ka3klmZ /]# uname -r
+4.18.0-147.5.1.el8_1.x86_64
+```
+
 * 查看CentOS版本：`$ rpm -qi centos-release`
 
 ```
@@ -262,7 +269,27 @@ Description :
 CentOS Linux release files
 ```
 
+* 查看系统版本
 
+```
+[root@iZbp1hyj00tfq6s5ka3klmZ /]# cat /etc/os-release
+NAME="CentOS Linux"
+VERSION="8 (Core)"
+ID="centos"
+ID_LIKE="rhel fedora"
+VERSION_ID="8"
+PLATFORM_ID="platform:el8"
+PRETTY_NAME="CentOS Linux 8 (Core)"
+ANSI_COLOR="0;31"
+CPE_NAME="cpe:/o:centos:centos:8"
+HOME_URL="https://www.centos.org/"
+BUG_REPORT_URL="https://bugs.centos.org/"
+
+CENTOS_MANTISBT_PROJECT="CentOS-8"
+CENTOS_MANTISBT_PROJECT_VERSION="8"
+REDHAT_SUPPORT_PRODUCT="centos"
+REDHAT_SUPPORT_PRODUCT_VERSION="8"
+```
 
 
 

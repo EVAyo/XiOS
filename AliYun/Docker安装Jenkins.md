@@ -6,6 +6,16 @@
 
 
 
+[Jenkins Docs](https://www.jenkins.io/doc/)
+
+[Jenkins Docs - Installing Jenkins](https://www.jenkins.io/doc/book/installing/)
+
+
+
+
+
+
+
 # Jenkins安装方式
 
 云端部署Jenkins有多种方式：
@@ -17,9 +27,9 @@
 
 
 
-1、search Jenkins
+## 一、search Jenkins
 
-```
+```shell
 $ docker search jenkins
 NAME                                   DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED
 jenkins                                Official Jenkins Docker image                   4913                [OK]                
@@ -32,35 +42,42 @@ jenkins/jnlp-slave                     a Jenkins agent which can connect to Jenk
 
 
 
+# 选择Jenkins版本
+
+> 推荐使用的Docker映像是 [`jenkinsci/blueocean`映像](https://hub.docker.com/r/jenkinsci/blueocean/) （来自[Docker Hub存储库](https://hub.docker.com/)）。
+>
+> ----- 摘自《[Jenkins Docs - Installing Jenkins](https://www.jenkins.io/doc/book/installing/)》
+
 
 
 ### Docker下载Jenkins
 
+```shell
+$ docker pull jenkinsci/blueocean     //最新版
 ```
-$ docker pull jenkins/jenkins:lts     //最新版
-```
-
-
 
 
 
 ### 查看Jenkins镜像
 
-```
+```shell
+# 查看所有本地主机上的镜像
 $ docker images
+# 查看镜像元数据
 $ docker inspect jenkins镜像ID
-```
 
-
-
-查看镜像
-
-```
+# 操作
 $ docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-jenkins/jenkins     lts                 190554e5446b        9 days ago          708MB
-hello-world         latest              bf756fb1ae65        8 months ago        13.3kB
+jenkinsci/blueocean   latest            c67eafa3612f        3 hours ago         755MB
+centos                latest            0d120b6ccaa8        5 weeks ago         215MB
 ```
+
+
+
+## 二、根据镜像创建Jenkins容器
+
+
 
 
 
