@@ -25,6 +25,33 @@ Activate the web console with: systemctl enable --now cockpit.socket
 [root@iZbp1hyj00tfq6s5ka3klmZ ~]#
 ```
 
+
+
+### a. SSH登录失败
+
+重置了阿里云实例，在次使用终端SSH登录失败，提示如下：
+
+```
+$ ssh root@47.114.81.248
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:vqykJiyiLecUVEyUdvpUOb5oWyNfOYOxebbA6BI6hu8.
+Please contact your system administrator.
+Add correct host key in /Users/lionsom/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /Users/lionsom/.ssh/known_hosts:9
+ECDSA host key for 47.114.81.248 has changed and you have requested strict checking.
+Host key verification failed.
+```
+
+解决方案：https://blog.csdn.net/zjh_746140129/article/details/82667397
+
+
+
 ## 2、配置cockpit
 
 ### 1、按照提示指令开启cockpit
@@ -110,17 +137,7 @@ success
 
 
 
-# 二、CentOS配置EPEL源
-
-默认的CentOS安装包太老太少，使用体验相当不好
-
-**EPEL (Extra Packages for Enterprise Linux，企业版Linux的额外软件包) ** 是Fedora小组维护的一个软件仓库项目，为RHEL/CentOS提供他们默认不提供的软件包。这个源兼容RHEL及像CentOS和Scientific Linux这样的衍生版本。
-
-通过EPEL可以很容易地通过yum命令从EPEL源上获取上万个在CentOS自带源上没有的软件。EPEL提供的软件包大多基于其对应的Fedora软件包，不会与企业版Linux发行版本的软件发生冲突或替换其文件。
-
-使用 **Docker**之前安装EPEL源。
-
-
+# 二、yum管理包
 
 ```
 // 查看yum源
@@ -133,8 +150,6 @@ epel                             Extra Packages for Enterprise Linux 8 - x86_64
 epel-modular                     Extra Packages for Enterprise Linux Modular 8 - x86_64
 extras                           CentOS-8 - Extras
 ```
-
-
 
 
 
@@ -154,9 +169,7 @@ Repository epel is listed more than once in the configuration
 
 
 
-
-
-## 4 yum 命令
+## 2. yum 命令
 
 在 linux 日常使用过程中， yum 操作经常会涉及到，以下对常用的方式进行总结：
 
@@ -223,19 +236,45 @@ yum update
 
 
 
+# 【备】CentOS 常用命令
+
+* 查看CentOS版本：`$ rpm -qi centos-release`
+
+```
+[root@iZbp1hyj00tfq6s5ka3klmZ ~]# rpm -qi centos-release
+Name        : centos-release
+Version     : 8.2
+Release     : 2.2004.0.1.el8
+Architecture: x86_64
+Install Date: 2020年07月05日 星期日 19时58分48秒
+Group       : System Environment/Base
+Size        : 25430
+License     : GPLv2
+Signature   : RSA/SHA256, 2020年06月03日 星期三 09时09分51秒, Key ID 05b555b38483c65d
+Source RPM  : centos-release-8.2-2.2004.0.1.el8.src.rpm
+Build Date  : 2020年06月03日 星期三 09时02分49秒
+Build Host  : x86-02.mbox.centos.org
+Relocations : (not relocatable)
+Packager    : CentOS Buildsys <bugs@centos.org>
+Vendor      : CentOS
+Summary     : CentOS Linux release file
+Description :
+CentOS Linux release files
+```
 
 
-#三、Dockor
-
-[阿里云 - 部署并使用Docker](https://help.aliyun.com/document_detail/51853.html?spm=a2c4g.11186623.6.1184.5e022487yfAtAN)
-
-## 3.1. 安装EPEL源
 
 
 
 
 
 
+
+
+
+
+
+# ======== 额外 =========
 
 
 
