@@ -54,6 +54,11 @@ fastlane installation at path:
 
 ```
 ➜ sudo gem install fastlane -NV
+
+// 若失败
+1、查看源: gem sources
+2、删除源: gem sources --remove https://gems.ruby-china.org/
+3、更换源: gem sources -a https://gems.ruby-china.com
 ```
 
 
@@ -120,11 +125,11 @@ fastlane installation at path:
 ## 4. Appfile配置
 
 ```
-# For more information about the Appfile, see:
-#     https://docs.fastlane.tools/advanced/#appfile
-
 app_identifier("cn.com.ay.xxxx") 	# The bundle identifier of your app
 apple_id("mobile@xxxx.com.cn") 		# Your Apple email address
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
 ```
 
 
@@ -132,29 +137,52 @@ apple_id("mobile@xxxx.com.cn") 		# Your Apple email address
 ## 5. Fastfile配置
 
 ```
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
 
 default_platform(:ios)
 
 platform :ios do
+  desc "Description of what the lane does"
 
-  desc "打包上传蒲公英"
-  lane :custom_build do
+  lane :custom_lane do   								# 函数名称
+
+    time = Time.new.strftime("%Y%m%d") 	# 获取时间格式
+    version = get_version_number#获取版本号
+    ipaName = "Debug_#{version}_#{time}.ipa" 		# eg: Debug_1.0_20200921
+
     # add actions here: https://docs.fastlane.tools/actions
-    gym(scheme: "Qiyeyun", 
-        configuration: "QYCRelease",
-        export_method: "development",
-        silent: true,  # 隐藏没有必要的信息
-        clean: true,  # 在构建前先clean
-        output_directory: "../App" # Destination directory. Defaults to current directory.
+    # 打包
+    gym(scheme: "FastLaneDemo",   			# 项目名称
+    		configuration: "Debug",					# 模式，默认Release，还有Debug
+    		export_method: "development",		# 打包的类型
+    		silent: true,  									# 隐藏没有必要的信息
+        clean: true,  									# 在构建前先clean
+				output_name:"#{ipaName}",				# 输出的包名
+        output_directory: "../App",			# 输出包的位置
     )
-    pgyer(api_key: "c2ee006efdc4ade0085921exxxxxxxxx", 
-          user_key: "f6a62972d4f3f6d0d02a8ff7xxxxxxxxx", 
+
+    # 上传蒲公英
+    pgyer(api_key: "c2ee006efdc4ade0085921e8b0xxxxxx", 
+          user_key: "f6a62972d4f3f6d0d02a8ff7bfxxxxxx", 
           update_description: "update by fastlane",
           password: "111111",
-          install_type: "2")
+          install_type: "2",
+    )
   end
 end
-
 ```
 
 
@@ -177,7 +205,7 @@ end
 
 
 
-有多出两个文件
+又多出两个文件
 
 ![](media_fastlane/006.jpg)
 
