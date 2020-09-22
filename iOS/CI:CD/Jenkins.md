@@ -144,30 +144,6 @@ Stopping `jenkins`... (might take a while)
 
 ![](media_Jenkins/011.jpg)
 
-# Xcode插件
-
-
-
-## 失败
-
-### 方式一：更换下载地址
-
-```
-// Default URL
-https://updates.jenkins.io/update-center.json
-
-// New
-http://mirrors.jenkins-ci.org/status.html
-
-http://mirror.esuni.jp/jenkins/updates/update-center.json
-```
-
-### 方式二：
-
-
-
-
-
 
 
 # 五、构建方式
@@ -188,15 +164,44 @@ http://mirror.esuni.jp/jenkins/updates/update-center.json
 
 
 
+# 五、脚本构建
+## 5.1. 操作流程
+
+![](media_Jenkins/012.jpg)
 
 
 
+![](media_Jenkins/013.jpg)
 
 
 
+![](media_Jenkins/014.jpg)
 
 
 
+![](media_Jenkins/015.jpg)
+
+
+
+![](media_Jenkins/016.jpg)
+
+## 5.2. 脚本运行失败
+
+【原因】
+
+出现这个问题可能是因为你没有设置pod的运行路径，解决方法如下
+
+【解决】
+
+> 系统管理 -> 系统配置 -> 全局属性
+>
+> 终端中输入`echo $PATH` 获取本地环境变量
+>
+> 勾选环境变量，键默认填写`PATH`，值填写你从终端复制的那个字符串。
+
+![](media_Jenkins/017.jpg)
+
+![](media_Jenkins/018.jpg)
 
 
 
