@@ -98,6 +98,10 @@ Stopping `jenkins`... (might take a while)
 
 ## 2. 注册
 
+> 本地用户名统一：linx
+>
+> 密码：123456
+
 ![](media_Jenkins/006.jpg)
 
 ![](media_Jenkins/007.jpg)
@@ -166,7 +170,19 @@ http://mirror.esuni.jp/jenkins/updates/update-center.json
 
 
 
-# 五、构建
+# 五、构建方式
+
+
+
+## 1. 使用Xcode插件
+
+> 结论：不推荐，插件支持不到位。
+
+
+
+## 2.使用shell脚本
+
+
 
 
 

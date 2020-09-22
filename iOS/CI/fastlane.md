@@ -88,6 +88,8 @@ fastlane installation at path:
 
 ## 2. 安装插件 - 蒲公英
 
+[使用 Fastlane 上传 App 到蒲公英](https://www.pgyer.com/doc/view/fastlane)
+
 **【注意】：在项目目录下安装：**
 
 ```
@@ -104,16 +106,13 @@ fastlane installation at path:
 
 ![](media_fastlane/003.jpg)
 
- **文件夹fastlane** ，里面包含 `Appfile` 和 `Fastfile`。
+* **文件夹fastlane** ，里面包含 `Appfile` 和 `Fastfile`。
+  * Appfile ： 里面包含App相关信息；
+  * Fastfile ：包含fastlane相关配置信息，后续也是在此处理；
 
-* Appfile ： 里面包含App相关信息；
-* Fastfile ：包含fastlane相关配置信息，后续也是在此处理；
+  * Pluginfile ：包含插件相关信息；
 
-* Pluginfile ：包含插件相关信息；
-
-
-
-`Gemfile` 与 `Gemfile.lock` 类比于 `Podfile` 与 `Podfile.lock`
+* `Gemfile` 与 `Gemfile.lock` 类比于 `Podfile` 与 `Podfile.lock` 
 
 
 
