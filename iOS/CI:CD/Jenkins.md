@@ -158,13 +158,11 @@ Stopping `jenkins`... (might take a while)
 
 ## 2.使用shell脚本
 
+> 这里搭配fastlane构建，fastlane详情看隔壁一篇《Fastlane》
 
 
 
-
-
-
-# 五、脚本构建
+# 六、脚本构建
 ## 5.1. 操作流程
 
 ![](media_Jenkins/012.jpg)
@@ -185,7 +183,7 @@ Stopping `jenkins`... (might take a while)
 
 ![](media_Jenkins/016.jpg)
 
-## 5.2. 脚本运行失败
+## 5.2. 脚本构建失败
 
 【原因】
 
@@ -204,4 +202,42 @@ Stopping `jenkins`... (might take a while)
 ![](media_Jenkins/018.jpg)
 
 
+
+## 5.3. 再次构建成功
+
+![](media_Jenkins/019.jpg)
+
+
+
+# 七、远程触发构建
+
+**刚刚我们是在Jenkins网页上点击构建，如何支持HTTP请求构建**
+
+
+
+## 1. 配置「构建触发器」
+
+**在构建触发器中，我们可以发现「触发远程构建」，勾选并设置Token。**
+
+![](media_Jenkins/020.jpg)
+
+
+
+## 2. 模拟HTTP请求
+
+**通过Postman模拟http请求，发现请求失败，提示验证不通过，匿名用户没有权限。**
+
+![](media_Jenkins/021.jpg)
+
+
+
+## 3. 添加权限
+
+**前往Jenkins网页 -> 系统管理  -> 安全 -> 全局安全配置 -> 授权策略 中添加对匿名用户的操作权限。**
+
+![](media_Jenkins/022.jpg)
+
+
+
+## 4. 再次模拟HTTP请求构建，成功！
 
