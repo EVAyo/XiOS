@@ -1,16 +1,23 @@
 ### 梯子推荐
 
+[推荐：速度快、节点多、便宜(￥5/mon)](https://gfw.center/auth/register?code=nGSC)
 
-
-### 翻墙提速
+**翻墙提速**
 
 ```shell
+// 1.机场打开全局模式
+// 2.终端命令前加上代理
+// 3.光速
 $ ALL_PROXY=socks5://127.0.0.1:1086 pod install
 ```
 
 
 
 ### iOS
+
+
+
+
 
 
 
@@ -23,7 +30,9 @@ $ ALL_PROXY=socks5://127.0.0.1:1086 pod install
 
 
 
-### 常用软件推荐
+### 常用推荐
+
+[Mac日常整理 - MacFast](https://github.com/lionsom/XiOS/blob/master/Tools/MacFast.md)
 
 
 

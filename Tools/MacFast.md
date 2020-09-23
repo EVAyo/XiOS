@@ -256,11 +256,37 @@ xxx
 
 
 
-
-
-# 四、GitHub工具
+# 四、Chrome插件
 
 [谷粒-Chrome插件英雄榜 ChromeAppHeroes](https://github.com/zhaoolee/ChromeAppHeroes)
+
+##1、OneTap
+
+标签管理插件，节省高达95％的内存，并减轻标签页混乱现象。
+
+
+
+## 2、沙拉查词-聚合词典划词翻译
+
+Chrome翻译插件，超级方便。
+
+
+
+## 3、LanguageTool
+
+检测输入单词、语法是否错误。
+
+
+
+## 4、Chrome清理大师
+
+一键清理您的浏览器缓存和垃圾，保护您的隐私，并使您的浏览器更快。
+
+
+
+
+
+# 五、GitHub工具
 
 [让你纵横 GitHub 的五大神器](https://mp.weixin.qq.com/s/NCNcf2RS0c6Gjp0kMwjo_w)
 
@@ -268,13 +294,19 @@ xxx
 
 目录一览
 
+
+
 ## 2、Sourcegraph
 
 快速查看资源
 
+
+
 ## 3、Enhanced GitHub
 
 下载指定文件
+
+
 
 ## 4、GitHub Dark Theme
 
