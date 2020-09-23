@@ -1,6 +1,6 @@
 ### 梯子推荐
 
-[推荐：速度快、节点多、便宜(￥5/mon)](https://gfw.center/auth/register?code=nGSC)
+[推荐：速度快、节点多、便宜(￥5/mon) 最近7.5折](https://gfw.center/auth/register?code=nGSC)
 
 **翻墙提速**
 
@@ -15,9 +15,9 @@ $ ALL_PROXY=socks5://127.0.0.1:1086 pod install
 
 ### iOS
 
+[fastlane打包iOS - fastlane.md](https://github.com/lionsom/XiOS/blob/master/iOS/CI:CD/fastlane.md)
 
-
-
+[jenkins+fastlane打包iOS - Jenkins.md](https://github.com/lionsom/XiOS/blob/master/iOS/CI:CD/Jenkins.md)
 
 
 
@@ -32,7 +32,7 @@ $ ALL_PROXY=socks5://127.0.0.1:1086 pod install
 
 ### 常用推荐
 
-[Mac日常整理 - MacFast](https://github.com/lionsom/XiOS/blob/master/Tools/MacFast.md)
+[Mac日常整理 - MacFast.md](https://github.com/lionsom/XiOS/blob/master/Tools/MacFast.md)
 
 
 
