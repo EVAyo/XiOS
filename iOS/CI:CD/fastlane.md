@@ -12,13 +12,13 @@ iOS自动打包脚本： [AutoPacking-iOS](https://github.com/monetking/AutoPack
 
 # 名词
 
-**Ruby** 是一种[面向对象](https://zh.wikipedia.org/wiki/面向对象的程序设计)、[命令式](https://zh.wikipedia.org/wiki/命令式编程)、[函数式](https://zh.wikipedia.org/wiki/函數程式語言)、[动态](https://zh.wikipedia.org/wiki/动态语言)的[通用编程语言](https://zh.wikipedia.org/wiki/通用编程语言)。在20世纪90年代中期由[日本](https://zh.wikipedia.org/wiki/日本)[计算机科学家](https://zh.wikipedia.org/wiki/電腦科學家)[松本行弘](https://zh.wikipedia.org/wiki/松本行弘)（Matz）设计并开发。
+* **Ruby** 是一种[面向对象](https://zh.wikipedia.org/wiki/面向对象的程序设计)、[命令式](https://zh.wikipedia.org/wiki/命令式编程)、[函数式](https://zh.wikipedia.org/wiki/函數程式語言)、[动态](https://zh.wikipedia.org/wiki/动态语言)的[通用编程语言](https://zh.wikipedia.org/wiki/通用编程语言)。在20世纪90年代中期由[日本](https://zh.wikipedia.org/wiki/日本)[计算机科学家](https://zh.wikipedia.org/wiki/電腦科學家)[松本行弘](https://zh.wikipedia.org/wiki/松本行弘)（Matz）设计并开发。
 
-RubyGems 是 Ruby 的一个包管理器，它提供一个分发 Ruby 程序和库的标准格式，还提供一个管理程序包安装的工具。
+* RubyGems 是 Ruby 的一个包管理器，它提供一个分发 Ruby 程序和库的标准格式，还提供一个管理程序包安装的工具。
 
-Bundler - [Bundler 的作用及原理](https://ruby-china.org/topics/25530)
+* Bundler - [Bundler 的作用及原理](https://ruby-china.org/topics/25530)
 
-gym 是 fastlane 下的一个工具，针对于 iOS 编译打包生成 ipa 文件，
+* gym 是 fastlane 下的一个工具，针对于 iOS 编译打包生成 ipa 文件，
 
 
 

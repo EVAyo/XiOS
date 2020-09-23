@@ -156,7 +156,7 @@ Stopping `jenkins`... (might take a while)
 
 
 
-## 2.使用shell脚本
+## 2. 使用shell脚本
 
 > 这里搭配fastlane构建，fastlane详情看隔壁一篇《Fastlane》
 

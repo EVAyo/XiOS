@@ -1,10 +1,39 @@
+# 梯子推荐
+
+
+
 ## 翻墙提速
 
-> ALL_PROXY=socks5://127.0.0.1:1086
+```shell
+$ ALL_PROXY=socks5://127.0.0.1:1086 pod install
+```
 
 
 
-## 推荐网址
+# iOS
+
+
+
+
+
+
+
+# 书籍阅读
+
+| 书名                 | 摘要                                                         |
+| -------------------- | ------------------------------------------------------------ |
+| 《编码》             | 近期阅读中...可查看部分阅读笔记：[《编码》阅读](https://github.com/lionsom/iOS-/blob/master/Reading/《编码》阅读.md) |
+| 《网络是怎样连接的》 | 我的阅读笔记：https://www.jianshu.com/p/6c92358dffc4         |
+
+
+
+# 常用软件推荐
+
+
+
+
+
+# 学习推荐
 
 | 地址                                                         | 摘要                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -15,29 +44,6 @@
 | [analyze](https://github.com/draveness/analyze)              | iOS开源框架源码解析                                          |
 | [Halfrost-Field](https://github.com/halfrost/Halfrost-Field) | Halfrost-Field的博客仓库                                     |
 | [ReadyForBAT](https://github.com/MisterBooo/ReadyForBAT)     | 慕课网iOS面试实战项目总结                                    |
-
-
-
-## 推荐书籍
-
-| 书名                 | 摘要                                                         |
-| -------------------- | ------------------------------------------------------------ |
-| 《编码》             | 近期阅读中...可查看部分阅读笔记：[《编码》阅读](https://github.com/lionsom/iOS-/blob/master/Reading/《编码》阅读.md) |
-| 《网络是怎样连接的》 | 我的阅读笔记：https://www.jianshu.com/p/6c92358dffc4         |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
