@@ -21,18 +21,28 @@ $ ALL_PROXY=socks5://127.0.0.1:1086 pod install
 
 
 
+### Mac常用推荐
+
+[Mac日常整理 - MacFast.md](https://github.com/lionsom/XiOS/blob/master/Tools/MacFast.md)
+
+[Charles抓包 - Charles.md](https://github.com/lionsom/XiOS/blob/master/Tools/Charles.md)
+
+[CocoaPods日常使用记录 - CocoPods.md](https://github.com/lionsom/XiOS/blob/master/Tools/CocoaPods.md)
+
+[Git日常使用记录 - Git.md](https://github.com/lionsom/XiOS/blob/master/Tools/Git.md)
+
+[Zsh使用 - Zsh.md](https://github.com/lionsom/XiOS/blob/master/Tools/Zsh.md)
+
+[PATH日常 - PATH.md](https://github.com/lionsom/XiOS/blob/master/Tools/PATH.md)
+
+
+
 ### 书籍阅读
 
 | 书名                 | 摘要                                                         |
 | -------------------- | ------------------------------------------------------------ |
 | 《编码》             | 近期阅读中...可查看部分阅读笔记：[《编码》阅读](https://github.com/lionsom/iOS-/blob/master/Reading/《编码》阅读.md) |
 | 《网络是怎样连接的》 | 我的阅读笔记：https://www.jianshu.com/p/6c92358dffc4         |
-
-
-
-### 常用推荐
-
-[Mac日常整理 - MacFast.md](https://github.com/lionsom/XiOS/blob/master/Tools/MacFast.md)
 
 
 
