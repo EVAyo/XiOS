@@ -1,3 +1,13 @@
+## 文档
+
+[ObjC中国 -  **调试：案例学习**](https://objccn.io/issue-19-1/)
+
+[ObjC中国 -  **与调试器共舞 - LLDB 的华尔兹**](https://objccn.io/issue-19-2/)
+
+[Chisel-LLDB命令插件，让调试更Easy](https://blog.cnbluebox.com/blog/2015/03/05/chisel/)
+
+### 
+
 # 一、LLDB使用
 
 ## 1、断点
