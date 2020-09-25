@@ -10,8 +10,14 @@
 // 3.光速
 $ ALL_PROXY=socks5://127.0.0.1:1086 pod install
 ```
+**github图片无法访问**
+```
+原因：图片放在 `raw.githubusercontent.com` 网站上，该网站被墙了，导致无法访问！
 
-
+解决方案：
+1.使用梯子，开启Global模式，或手动将该网址添加到名单中允许访问；
+2.获取IP，在hosts文件中添加。
+```
 
 ### iOS
 
