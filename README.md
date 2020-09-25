@@ -1,4 +1,4 @@
-### ************** 梯子推荐 *************
+### 梯子推荐
 
 [推荐：速度快、节点多、便宜(￥5/mon) 最近7.5折](https://gfw.center/auth/register?code=nGSC)
 
@@ -19,7 +19,10 @@ $ ALL_PROXY=socks5://127.0.0.1:1086 pod install
 2.获取IP，在hosts文件中添加。
 ```
 
-### ************** iOS **************
+
+
+
+### iOS
 
 [fastlane打包iOS - fastlane.md](https://github.com/lionsom/XiOS/blob/master/iOS/CI:CD/fastlane.md)
 
