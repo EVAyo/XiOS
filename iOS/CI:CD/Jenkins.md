@@ -241,22 +241,3 @@ Stopping `jenkins`... (might take a while)
 
 
 
-
-
-# 八、插件介绍
-
-- GIT plugin
-- SSH Credentials Plugin
-- Git Changelog Plugin: 获取仓库提交的commit log
-- build-name-setter：用于修改Build名称
-- description setter plugin：用于在修改Build描述信息，在描述信息中增加显示QRCode（二维码）
-- Post-Build Script Plug-in：在编译完成后通过执行脚本实现一些额外功能
-- Xcode integration: iOS专用（可选）
-- Gradle plugin: Android专用（可选）
-
-
-
-
-
-
-
