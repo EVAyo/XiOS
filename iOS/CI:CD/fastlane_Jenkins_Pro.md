@@ -239,6 +239,109 @@ pgyer(api_key: "c2ee006efdc4ade0085921e8b0xxxxx",
 
 
 
+# 七、Jenkins Rest API
+
+[Jenkins官网 - REST API](https://ci.jenkins.io/api/)
+
+[Jenkins docs - Remote Access API](https://www.jenkins.io/doc/book/using/remote-access-api/)
+
+[Jenkins REST API 完全手册——上篇](https://blog.csdn.net/qq_34832393/article/details/88210942)
+
+[Jenkins REST API 完全手册——下篇](https://blog.csdn.net/qq_34832393/article/details/88229804?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param)
+
+
+
+## 7.1. HTTP BASIC authentication
+
+摘自《[Jenkins docs - Remote Access API](https://www.jenkins.io/doc/book/using/remote-access-api/)》
+
+[Authenticating scripted clients](https://wiki.jenkins.io/display/JENKINS/Authenticating+scripted+clients)
+
+> ## Remote API and security
+>
+> When your Jenkins is secured, you can use HTTP BASIC authentication to authenticate remote API requests. See [Authenticating scripted clients](https://wiki.jenkins.io/display/JENKINS/Authenticating+scripted+clients) for more details.
+
+
+
+### 1. 请求加上登录信息
+
+```
+eg:
+http://userName:password@127.0.0.1:8989/job/FastLaneDemo/config.xml
+```
+
+### 2. Jenkins开放匿名用户权限
+
+![](media_fastlane_jenkins/006.jpg)
+
+## 3. CrumbIssuer 系统哈希值信息（用于防御CSRF攻击）
+
+[使用 CrumbIssuer 防御 CSRF 攻击](https://blog.csdn.net/qq_34832393/article/details/88531049)
+
+
+
+## 7.2. Jobs相关
+
+### 1. job-info 获取任务信息
+
+```
+GET http://jenkins_url:port/{optionalFolderPath}job/{name}/api/json
+
+eg:
+http://127.0.0.1:8989/job/FastLaneDemo/api/json
+```
+
+
+
+### 2. build-info 获取构筑信息
+
+```
+GET http://127.0.0.1:8080/{optionalFolderPath}job/{name}/{number}/api/json
+
+eg:
+http://127.0.0.1:8989/job/FastLaneDemo/36/api/json
+```
+
+
+
+### 3. build 构建
+
+![](media_fastlane_jenkins/007.jpg)
+
+* **Jobs without parameters**
+
+  ```
+  POST http://127.0.0.1:8080/job/{JOBNAME}/build?token=TOKEN_NAME
+  ```
+
+* **Jobs with parameters**
+
+  ```
+  POST http://127.0.0.1:8080/job/{JOBNAME}/buildWithParameters?token=TOKEN_NAME
+  
+  curl JENKINS_URL/job/JOB_NAME/buildWithParameters \
+    --user USER:TOKEN \
+    --data id=123 --data verbosity=high
+  ```
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
