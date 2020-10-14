@@ -59,81 +59,9 @@ $ flutter create --template module my_flutter
 
 
 
-## 选项 B - 在 Xcode 中集成 frameworks
+## 选项A — 踩坑记录
 
-除了上面的方法，你也可以创建必备的 frameworks，手动修改既有 Xcode 项目，将他们集成进去。当你组内其它成员们不能在本地安装 Flutter SDK 和 CocoaPods，或者你不想使用 CocoaPods 作为既有应用的依赖管理时，这种方法会比较合适。但是每当你在 Flutter module 中改变了代码，都必须运行 `flutter build ios-framework`。
-
-
-
-```
-$ flutter build ios-framework --output=../myFlutterApp
-```
-
-![](media_iOSAddFlutter/003.jpg)
-
-
-
-
-
-# 三、在 iOS 应用中添加 Flutter 页面
-
-
-
-
-
-# 四、Xcode中使用Flutter『热重启』『热加载』
-
-
-
-```
-flutter attach
-```
-
-
-
-
-
-
-
-# 五、调试Dart代码
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 踩坑记录
-
-
-
-## 1、无法编译QYCFeature
+### 1、无法编译QYCFeature
 
 * **【现场】**
 
@@ -152,6 +80,8 @@ Flutter SDK中默认支持Debug、Release、Profile。
 * **【解决】**
 
 在Flutter SDK中修改脚本 `Flutter SDK -> flutter -> packages -> flutter_tools -> bin -> xcode_backend.sh` 目录下
+
+![](media_iOSAddFlutter/004.jpg)
 
 ```
   # Use FLUTTER_BUILD_MODE if it's set, otherwise use the Xcode build configuration name
@@ -181,6 +111,100 @@ Flutter SDK中默认支持Debug、Release、Profile。
       exit -1;;
   esac
 ```
+
+
+
+### 2、Xcode编译报错
+
+解决流程：
+
+1. Flutter_moudle项目 `flutter pub get` 后运行；
+2. 若Flutter_moudle运行失败，`git reset --hard`， 再  `flutter pub get` ；再运行。
+
+2. Xcode 项目 `pod install` ；
+3. Clean
+4. Build
+
+
+
+
+
+## 选项 B - 在 Xcode 中集成 frameworks
+
+除了上面的方法，你也可以创建必备的 frameworks，手动修改既有 Xcode 项目，将他们集成进去。当你组内其它成员们不能在本地安装 Flutter SDK 和 CocoaPods，或者你不想使用 CocoaPods 作为既有应用的依赖管理时，这种方法会比较合适。但是每当你在 Flutter module 中改变了代码，都必须运行 `flutter build ios-framework`。
+
+
+
+```
+$ flutter build ios-framework --output=../myFlutterApp
+```
+
+![](media_iOSAddFlutter/003.jpg)
+
+
+
+## 选项B — 踩坑记录
+
+### 1、生成三个环境的Framework导致不能兼容
+
+`flutter build ios-framework` 生成 Debug、Profile、Release 三个环境。所以Xcode中集成了一种，则无法在其他环境下使用。
+
+例如：
+
+场景一：我们项目中使用Debug Frameworks，所以每次打包都需要切换到选项A的模式进行打包。
+
+场景二：我们项目中使用Debug Frameworks，在Edit Scheme配置 Build Configuration 选择Release时，编译不通过！
+
+
+
+### 2、
+
+
+
+
+
+
+
+# 三、在 iOS 应用中添加 Flutter 页面
+
+
+
+
+
+# 四、Xcode中使用Flutter『热重启』『热加载』
+
+
+
+```
+$ flutter attach
+```
+
+
+
+
+
+
+
+# 五、调试Dart代码
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
