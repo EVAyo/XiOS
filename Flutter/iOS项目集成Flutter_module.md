@@ -147,19 +147,17 @@ $ flutter build ios-framework --output=../myFlutterApp
 
 ### 1、生成三个环境的Framework导致不能兼容
 
-`flutter build ios-framework` 生成 Debug、Profile、Release 三个环境。所以Xcode中集成了一种，则无法在其他环境下使用。
+`flutter build ios-framework` 生成 Debug、Profile、Release 三个环境。
 
-例如：
+* Debug Frameworks 存在请求崩溃等未知问题，且较为卡顿；
 
-场景一：我们项目中使用Debug Frameworks，所以每次打包都需要切换到选项A的模式进行打包。
-
-场景二：我们项目中使用Debug Frameworks，在Edit Scheme配置 Build Configuration 选择Release时，编译不通过！
+* Release Frameworks 不支持X86架构，无法在模拟器上运行；
 
 
 
-### 2、
+后来，综合了下：
 
-
+使用Release Frameworks与Debug Frameworks中X86模块合并，这样就可以支持模拟器运行了，能运行iOS项目，但打不开Flutter页面。
 
 
 
@@ -175,13 +173,13 @@ $ flutter build ios-framework --output=../myFlutterApp
 
 
 
-```
-$ flutter attach
-```
+打开Flutter_module项目运行 `flutter attach`，
 
+打开Xcode运行，若失败，重复几次。
 
+出现 `Syncing files to device iPhone 11 Pro Max...` 即为成功
 
-
+此时Flutter可进行 `Hot Reload` 、`Hot Restart` 、断点等操作；
 
 
 
