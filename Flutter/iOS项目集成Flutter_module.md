@@ -161,11 +161,45 @@ $ flutter build ios-framework --output=../myFlutterApp
 
 
 
+## 三、手动生成Framework
+
+在Flutter项目目录下，执行
+
+```
+// 构建Framework
+$ flutter build ios-framework
+
+// 指定输出路径
+$ flutter build ios-framework --output=some/path/MyApp/Flutter/
+```
+
+![](media_iOSAddFlutter/005.jpg)
 
 
-# 三、在 iOS 应用中添加 Flutter 页面
+
+```
+// 三种环境
+Debug
+
+Profile
+
+Release
+		应用将不能在模拟器上运行 Release 模式，因为 Flutter 还不支持将 Dart 代码编译成 x86/x86_64 ahead-of-time (AOT) 模式的二进制文件。
+```
 
 
+
+```
+// 三种Framework
+Flutter.framework
+		是 Flutter engine 的框架。
+
+App.framework
+		是你的 Dart 代码的编译产物。
+
+FlutterPlugin.framework
+		Flutter项目在各种插件的编译产物。
+```
 
 
 
@@ -180,12 +214,6 @@ $ flutter build ios-framework --output=../myFlutterApp
 出现 `Syncing files to device iPhone 11 Pro Max...` 即为成功
 
 此时Flutter可进行 `Hot Reload` 、`Hot Restart` 、断点等操作；
-
-
-
-# 五、调试Dart代码
-
-
 
 
 
