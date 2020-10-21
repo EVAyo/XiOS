@@ -513,5 +513,13 @@ Identity added: /Users/lionsom/.ssh/AAA (lionsom@LionsomMBP.local)
 
 
 
+## 十三、git-log-format
 
+https://jimmysong.io/cheatsheets/git-log-format
+
+https://segmentfault.com/a/1190000020773008
+
+[如何将当前git分支的名称转换为shell脚本中的变量？](https://ubuntuqa.com/article/6789.html)
+
+[stachkoverflow -- Show just the current branch in Git](https://stackoverflow.com/questions/1417957/show-just-the-current-branch-in-git)
 

@@ -221,7 +221,11 @@ FlutterPlugin.framework
 
 
 
+# iOS与Flutter交互
 
+
+
+FlutterMethodChannel
 
 
 
