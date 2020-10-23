@@ -221,11 +221,23 @@ FlutterPlugin.framework
 
 
 
-# iOS与Flutter交互
+# 五、iOS与Flutter交互
 
 
 
 FlutterMethodChannel
+
+
+
+
+
+# 六、iOS运行问题
+
+![](media_iOSAddFlutter/iOS集成Flutter.png)
+
+
+
+
 
 
 

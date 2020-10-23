@@ -27,14 +27,12 @@ $ ./a.out
 ## 静态分配
 
 ```C
-#define MaxSize 10							// 定义最大长度
+#define MAXSIZE 10							// 定义最大长度
 typedef struct {
 		ElemType data[MaxSize];			// 用静态的『数组』存放数据元素
   	int Length;									// 顺序表当前的长度
 }SqList													// 顺序表的类型定义（静态分配方式） Sq:Sequence 顺序、序列
 ```
-
-
 
 
 
