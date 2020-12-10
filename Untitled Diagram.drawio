@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-12-10T08:50:20.237Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="8eGtILmLPBWL1DLznK8Q" version="13.6.2" type="github">
+<mxfile host="app.diagrams.net" modified="2020-12-10T08:50:46.198Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="s0j-gCzzJ7VfFUlcKIIl" version="13.6.2" type="github">
   <diagram id="jphbGvgdzRIWTqIg4ElQ" name="Page-1">
     <mxGraphModel dx="1426" dy="722" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -97,13 +97,13 @@
         <mxCell id="er3B5v9lNEbErQh9VWlc-3" value="改造" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="441.5" y="1020" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="pBkXQJ0bNPyUFp23YPMb-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="pBkXQJ0bNPyUFp23YPMb-1" value="&lt;p class=&quot;p1&quot; style=&quot;margin: 0px ; font-stretch: normal ; font-size: 14px ; line-height: normal ; font-family: &amp;#34;menlo&amp;#34; ; color: rgb(196 , 26 , 22) ; background-color: rgb(255 , 255 , 255)&quot;&gt;QYCMediator&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="480.75" y="1020" width="128.5" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="pBkXQJ0bNPyUFp23YPMb-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="pBkXQJ0bNPyUFp23YPMb-2" value="&lt;p class=&quot;p1&quot; style=&quot;margin: 0px ; font-stretch: normal ; font-size: 14px ; line-height: normal ; font-family: &amp;#34;menlo&amp;#34; ; color: rgb(196 , 26 , 22) ; background-color: rgb(255 , 255 , 255)&quot;&gt;QYCYYWebImage&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="480.75" y="1045" width="128.5" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="pBkXQJ0bNPyUFp23YPMb-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="pBkXQJ0bNPyUFp23YPMb-3" value="&lt;p class=&quot;p1&quot; style=&quot;margin: 0px ; font-stretch: normal ; font-size: 14px ; line-height: normal ; font-family: &amp;#34;menlo&amp;#34; ; color: rgb(196 , 26 , 22) ; background-color: rgb(255 , 255 , 255)&quot;&gt;QYCZFPlayer&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="481.5" y="1070" width="128.5" height="20" as="geometry" />
         </mxCell>
       </root>
