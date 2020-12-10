@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-12-10T09:04:47.475Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="be2GeTVnHpzjBEULeSXZ" version="13.6.2" type="github">
+<mxfile host="app.diagrams.net" modified="2020-12-10T09:05:36.877Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="taKghTFk2Z5OKEf5CDye" version="13.6.2" type="github">
   <diagram id="jphbGvgdzRIWTqIg4ElQ" name="Page-1">
     <mxGraphModel dx="1810" dy="498" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -143,6 +143,18 @@
         </mxCell>
         <mxCell id="pBkXQJ0bNPyUFp23YPMb-14" value="&lt;font size=&quot;1&quot;&gt;可以直接导入其&lt;br&gt;他项目使用&lt;br&gt;&lt;/font&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontSize=21;align=center;" vertex="1" parent="1">
           <mxGeometry x="-140" y="865" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pBkXQJ0bNPyUFp23YPMb-16" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;fontSize=21;entryX=0.599;entryY=1.088;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="449" y="600" as="sourcePoint" />
+            <mxPoint x="449.32500000000005" y="524.4000000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pBkXQJ0bNPyUFp23YPMb-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=21;" edge="1" parent="1" source="pBkXQJ0bNPyUFp23YPMb-17" target="BffaArvf5HqJedQc392--20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pBkXQJ0bNPyUFp23YPMb-17" value="&lt;font size=&quot;1&quot;&gt;可以直接导入其&lt;br&gt;他模块使用&lt;br&gt;&lt;/font&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontSize=21;align=center;" vertex="1" parent="1">
+          <mxGeometry x="-140" y="700" width="110" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
