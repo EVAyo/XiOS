@@ -6,7 +6,7 @@
 
 ## 梯子推荐
 
-[推荐：速度快、节点多、便宜(￥5/mon) 最近7.5折](https://gfw.center/auth/register?code=nGSC)
+[推荐：稳定、便宜(￥5/mon)、速度快、节点多 ](https://fnf.xyz/auth/register?code=nGSC)
 
 **翻墙提速**
 
