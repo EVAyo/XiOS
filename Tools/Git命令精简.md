@@ -31,6 +31,9 @@ $ git ls-remote --tags
 $ git fetch --tags
 $ git fetch origin --tags
 
+# 删除本地tag
+$ git tag -d <tagname>
+
 # 删除远程tag
 $ git push origin --delete tag <tagName>
 $ git push origin :refs/tags/v0.1
