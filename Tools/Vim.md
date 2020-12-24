@@ -57,6 +57,19 @@ set ruler
 "自动折行
 set wrap                      
 
+"制表符为4 
+set tabstop=4 
+
+"设置tab符自动转换为空格
+set expandtab
+
+"设置智能缩进，其他可选缩进方式：autoindent / cindent / indentexpr
+ set smartindent
+ 
+ "设置配色方案，预设主题有：default、desert、darkblue等
+ colorscheme default
+ 
+ 
 ......
 ```
 
