@@ -91,7 +91,58 @@ $ xcode-select --install
 
 # 二、编译
 
+[AutoPacking-iOS](https://github.com/monetking/AutoPacking-iOS)
 
+[ios_package](https://github.com/ColinAlanHB/ios_package)
+
+
+
+```shell
+xcodebuild clean 			// 等同于Xcode下点击Product -> Clean
+xcodebuild -xcworkspace  	// 等同于xcworkspace工程 command+B
+xcodebuild -xcodeproj 		// 等同于xcworkspace工程 command+B
+xcodebuild archive 			// 等同于Xcode下点击Product -> Archive
+xcodebuild -exportArchive	// 等同于点击 export
+```
+
+
+
+```shell
+# compile project
+echo "###############Building Project#################"
+cd "${PROJDIR}"
+# 清理缓存
+xcodebuild -target "${TARGET_NAME}" clean
+# 编译
+# xcodebuild -target "${TARGET_NAME}" -sdk "${TARGET_SDK}" -configuration Debug
+xcodebuild archive -project ${PROJDIR}/${COMPILE_APP_NAME}.xcodeproj \
+-scheme ${TARGET_NAME} \
+-archivePath ${PROJECT_BUILDDIR}/${COMPILE_APP_NAME}.xcarchive \
+-configuration Release \
+CODE_SIGN_IDENTITY="${SIGN}" \
+PROVISIONING_PROFILE="${uuid}" \
+DEVELOPMENT_TEAM="${SIGNTEAM}" \
+PROVISIONING_PROFILE_SPECIFIER="${SPECIFIER}" \
+PRODUCT_BUNDLE_IDENTIFIER="${BUNDLEID}"
+
+#Check if build succeeded
+if [ $? != 0 ]
+then
+  exit 1
+fi
+
+
+
+# 生产IPA
+echo "${PROJECT_BUILDDIR}/${COMPILE_APP_NAME}.app"
+# /usr/bin/xcrun -sdk iphoneos PackageApplication -verbose "${PROJECT_BUILDDIR}/${COMPILE_APP_NAME}.app" -o "${IPA_TARGET_DIR}${IPANAME}.ipa" --sign "${SIGN}" --embed ${SOURCEAPP_PATH}/embedded.mobileprovision
+xcodebuild -exportArchive \
+-archivePath ${PROJECT_BUILDDIR}/${COMPILE_APP_NAME}.xcarchive \
+-exportOptionsPlist ${ADHOCExportOptionsPlist} \
+-exportPath ${IPA_TARGET_DIR}
+
+ mv ${IPA_TARGET_DIR}/${COMPILE_APP_NAME}.ipa ${IPA_TARGET_DIR}/${IPANAME}.ipa
+```
 
 
 
