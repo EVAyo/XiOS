@@ -1,16 +1,16 @@
-# 真机/模拟器 调试Safari
+# 真机调试Safari / WebView
 
 
 
-## 1.iPhone/模拟器设置
+## 1.iPhone设置
 
 ![](media_Web/001.jpg)
 
 
 
-## 2.打开iPhone/模拟器 Safari页面
+## 2.打开iPhone Safari页面 / 打开APP中WebView
 
-<img src="media_Web/002.jpg" style="zoom: 25%;" />
+<img src="media_Web/002.jpg" style="zoom: 33%;" /><img src="media_Web/007.jpg" style="zoom:33%;" />
 
 
 
@@ -21,6 +21,12 @@
 ![](media_Web/004.jpg)
 
 ![](media_Web/005.jpg)
+
+
+
+# Xcode模拟器调试
+
+![](media_Web/006.jpg)
 
 
 
