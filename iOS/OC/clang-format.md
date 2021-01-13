@@ -9,6 +9,9 @@
 // 查看版本
 ➜ ~ clang-format --version
 clang-format version 10.0.1
+
+// 更新
+➜ ~ brew upgrade clang-format
 ```
 
 
