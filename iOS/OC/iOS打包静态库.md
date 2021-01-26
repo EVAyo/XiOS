@@ -1,6 +1,17 @@
+# 前言
+
+- **dynamic_library**：动态库，Xcode 7 之前扩展名为 .dylib， Xcode 7 后是 .tbd ；目前官方环境并不允许为 iOS 平台添加这种类型。
+- **static_library**：静态库，扩展名 .a
+- **static_framework**：静态库，扩展名 .framework
+- **dynamic_framework**：动态库，扩展名 .framework
 
 
-## 一、自制简单的Framework
+
+> .a 与 .framework 的区别是：Framework 是分层目录，它将共享资源（例如动态共享库，nib 文件，图像文件，本地化字符串，头文件和参考文档）封装在一个程序包中。动态库与静态库的区别是：系统根据需要将动态库加载到内存中，可以被多个应用程序同时访问，并在所有可能的应用程序之间共享资源的一份副本。静态库则是链接到某个应用程序的二进制中。
+
+
+
+# 一、自制简单的Framework
 
 ```
 armv6｜armv7｜armv7s｜arm64|arm64e 都是ARM处理器的指令集

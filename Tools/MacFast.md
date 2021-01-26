@@ -1,4 +1,18 @@
+# 零、包管理工具
 
+包管理器又称软件包管理系统，它是在电脑中安装、配置、卸载、升级，有时还包含搜索、发布的工具组合。
+
+**Homebrew**是一款Mac OS平台下的包管理器，拥有安装、卸载、更新、查看、搜索等很多实用的功能。
+
+**apt-get**和**yum**跟Homebrew类似，只不过他们适用的平台是Linux，二者一般会被分别安装到Debian、Ubuntu和RedHat、CentOS中。
+
+软件包管理器，适用于特定开发语言，这类软件包本身的安装需要依赖特定语言环境。
+
+**NPM**（node package manager)，通常称为node包管理器，主要功能就是管理node包，使用Node.js开发的多数主流软件都可以通过npm下载。
+
+**RubyGems**是Ruby的一个包管理器，提供了分发Ruby程序和库的标准格式“gem”，旨在方便地管理gem安装的工具，以及用于分发gem的服务器。使用Ruby开发的软件一般都通过gem进行管理。
+
+**pip** 是通用的 Python 包管理工具，python3对应的是pip3。使用Python开发的软件多使用pip进行管理。
 
 
 
@@ -42,8 +56,6 @@
 ➜ ~ brew outdated                   // 查看你的软件中哪些有新版本可用
 ➜ ~ brew cleanup                    // 清理老版本
 ```
-
-
 
 
 
