@@ -268,6 +268,14 @@ xxx
 
 
 
+## 11.IntelliJ IDEA
+
+[IntelliJ IDEA 官网](https://www.jetbrains.com/idea/)  
+
+[免费激活参考](https://www.exception.site/essay/how-to-free-use-intellij-idea-2019-3)
+
+
+
 # 四、Chrome插件
 
 [谷粒-Chrome插件英雄榜 ChromeAppHeroes](https://github.com/zhaoolee/ChromeAppHeroes)

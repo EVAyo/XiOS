@@ -16,6 +16,20 @@ servlet.jar 可以在tomcat lib下导入
 >
 > Sun公司无法针对各个不同的服务器厂商编写不同的数据库连接代码，所以Sun公司决定提供一套API，让凡是想数据库与Java连接的数据库厂商必须自己 **实现JDBC这套接口**，而数据库厂商的JDBC的实现，我们也称作它为 **数据库的驱动** 。
 
+```
+/**
+ * JDBC 四个配置
+ */
+// MySQL 8.0 以下版本 - JDBC 驱动名及数据库 URL
+static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+// MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL
+static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+static final String DB_URL = "jdbc:mysql://localhost:3306/QYC";      // 端口号可通过命令查看
+// 数据库的用户名与密码，需要根据自己的设置
+static final String USERNAME = "root";
+static final String PASSWORD = "1111";
+```
+
 
 
 ## 2、JAVA访问数据库流程
