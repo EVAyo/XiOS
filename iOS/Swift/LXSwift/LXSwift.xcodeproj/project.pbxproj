@@ -59,6 +59,7 @@
 		99BD785C25C3B77300E3EDE8 /* ProjectManagerMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BD785B25C3B77300E3EDE8 /* ProjectManagerMainVC.swift */; };
 		99BD786025C3BC5400E3EDE8 /* ControllerLifeCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BD785F25C3BC5400E3EDE8 /* ControllerLifeCycle.swift */; };
 		99BD786625C3D80200E3EDE8 /* BaseWKWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BD786525C3D80100E3EDE8 /* BaseWKWebViewVC.swift */; };
+		99BD7CC625C3FADD00E3EDE8 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BD7CC525C3FADD00E3EDE8 /* Random.swift */; };
 		99E32DC224BE8DE000C58954 /* Algorithm_007.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E32DC124BE8DE000C58954 /* Algorithm_007.swift */; };
 		99EB46F0248DEC660033D7CB /* GlobalFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EB46EF248DEC660033D7CB /* GlobalFunc.swift */; };
 		99EB46F7248E05D50033D7CB /* UIColor+LXColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EB46F6248E05D50033D7CB /* UIColor+LXColor.swift */; };
@@ -128,6 +129,7 @@
 		99BD785F25C3BC5400E3EDE8 /* ControllerLifeCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerLifeCycle.swift; sourceTree = "<group>"; };
 		99BD786225C3BD4C00E3EDE8 /* Project_Info.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Project_Info.geojson; sourceTree = "<group>"; };
 		99BD786525C3D80100E3EDE8 /* BaseWKWebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWKWebViewVC.swift; sourceTree = "<group>"; };
+		99BD7CC525C3FADD00E3EDE8 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		99E32DC124BE8DE000C58954 /* Algorithm_007.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithm_007.swift; sourceTree = "<group>"; };
 		99EB46EF248DEC660033D7CB /* GlobalFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunc.swift; sourceTree = "<group>"; };
 		99EB46F6248E05D50033D7CB /* UIColor+LXColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+LXColor.swift"; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				995CFF3324A332140016118C /* Error.swift */,
 				996EC3E124AAED3F003DB6AD /* BlockVC.swift */,
 				99BD785F25C3BC5400E3EDE8 /* ControllerLifeCycle.swift */,
+				99BD7CC525C3FADD00E3EDE8 /* Random.swift */,
 			);
 			path = BaseCourse;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				996ED16D24AC7A2F003DB6AD /* PSPhotoCell.swift in Sources */,
 				99BD786025C3BC5400E3EDE8 /* ControllerLifeCycle.swift in Sources */,
 				8A1DDD072494CB1B001BA58C /* FBMeUser.swift in Sources */,
+				99BD7CC625C3FADD00E3EDE8 /* Random.swift in Sources */,
 				994859FC24A039200095302B /* UsageVC.swift in Sources */,
 				8AE4FE31249A79EA00648D89 /* ThirdModel.swift in Sources */,
 				99EB46F9248E06CE0033D7CB /* GlobalConstant.swift in Sources */,

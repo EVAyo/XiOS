@@ -124,7 +124,12 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         else if indexPath.row == 2 {
             let VC = BaseWKWebViewVC()
             self.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(VC, animated: true)
+            if LX_RandomBool() {
+                self.navigationController?.pushViewController(VC, animated: true)
+            } else {
+                let navi = UINavigationController(rootViewController: VC)
+                self.present(navi, animated: true, completion: nil)
+            }
             self.hidesBottomBarWhenPushed = false
         }
         else {
