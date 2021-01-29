@@ -76,10 +76,9 @@ class FirstViewController: UIViewController {
         // 建立一個按鈕
         let myButton = UIButton(frame: CGRect(x: 100, y: 250, width: 120, height: 40))
 //        myButton.setTitle("回前頁", forState:UIButton.State.normal)
-        myButton.setTitle("哈", for: .normal)
+        myButton.setTitle("项目管理页", for: .normal)
         myButton.backgroundColor = UIColor.randomColor()
-        myButton.addTarget(self, action: #selector(back), for: .touchUpInside)
-
+        myButton.addTarget(self, action: #selector(gotoProjectManager), for: .touchUpInside)
         self.view.addSubview(myButton)
     }
     
@@ -103,12 +102,19 @@ class FirstViewController: UIViewController {
         Log("tap Click")
     }
     
-    @objc func back() {
-        Log("点击了")
     
+    /// 按钮点击
+    @objc func gotoProjectManager() {
+        Log("点击了 --> 前往项目管理页面")
+        
+        let vc = ProjectManagerMainVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
+    
     // TODO:adf
+    
     
     // FIXME: adsf
     

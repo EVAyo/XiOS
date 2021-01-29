@@ -9,7 +9,7 @@
 import UIKit
 
 class FBMeViewController: FBMeBaseViewController {
-    // MARK - ========== LifeCycle ==========
+    // MARK: - ========== LifeCycle ==========
     override func viewDidLoad() {
         super.viewDidLoad()
 

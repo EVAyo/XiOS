@@ -7,21 +7,21 @@ target 'LXSwift' do
   use_frameworks!
 
   # Pods for LXSwift
-
-pod 'Moya', '~> 14.0'
-pod 'SnapKit', '~> 5.0.0'
-pod 'SVProgressHUD'
-pod 'SwiftLint'
-pod 'SwiftyJSON', '~> 4.0'
-pod 'Valet'
-pod 'SwiftyUserDefaults', '~> 5.0'
-pod 'Hero'
-pod 'DZNEmptyDataSet'
-pod 'Onboard'
-pod 'GDPerformanceView-Swift', '~> 2.0.3'
-pod 'CryptoSwift', '~> 1.0'
-pod 'FSCalendar'
+  pod 'Kingfisher'  # SDWebImage
+  pod 'Alamofire' # AFNetworking
+  pod 'Moya', '~> 14.0' # 封装了Alamofire
+  pod 'SnapKit', '~> 5.0.0'   # Masonry
+  pod 'SVProgressHUD'
+  pod 'SwiftLint'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'Valet'
+  pod 'SwiftyUserDefaults', '~> 5.0'
+  pod 'Hero'
+  pod 'DZNEmptyDataSet'
+  pod 'Onboard'
+  pod 'GDPerformanceView-Swift', '~> 2.0.3'
+  pod 'CryptoSwift', '~> 1.0'
+  pod 'FSCalendar'
 # pod 'ImageViewer'
-
 
 end
