@@ -56,6 +56,9 @@
 		996F416F24CEE5F90010DAEA /* Algorithm_008.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F416E24CEE5F90010DAEA /* Algorithm_008.swift */; };
 		9970A03E24938D4A008EF873 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970A03D24938D4A008EF873 /* LoginVC.swift */; };
 		99AA240724A9C35B00FEC09F /* MoyaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA240624A9C35B00FEC09F /* MoyaVC.swift */; };
+		99BD785C25C3B77300E3EDE8 /* ProjectManagerMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BD785B25C3B77300E3EDE8 /* ProjectManagerMainVC.swift */; };
+		99BD786025C3BC5400E3EDE8 /* ControllerLifeCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BD785F25C3BC5400E3EDE8 /* ControllerLifeCycle.swift */; };
+		99BD786625C3D80200E3EDE8 /* BaseWKWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BD786525C3D80100E3EDE8 /* BaseWKWebViewVC.swift */; };
 		99E32DC224BE8DE000C58954 /* Algorithm_007.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E32DC124BE8DE000C58954 /* Algorithm_007.swift */; };
 		99EB46F0248DEC660033D7CB /* GlobalFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EB46EF248DEC660033D7CB /* GlobalFunc.swift */; };
 		99EB46F7248E05D50033D7CB /* UIColor+LXColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EB46F6248E05D50033D7CB /* UIColor+LXColor.swift */; };
@@ -121,6 +124,10 @@
 		996F416E24CEE5F90010DAEA /* Algorithm_008.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithm_008.swift; sourceTree = "<group>"; };
 		9970A03D24938D4A008EF873 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		99AA240624A9C35B00FEC09F /* MoyaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaVC.swift; sourceTree = "<group>"; };
+		99BD785B25C3B77300E3EDE8 /* ProjectManagerMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManagerMainVC.swift; sourceTree = "<group>"; };
+		99BD785F25C3BC5400E3EDE8 /* ControllerLifeCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerLifeCycle.swift; sourceTree = "<group>"; };
+		99BD786225C3BD4C00E3EDE8 /* Project_Info.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Project_Info.geojson; sourceTree = "<group>"; };
+		99BD786525C3D80100E3EDE8 /* BaseWKWebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWKWebViewVC.swift; sourceTree = "<group>"; };
 		99E32DC124BE8DE000C58954 /* Algorithm_007.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithm_007.swift; sourceTree = "<group>"; };
 		99EB46EF248DEC660033D7CB /* GlobalFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunc.swift; sourceTree = "<group>"; };
 		99EB46F6248E05D50033D7CB /* UIColor+LXColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+LXColor.swift"; sourceTree = "<group>"; };
@@ -260,6 +267,7 @@
 				995CFF3124A32E530016118C /* Protocol.swift */,
 				995CFF3324A332140016118C /* Error.swift */,
 				996EC3E124AAED3F003DB6AD /* BlockVC.swift */,
+				99BD785F25C3BC5400E3EDE8 /* ControllerLifeCycle.swift */,
 			);
 			path = BaseCourse;
 			sourceTree = "<group>";
@@ -365,6 +373,23 @@
 			path = 09PhotoScroll;
 			sourceTree = "<group>";
 		};
+		99BD785A25C3B73F00E3EDE8 /* ProjectManagerVC */ = {
+			isa = PBXGroup;
+			children = (
+				99BD785B25C3B77300E3EDE8 /* ProjectManagerMainVC.swift */,
+				99BD786225C3BD4C00E3EDE8 /* Project_Info.geojson */,
+			);
+			path = ProjectManagerVC;
+			sourceTree = "<group>";
+		};
+		99BD786425C3D59100E3EDE8 /* H5 */ = {
+			isa = PBXGroup;
+			children = (
+				99BD786525C3D80100E3EDE8 /* BaseWKWebViewVC.swift */,
+			);
+			path = H5;
+			sourceTree = "<group>";
+		};
 		99EB46EE248DEBC70033D7CB /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +411,8 @@
 		99EB46FC248E088C0033D7CB /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				99BD786425C3D59100E3EDE8 /* H5 */,
+				99BD785A25C3B73F00E3EDE8 /* ProjectManagerVC */,
 				8A74CD2A249F066500B25C87 /* BaseCourse */,
 				8A1DDCD624948AE8001BA58C /* LearningPro */,
 				99EB4700248E14080033D7CB /* LeetCodeAlgorithm */,
@@ -554,6 +581,7 @@
 				995CFF3024A3273A0016118C /* Algorithm_006.swift in Sources */,
 				8A1DDD092494D341001BA58C /* FBMeBaseCell.swift in Sources */,
 				996ED16D24AC7A2F003DB6AD /* PSPhotoCell.swift in Sources */,
+				99BD786025C3BC5400E3EDE8 /* ControllerLifeCycle.swift in Sources */,
 				8A1DDD072494CB1B001BA58C /* FBMeUser.swift in Sources */,
 				994859FC24A039200095302B /* UsageVC.swift in Sources */,
 				8AE4FE31249A79EA00648D89 /* ThirdModel.swift in Sources */,
@@ -568,6 +596,7 @@
 				99EB46F7248E05D50033D7CB /* UIColor+LXColor.swift in Sources */,
 				995CFF3724A876040016118C /* StopWatch.swift in Sources */,
 				8A1DDCFE2494B311001BA58C /* Specs.swift in Sources */,
+				99BD785C25C3B77300E3EDE8 /* ProjectManagerMainVC.swift in Sources */,
 				996F416F24CEE5F90010DAEA /* Algorithm_008.swift in Sources */,
 				99EB46F0248DEC660033D7CB /* GlobalFunc.swift in Sources */,
 				9964A2C22490764200553584 /* SVProgressHUDVC.swift in Sources */,
@@ -588,6 +617,7 @@
 				8ACB3BFA248CE2F4003B6410 /* AppDelegate.swift in Sources */,
 				8A74CD2F24A791ED00B25C87 /* StopWatchVC.swift in Sources */,
 				99AA240724A9C35B00FEC09F /* MoyaVC.swift in Sources */,
+				99BD786625C3D80200E3EDE8 /* BaseWKWebViewVC.swift in Sources */,
 				8A1DDD1124952D84001BA58C /* ThirdCell.swift in Sources */,
 				995CFF3224A32E530016118C /* Protocol.swift in Sources */,
 				8A1DDCD824949656001BA58C /* StringVC.swift in Sources */,

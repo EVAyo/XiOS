@@ -92,6 +92,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         else if indexPath.row == 1 {
             cell.textLabel?.text = "计时器"
         }
+        else if indexPath.row == 2 {
+            cell.textLabel?.text = "WKWebView 基础版"
+        }
         else {
             cell.textLabel?.text = "\(indexPath.row)"
         }
@@ -114,6 +117,12 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         else if indexPath.row == 1 {
             let VC = StopWatchVC()
+            self.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(VC, animated: true)
+            self.hidesBottomBarWhenPushed = false
+        }
+        else if indexPath.row == 2 {
+            let VC = BaseWKWebViewVC()
             self.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(VC, animated: true)
             self.hidesBottomBarWhenPushed = false
