@@ -1,12 +1,6 @@
+阿里云学习课程：[JDBC学习](https://developer.aliyun.com/learning/course/29/detail/628)
 
-
-# 一、Servlet
-
-servlet.jar 可以在tomcat lib下导入
-
-
-
-# 二、JDBC
+# JDBC
 
 ## 1、介绍
 
@@ -16,9 +10,13 @@ servlet.jar 可以在tomcat lib下导入
 >
 > Sun公司无法针对各个不同的服务器厂商编写不同的数据库连接代码，所以Sun公司决定提供一套API，让凡是想数据库与Java连接的数据库厂商必须自己 **实现JDBC这套接口**，而数据库厂商的JDBC的实现，我们也称作它为 **数据库的驱动** 。
 
-```
+![](media_JDBC/000.png)
+
+
+
+```java
 /**
- * JDBC 四个配置
+ * JDBC 四个配置 连接不同的数据库
  */
 // MySQL 8.0 以下版本 - JDBC 驱动名及数据库 URL
 static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -27,7 +25,18 @@ static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 static final String DB_URL = "jdbc:mysql://localhost:3306/QYC";      // 端口号可通过命令查看
 // 数据库的用户名与密码，需要根据自己的设置
 static final String USERNAME = "root";
-static final String PASSWORD = "1111";
+static final String PASSWORD = "11111111";
+```
+
+```shell
+# 查看MySQL端口号
+mysql> show global variables like 'port';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| port          | 3306  |
++---------------+-------+
+1 row in set (0.01 sec)
 ```
 
 
@@ -38,7 +47,7 @@ static final String PASSWORD = "1111";
 
 * 导入包：需要包含包含数据库编程所需的JDBC类的包。 大多数情况下，使用import java.sql.*就足够了。
 * 注册JDBC驱动程序：需要初始化驱动程序，以便可以程序中打开数据库的通信通道。
-* 打开连接：需要使用DriverManager.getConnection()方法来创建一个Connection对象，它表示与数据库服务器的物理连接。
+* 打开连接：需要使用`DriverManager.getConnection()`方法来创建一个Connection对象，它表示与数据库服务器的物理连接。
 * 执行查询：需要使用类型为Statement的对象来构建和提交SQL语句，以在选择的数据库的表中插入数据记录。
 * 清理环境：需要明确地关闭所有数据库资源，而不依赖于JVM的垃圾收集。
 
@@ -58,36 +67,38 @@ static final String PASSWORD = "1111";
 
 ![](media_JDBC/002.jpg)
 
-
-
 ### 2、Tomcat导入
 
 ![](media_JDBC/003.jpg)
 
 
 
-## 4、Java程序连接MySQL
+## 5、【代码】Java程序连接MySQL
 
-> https://www.runoob.com/java/java-mysql-connect.html
+```java
+package com.linx;
+import java.sql.*;
 
-```
-// MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL
-static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-static final String DB_URL = "jdbc:mysql://localhost:3306/QYC";
+public class JDBCManager {
+    // MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL
+    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/LX_DB";
+    // 数据库的用户名与密码，需要根据自己的设置
+    static final String USERNAME = "root";
+    static final String PASSWORD = "11111111";
 
-// 数据库的用户名与密码，需要根据自己的设置
-static final String USERNAME = "root";
-static final String PASSWORD = "1111";
-
-public void startJDBC(String arg) {
-    Connection conn = null;
-    Statement stmt = null;
-
-    // 注册 JDBC 驱动
-    Class.forName(JDBC_DRIVER);
-
-    // 打开链接
-    conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+    /**
+     * @param
+     * @throws ClassNotFoundException: 异常：没导入mysql连接包
+     * @throws SQLException：异常：检查URL、username、password是否正确，或者MySQL没有启动
+     */
+    public void startJDBC() throws ClassNotFoundException, SQLException {
+        // 1.注册 JDBC 驱动
+        Class.forName(JDBC_DRIVER);
+        // 2.获取连接对象
+        Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+        System.out.println(conn);
+    }
 }
 ```
 

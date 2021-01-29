@@ -24,8 +24,10 @@
 
 ## 二、终端实操
 
-```mysql
-// 安装mysql
+```shell
+##########
+# 安装mysql
+##########
 ➜ XiOS git:(**master)** ✗ brew install mysql
 Updating Homebrew...
 ==> Auto-updated Homebrew!
@@ -147,13 +149,16 @@ To have launchd start mysql now and restart at login:
 Or, if you don't want/need a background service you can just run:
  mysql.server start
 
-
-// 启动mysql
+##########
+# 启动mysql
+##########
 ➜ XiOS git:(**master)** ✗ mysql.server start
 Starting MySQL
 .. SUCCESS! 
 
-// 修改密码
+#########
+# 修改密码
+#########
 ➜ XiOS git:(**master)** ✗ mysql_secure_installation
 
 Securing the MySQL server deployment.
@@ -239,6 +244,10 @@ Success.
 
 
 All done! 
+
+#######
+数据库密码统一：11111111
+#######
 ```
 
 

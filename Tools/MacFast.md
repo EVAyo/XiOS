@@ -268,7 +268,7 @@ xxx
 
 
 
-## 11.IntelliJ IDEA
+## 11、IntelliJ IDEA
 
 [IntelliJ IDEA 官网](https://www.jetbrains.com/idea/)  
 
