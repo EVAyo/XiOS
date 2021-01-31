@@ -1,30 +1,26 @@
+# 什么是Servlet
 
+> JavaWeb三大组件：Servlet、Filter、listener
 
+![](media_Servlet/002.png)
 
+![](media_Servlet/003.png)
 
+![](media_Servlet/004.png)
 
+![](media_Servlet/005.png)
 
+# Servlet包
 
+[mvnrepository下载 servlet-api.jar](https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api)
 
-
-
-
-
-
-
-# 一、导入Servlet包
+或者 Tomcat/lib/servlet-api.jar
 
 ![](media_Servlet/001.png)
-
-
-
-
 
 # 反射- Reflection
 
 > 反射：把Java类中的各种结构（方法、属性、构造器、类名）映射成一个个的Java对象。利用发射技术可以对一个类进行解剖，反射是框架设计的灵魂。
-
-
 
 ```java
 package com.lx.server.basic;
@@ -57,22 +53,9 @@ class iPhone {
 }
 ```
 
-
-
 > 总结：
 >
 > 前两种方式编译时类需要导入，耦合高，利用反射动态创建Class，同时没有耦合。
-
-
-
-# XML解析
-
-Java中有四种解析方式，这里介绍SAX解析（org.xml.sax）。
-
-* SAX解析属于流解析，从上至下，解析完成即止。
-* Dom解析是文档树，将XML加载到内存中，可以任意取值。
-
-
 
 
 

@@ -26,8 +26,6 @@ Java分为三个体系：
 
 
 
-
-
 ## JVM、JRE、JDK
 
 JVM（Java Virtual Mechine）：Java虚拟机。
@@ -38,6 +36,12 @@ JDK（Java Development Kit）：Java开发工具包，包含JRE、编译器、�
 
 * 如果只要运行Java程序，只需要JRE即可。
 * 如果开发Java程序，就需要安装JDK。
+
+![](media/0000.png)
+
+![](media/0001.png)
+
+![](media/0002.png)
 
 
 
