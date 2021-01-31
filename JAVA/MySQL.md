@@ -1,4 +1,4 @@
-# brew安装mysql
+
 
 ## 一、流程概览
 
@@ -23,6 +23,8 @@
 
 
 ## 二、终端实操
+
+### 1、CentOS
 
 ```shell
 ##########
@@ -248,6 +250,182 @@ All done!
 #######
 数据库密码统一：11111111
 #######
+```
+
+
+
+### 2、Linux
+
+这里以阿里云为例
+
+参考：[菜鸟课程 - MySQL 安装 ](https://www.runoob.com/mysql/mysql-install.html)
+
+[阿里云教程](https://developer.aliyun.com/adc/scenario/bbad6f5e0cba4c0ba5c904f6cf06a8d0)
+
+```shell
+# 安装前，我们可以检测系统是否自带安装 MySQL:
+$ rpm -qa | grep mysql
+
+
+# 卸载
+# 普通删除模式
+$ rpm -e mysql　　
+# 强力删除模式，如果使用上面命令删除时，提示有依赖的其它文件，则用该命令可以对其进行强力删除
+$ rpm -e --nodeps mysql　
+
+# 安装
+# 需要注意的是 CentOS 7 版本中 MySQL数据库已从默认的程序列表中移除，所以在安装前我们需要先去官网下载 Yum 资源包，下载地址为：https://dev.mysql.com/downloads/repo/yum/ ,下载并安装MySQL官方的Yum Repository。
+$ wget http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm
+$ yum -y install mysql57-community-release-el7-10.noarch.rpm
+$ yum -y install mysql-community-server
+
+# 验证是否安装成功
+$ mysqladmin --version
+mysqladmin  Ver 8.42 Distrib 5.6.51, for Linux on x86_64
+
+# 运行
+$ systemctl start mysqld          # 方式一
+$ systemctl start mysqld.service  # 方式二
+
+# 停止
+$ systemctl stop mysqld          # 方式一
+$ systemctl stop mysqld.service  # 方式二
+
+# 重启
+$ systemctl restart mysqld          # 方式一
+$ systemctl restart mysqld.service  # 方式二
+
+# 查看状态
+$ systemctl status mysqld
+
+
+# 设置root密码
+# 方式一：admin设置
+$ mysqladmin -u root password "new_password";
+# 登录
+$ mysql -u root -p
+Enter password:*******
+
+# 方式二：进入MySQL后进行设置
+具体看下一节。
+```
+
+
+
+### 3、本地 Navicat Premium 连接 阿里云MySQL
+
+**问题一：连接超时**
+
+![](media_MySQL/003.png)
+
+**解决：添加安全组规则**
+
+![](media_MySQL/004.png)
+
+
+
+**问题二：连接拒绝**
+
+![](media_MySQL/005.png)
+
+**解决：猜测 没有远程登录权限。**
+
+方式一：
+
+授予root用户远程管理权限：
+
+`GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '12345678';`
+
+方式二：
+
+![](media_MySQL/006.png)
+
+
+
+## 三、查看密码策略 & 修改密码策略和Authentication Plugin
+
+```mysql
+// root进入数据库
+➜ mysql -u root -p 	
+```
+
+### 1、查看密码策略
+
+```mysql
+mysql> SHOW VARIABLES LIKE 'validate_password%';
++--------------------------------------+--------+
+| Variable_name                        | Value  |
++--------------------------------------+--------+
+| validate_password.check_user_name    | ON     |
+| validate_password.dictionary_file    |        |
+| validate_password.length             | 8      |
+| validate_password.mixed_case_count   | 1      |
+| validate_password.number_count       | 1      |
+| validate_password.policy             | MEDIUM |
+| validate_password.special_char_count | 1      |
++--------------------------------------+--------+
+7 rows in set (0.01 sec)
+```
+
+### 2、修改密码策略
+
+>  将 `validate_password.policy ` 改为LOW，`validate_password.length` 改为4
+
+```mysql
+mysql> set global validate_password.policy=0;		// 设置密码策略，LOW
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> set global validate_password.length=4;  // 设置密码长度
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> FLUSH PRIVILEGES;				// 使更新的权限表加载到内存中
+Query OK, 0 rows affected (0.00 sec)
+
+// 查看是否修改成功
+mysql> SHOW VARIABLES LIKE 'validate_password%';
++--------------------------------------+-------+
+| Variable_name                        | Value |
++--------------------------------------+-------+
+| validate_password.check_user_name    | ON    |
+| validate_password.dictionary_file    |       |
+| validate_password.length             | 4     |
+| validate_password.mixed_case_count   | 1     |
+| validate_password.number_count       | 1     |
+| validate_password.policy             | LOW   |
+| validate_password.special_char_count | 1     |
++--------------------------------------+-------+
+7 rows in set (0.00 sec)
+```
+
+### 3、修改密码规则中的Authentication Plugin
+
+> 小于mysql8版本：Authentication Plugin = mysql_native_password
+>
+> 大于mysql8版本：Authentication Plugin = caching_sha2_password
+>
+> 
+>
+> 所以这里修改Authentication Plugin，改为：mysql_native_password （小于mysql8版本）
+
+```mysql
+// 修改密码规则，同时必须修改密码，若不加『BY '123456'』，则默认密码为空。
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> FLUSH PRIVILEGES;				// 使更新的权限表加载到内存中
+Query OK, 0 rows affected (0.00 sec)
+
+// 查看用户列表中信息
+mysql> SELECT User, Host,plugin FROM mysql.user;
++------------------+-----------+-----------------------+
+| User             | Host      | plugin                |
++------------------+-----------+-----------------------+
+| mysql.infoschema | localhost | caching_sha2_password |
+| mysql.session    | localhost | caching_sha2_password |
+| mysql.sys        | localhost | caching_sha2_password |
+| root             | localhost | mysql_native_password |
++------------------+-----------+-----------------------+
+4 rows in set (0.00 sec)
 ```
 
 
@@ -800,92 +978,6 @@ mysql> show grants for linx;
 ```
 
 
-
-## 八、查看密码策略 & 修改密码策略和Authentication Plugin
-
-```mysql
-// root进入数据库
-➜ mysql -u root -p 	
-```
-
-### 1、查看密码策略
-
-```mysql
-mysql> SHOW VARIABLES LIKE 'validate_password%';
-+--------------------------------------+--------+
-| Variable_name                        | Value  |
-+--------------------------------------+--------+
-| validate_password.check_user_name    | ON     |
-| validate_password.dictionary_file    |        |
-| validate_password.length             | 8      |
-| validate_password.mixed_case_count   | 1      |
-| validate_password.number_count       | 1      |
-| validate_password.policy             | MEDIUM |
-| validate_password.special_char_count | 1      |
-+--------------------------------------+--------+
-7 rows in set (0.01 sec)
-```
-
-### 2、修改密码策略
-
->  将 `validate_password.policy ` 改为LOW，`validate_password.length` 改为4
-
-```mysql
-mysql> set global validate_password.policy=0;		// 设置密码策略，LOW
-Query OK, 0 rows affected (0.00 sec)
-
-mysql> set global validate_password.length=4;  // 设置密码长度
-Query OK, 0 rows affected (0.00 sec)
-
-mysql> FLUSH PRIVILEGES;				// 使更新的权限表加载到内存中
-Query OK, 0 rows affected (0.00 sec)
-
-// 查看是否修改成功
-mysql> SHOW VARIABLES LIKE 'validate_password%';
-+--------------------------------------+-------+
-| Variable_name                        | Value |
-+--------------------------------------+-------+
-| validate_password.check_user_name    | ON    |
-| validate_password.dictionary_file    |       |
-| validate_password.length             | 4     |
-| validate_password.mixed_case_count   | 1     |
-| validate_password.number_count       | 1     |
-| validate_password.policy             | LOW   |
-| validate_password.special_char_count | 1     |
-+--------------------------------------+-------+
-7 rows in set (0.00 sec)
-```
-
-### 3、修改密码规则中的Authentication Plugin
-
-> 小于mysql8版本：Authentication Plugin = mysql_native_password
->
-> 大于mysql8版本：Authentication Plugin = caching_sha2_password
->
-> 
->
-> 所以这里修改Authentication Plugin，改为：mysql_native_password （小于mysql8版本）
-
-```mysql
-// 修改密码规则，同时必须修改密码，若不加『BY '123456'』，则默认密码为空。
-mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
-Query OK, 0 rows affected (0.00 sec)
-
-mysql> FLUSH PRIVILEGES;				// 使更新的权限表加载到内存中
-Query OK, 0 rows affected (0.00 sec)
-
-// 查看用户列表中信息
-mysql> SELECT User, Host,plugin FROM mysql.user;
-+------------------+-----------+-----------------------+
-| User             | Host      | plugin                |
-+------------------+-----------+-----------------------+
-| mysql.infoschema | localhost | caching_sha2_password |
-| mysql.session    | localhost | caching_sha2_password |
-| mysql.sys        | localhost | caching_sha2_password |
-| root             | localhost | mysql_native_password |
-+------------------+-----------+-----------------------+
-4 rows in set (0.00 sec)
-```
 
 
 

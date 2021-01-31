@@ -85,7 +85,7 @@ Last login: Mon Jun 29 17:02:59 2020 from 221.226.186.58
 
 ### 6、【防火墙】相关指令
 
-```
+```shell
 // 查看防火墙状态
 ~ systemctl status firewalld || systemctl status firewalld.service
 
