@@ -50,7 +50,7 @@
 
 
 
-## 3、验证
+## 3、创建Swift类
 
 
 
@@ -87,6 +87,48 @@
 
 
 
+
+## 4、OC添加Swift Pod
+
+Podfile文件如下：
+
+```ruby
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+source 'http://git.qpaas.com/PaasPods/PaasSpecs.git'    # 组件化索引库
+
+
+target 'main_OC' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for main_OC
+  pod 'QYCH5Module_Swift', '0.1.2'
+
+end
+```
+
+
+
+**Swift头文件引入**
+
+```swift
+@import QYCH5Module_Swift;
+```
+
+
+
+**调用Swift代码**
+
+```swift
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    // 调用Swift Pod库
+    BaseWKWebViewVC *wkVC = [[BaseWKWebViewVC alloc] init];
+    [self presentViewController:wkVC animated:YES completion:nil];
+}
+```
 
 
 
