@@ -314,6 +314,49 @@ Enter password:*******
 
 ### 3、本地 Navicat Premium 连接 阿里云MySQL
 
+#### 第一步：查看MySQL访问权限表
+
+首先查看访问权限表，我这里已经开启了任意IP可远程访问的权限，第一行 `“root %”`。
+
+```shell
+# 查看访问权限表
+mysql> select user,host from mysql.user;
+```
+
+![](media_MySQL/007.png)
+
+#### 第二步：开启远程访问权限
+
+* 任意IP都可访问（初学者建议设置这个）
+
+  ```shell
+  mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION; 
+  
+  # 字段解释：*.*：可访问所有数据库，可指定数据库；
+  # 'root':登陆用户名；
+  # '%':任意IP可登陆；
+  # password：为个人数据库登陆密码；
+  # WITH GRANT OPTION；可赋予其他用户权限。
+  ```
+
+* 指定IP可访问（更安全）
+
+  ```shell
+  mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'IP.%' IDENTIFIED BY 'password' WITH GRANT OPTION; 
+  
+  # 字段解释：*.*：可访问所有数据库，可制定数据库；
+  # 'root':登陆用户名；
+  # 'IP.%':指定的IP可登陆，其他IP不行；
+  # password：为个人数据库登陆密码；
+  # WITH GRANT OPTION；可赋予其他用户权限。
+  ```
+
+
+
+
+
+
+
 **问题一：连接超时**
 
 ![](media_MySQL/003.png)
