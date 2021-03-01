@@ -353,10 +353,6 @@ mysql> select user,host from mysql.user;
 
 
 
-
-
-
-
 **问题一：连接超时**
 
 ![](media_MySQL/003.png)
