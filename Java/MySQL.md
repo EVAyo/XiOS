@@ -262,6 +262,12 @@ All done!
 
 [阿里云教程](https://developer.aliyun.com/adc/scenario/bbad6f5e0cba4c0ba5c904f6cf06a8d0)
 
+https://help.aliyun.com/document_detail/188447.html?spm=a2c4g.11186623.6.1300.44e414213g17Vx
+
+[云数据库录入](https://help.aliyun.com/document_detail/159708.html?spm=a2c4g.11186623.2.13.1b641da12C4NEj)
+
+[ECS自建库录入](https://help.aliyun.com/document_detail/96414.html?spm=a2c4g.11186623.6.721.7f6c157ck4nevy)
+
 ```shell
 # 安装前，我们可以检测系统是否自带安装 MySQL:
 $ rpm -qa | grep mysql
