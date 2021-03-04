@@ -42,13 +42,23 @@
 
 # 二. Swift开发工具
 
+## 0. 查看Swift版本
+
+```shell
+$ xcrun swift -version
+Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+Target: x86_64-apple-darwin20.2.0
+```
+
+
+
 ## 1. Swiftc命令行
 
 
 
 ## 2.REPL交互式解释器
 
-Read Eval PrintLoop
+Read Eval Print Loop
 
 
 
