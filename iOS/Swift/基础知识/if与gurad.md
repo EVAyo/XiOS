@@ -6,7 +6,20 @@ https://stackoverflow.com/questions/32256834/swift-guard-let-vs-if-let
 
 
 
-# Guard 作用
+# 一、Guard VS If 
+
+* Guard let
+  * 要求返回值，`return/throw/break/continue`；
+  * 创建的变量，guard内不能访问，guard外可以访问；
+  * 存在于函数的前面；
+
+* If let
+  * 返回值return非必须，当然也可以写；
+  * 创建的变量，超出作用域就不能访问；
+
+
+
+# 二、Guard 作用
 
 
 
@@ -62,13 +75,13 @@ func someFunc(blog: String?) {
 
     guard let blogName = blog else {
         print("some ErrorMessage")
-        print(blogName) // will create an error Because blogName isn't defined yet
+        print(blogName)    // Error : Variable declared in 'guard' condition is not usable in its body
         return
     }
-    print(blogName) // You can access it here ie AFTER the guard statement!!
+    print(blogName)   // You can access it here ie AFTER the guard statement!!
 
     // And if I decided to do 'another' guard let with the same name ie 'blogName' then I would create an error!
-    guard let blogName = blog else { // errorLine: Definition Conflicts with previous value.
+    guard let blogName = blog else { // Error: Definition Conflicts with previous value.
         print(" Some errorMessage")
         return
     }
@@ -82,6 +95,15 @@ func someFunc(blog: String?) {
 
 
 
-guard 与 if 区别
 
-1. 与 if 语句不同， guard 语句总是有一个 else 分句，else 分句里的代码会在条件不为真的时候执行。
+
+
+
+
+
+
+
+
+
+
+

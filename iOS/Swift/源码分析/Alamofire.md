@@ -190,8 +190,7 @@ public init(session: URLSession,
                 eventMonitors: [EventMonitor] = []) {
 		//.....
 }
-
-/// 简洁初始化方法
+/// 方便初始化方法
 public convenience init(configuration: URLSessionConfiguration = URLSessionConfiguration.af.default,
                             delegate: SessionDelegate = SessionDelegate(),
                             rootQueue: DispatchQueue = DispatchQueue(label: "org.alamofire.session.rootQueue"),
@@ -210,6 +209,13 @@ public convenience init(configuration: URLSessionConfiguration = URLSessionConfi
 ```
 
 
+
+```swift
+public func withAllRequests(perform action: @escaping (Set<Request>) -> Void) {
+		//......
+}
+/// 函数参数为什么这样写？
+```
 
 
 
