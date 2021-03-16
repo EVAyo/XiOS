@@ -86,6 +86,24 @@ end
 
 
 
+## 文件介绍
+
+* URLConvertible+URLRequestConvertible.swift
+  * `public protocol URLConvertible`：采用"URLConvertible"协议的类型可用于构建"URL"，然后可用于构建"URLRequests"。
+  * `public protocol URLRequestConvertible`：采用"URLRequestConvertible"协议的类型可用于安全地构建"URLRequests"。
+* Session.swift
+  * `init`
+  * `DataRequest`
+  * `DataStreamRequest`
+  * `DownloadRequest`
+  * `UploadRequest`
+  * `Internal API` 内部方法
+* SessionDelegate.swift ：该类，实现各种"URLSessionDelegate"方法，以连接各种Alamofire功能。
+
+
+
+
+
 
 
 ## 代码分析
