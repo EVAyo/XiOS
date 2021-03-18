@@ -43,9 +43,17 @@ localVerifyLib(){
 pushAndTag(){
     echo -e "${GREEN}\n第四步：准备提交代码${NC}⏰⏰⏰"
     git add .
-    git commit -m ${commitText}
-    git push
-    echo -e "${GREEN}提交代码成功${NC}🚀🚀🚀" 
+    if ! git commit -m ${commitText}
+    then
+        echo -e "${RED}git commit失败${NC}🌧🌧🌧"
+        exit 1
+    fi
+    if ! git push
+    then
+        echo -e "${RED}git push失败${NC}🌧🌧🌧"
+        exit 1
+    fi
+    echo -e "${GREEN}提交代码成功${NC}🚀🚀🚀"
 
     echo -e "${GREEN}\n第五步：准备打Tag${NC}⏰⏰⏰"
     if git tag ${tag}
