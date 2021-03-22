@@ -11,6 +11,24 @@
 
 
 
+额外补充：
+
+​		iOS8之前，苹果只允许发布静态库，彼时cocoapods只支持静态库，但是在iOS8苹果推出了 [APP Extension](https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/index.html) 的概念,可以对项目进行扩展，因为APP Extension和主项目是两个独立的进程,为了共享代码,苹果允许我们创建动态库,即 `dynamic framework` 。
+
+
+
+[细说iOS静态库和动态库](https://juejin.cn/post/6844904031937101838)
+
+区别：
+
+
+
+
+
+
+
+
+
 # 一、自制简单的Framework
 
 ```
