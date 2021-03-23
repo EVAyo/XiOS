@@ -1,0 +1,6 @@
+framework module OnlyOCDemo {
+  umbrella header "OnlyOCDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
