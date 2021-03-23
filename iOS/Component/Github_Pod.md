@@ -70,8 +70,6 @@ You can initialize this repository with code from a Subversion, Mercurial, or TF
 
 # 第一类：纯OC组件
 
-
-
 ```shell
 # 本地验证
 ~ pod lib lint --allow-warnings --sources='https://github.com/CocoaPods/Specs.git' --use-libraries --verbose --no-clean
@@ -83,16 +81,6 @@ You can initialize this repository with code from a Subversion, Mercurial, or TF
 # 更新
 ~ pod repo push LXSpecs OnlyOCDemo.podspec --allow-warnings --use-libraries
 ```
-
-
-
-
-
-
-
-
-
-
 
 
 
