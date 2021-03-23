@@ -203,7 +203,9 @@ FlutterPlugin.framework
 
 
 
-# 四、Xcode中使用Flutter『热重启』『热加载』
+# 四、Xcode中调试Flutter模块
+
+包括：『热重启』、『热加载』、『断点』
 
 
 
@@ -214,10 +216,6 @@ FlutterPlugin.framework
 出现 `Syncing files to device iPhone 11 Pro Max...` 即为成功
 
 此时Flutter可进行 `Hot Reload` 、`Hot Restart` 、断点等操作；
-
-
-
-
 
 
 

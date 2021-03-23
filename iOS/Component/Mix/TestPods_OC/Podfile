@@ -11,6 +11,9 @@ target 'TestPods_OC' do
   # pod 'OnlyOCDemo'          # 全部引入
   pod 'OnlyOCDemo/FunctionB'  # 分层引入
 
+  pod 'OnlySwiftDemo'
+  
+  
   # Pods for TestPods_OC
 
   target 'TestPods_OCTests' do
