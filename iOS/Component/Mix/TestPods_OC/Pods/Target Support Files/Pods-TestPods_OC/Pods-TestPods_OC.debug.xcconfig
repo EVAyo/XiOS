@@ -1,11 +1,11 @@
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
 EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry" "${PODS_CONFIGURATION_BUILD_DIR}/OnlyOCDemo" "${PODS_CONFIGURATION_BUILD_DIR}/OnlySwiftDemo"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking" "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry" "${PODS_CONFIGURATION_BUILD_DIR}/OCAddSwiftDemo" "${PODS_CONFIGURATION_BUILD_DIR}/OnlyOCDemo" "${PODS_CONFIGURATION_BUILD_DIR}/OnlySwiftDemo" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftAddOCDemo"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/OnlyOCDemo/OnlyOCDemo.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/OnlySwiftDemo/OnlySwiftDemo.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/OCAddSwiftDemo/OCAddSwiftDemo.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/OnlyOCDemo/OnlyOCDemo.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/OnlySwiftDemo/OnlySwiftDemo.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftAddOCDemo/SwiftAddOCDemo.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "CoreGraphics" -framework "Foundation" -framework "Masonry" -framework "MobileCoreServices" -framework "OnlyOCDemo" -framework "OnlySwiftDemo" -framework "Security" -framework "SystemConfiguration" -framework "UIKit"
+OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "Alamofire" -framework "CFNetwork" -framework "CoreGraphics" -framework "Foundation" -framework "ImageIO" -framework "Masonry" -framework "MobileCoreServices" -framework "OCAddSwiftDemo" -framework "OnlyOCDemo" -framework "OnlySwiftDemo" -framework "SDWebImage" -framework "Security" -framework "SwiftAddOCDemo" -framework "SystemConfiguration" -framework "UIKit"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

@@ -6,8 +6,14 @@
 //
 
 import UIKit
+
 import OnlyOCDemo
+
 import OnlySwiftDemo
+
+import OCAddSwiftDemo
+
+import SwiftAddOCDemo
 
 class ViewController: UIViewController {
 
@@ -24,6 +30,26 @@ class ViewController: UIViewController {
         
         // 纯Swift组件
         OnlySwiftDemo.SwiftLibC().show()
+        
+        
+        // OC组件包含Swift
+        // OC组件中的OC方法
+        FunctionD_OC.printSomething("123")
+        FunctionD_OC.useSwiftPod()
+        FunctionD_OC.useSwiftSource()
+        
+        // OC组件中Swift源码
+        SwiftLibD().show("456")
+        SwiftLibD().show_SwiftPod("789")
+        SwiftLibD().show_OC_Source("10")
+        
+        
+        // Swift组件包含OC
+        FunctionF_OC.printSomethingF("777")
+        
+        SwiftLibE().show("1")
+        SwiftLibE().show_OC_Source("2")
+        SwiftLibE().show_OC_Source("3")
     }
 
 }

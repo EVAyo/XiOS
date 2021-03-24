@@ -88,7 +88,27 @@ You can initialize this repository with code from a Subversion, Mercurial, or TF
 
 
 
+
+
 # 第三类：OC组件新增Swift
+
+
+
+```
+~ pod spec lint --allow-warnings --sources='https://github.com/lionsom/LXSpecs.git,https://github.com/CocoaPods/Specs.git' --use-libraries --verbose --no-clean
+
+~ pod lib lint --allow-warnings --sources='https://github.com/lionsom/LXSpecs.git,https://github.com/CocoaPods/Specs.git' --use-libraries --verbose --no-clean
+
+pod lib lint --allow-warnings --sources='https://github.com/lionsom/LXSpecs.git,https://github.com/CocoaPods/Specs.git' --verbose --no-clean
+```
+
+
+
+
+
+
+
+
 
 
 

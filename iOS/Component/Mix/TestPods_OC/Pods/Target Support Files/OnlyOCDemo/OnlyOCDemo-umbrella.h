@@ -10,6 +10,8 @@
 #endif
 #endif
 
+#import "AllHeader.h"
+#import "FunctionA.h"
 #import "FunctionB.h"
 
 FOUNDATION_EXPORT double OnlyOCDemoVersionNumber;

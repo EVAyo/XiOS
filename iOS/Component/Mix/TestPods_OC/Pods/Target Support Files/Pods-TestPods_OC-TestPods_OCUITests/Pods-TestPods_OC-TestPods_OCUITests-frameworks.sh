@@ -176,15 +176,23 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/OCAddSwiftDemo/OCAddSwiftDemo.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OnlyOCDemo/OnlyOCDemo.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OnlySwiftDemo/OnlySwiftDemo.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftAddOCDemo/SwiftAddOCDemo.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/OCAddSwiftDemo/OCAddSwiftDemo.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OnlyOCDemo/OnlyOCDemo.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OnlySwiftDemo/OnlySwiftDemo.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftAddOCDemo/SwiftAddOCDemo.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
