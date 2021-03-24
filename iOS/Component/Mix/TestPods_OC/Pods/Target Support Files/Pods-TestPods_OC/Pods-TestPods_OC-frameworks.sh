@@ -178,11 +178,13 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OnlyOCDemo/OnlyOCDemo.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/OnlySwiftDemo/OnlySwiftDemo.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OnlyOCDemo/OnlyOCDemo.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/OnlySwiftDemo/OnlySwiftDemo.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

@@ -18,9 +18,11 @@ PODS:
   - OnlyOCDemo/FunctionB (0.0.3):
     - AFNetworking (~> 3.0)
     - Masonry (~> 1)
+  - OnlySwiftDemo (0.1.2)
 
 DEPENDENCIES:
   - OnlyOCDemo/FunctionB
+  - OnlySwiftDemo
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -28,12 +30,14 @@ SPEC REPOS:
     - Masonry
   https://github.com/lionsom/LXSpecs.git:
     - OnlyOCDemo
+    - OnlySwiftDemo
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   OnlyOCDemo: 2aeb15cdfd42c658879d4c91bac69e8b5f5ce71b
+  OnlySwiftDemo: be5b4b237f7cdbfe86b654bb721b24c6d50220c0
 
-PODFILE CHECKSUM: 8cf5528797bdb7554b414f595b4ed9ed4e2a9120
+PODFILE CHECKSUM: 8c8d25c11cb733a873a53991a3c3aa028bf446a0
 
 COCOAPODS: 1.10.1
