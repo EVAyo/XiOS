@@ -2,4 +2,5 @@ ${PODS_ROOT}/Target Support Files/Pods-TestPods_Swift-TestPods_SwiftUITests/Pods
 ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 ${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
 ${BUILT_PRODUCTS_DIR}/OnlyOCDemo/OnlyOCDemo.framework
+${BUILT_PRODUCTS_DIR}/OnlySwiftDemo/OnlySwiftDemo.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework

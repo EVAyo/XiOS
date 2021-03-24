@@ -27,12 +27,14 @@ PODS:
   - OnlyOCDemo/FunctionB (0.0.3):
     - AFNetworking (~> 3.0)
     - Masonry (~> 1)
+  - OnlySwiftDemo (0.1.2)
   - SDWebImage (4.4.8):
     - SDWebImage/Core (= 4.4.8)
   - SDWebImage/Core (4.4.8)
 
 DEPENDENCIES:
   - OnlyOCDemo
+  - OnlySwiftDemo
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -41,13 +43,15 @@ SPEC REPOS:
     - SDWebImage
   https://github.com/lionsom/LXSpecs.git:
     - OnlyOCDemo
+    - OnlySwiftDemo
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   OnlyOCDemo: 2aeb15cdfd42c658879d4c91bac69e8b5f5ce71b
+  OnlySwiftDemo: be5b4b237f7cdbfe86b654bb721b24c6d50220c0
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
 
-PODFILE CHECKSUM: 9fd2d950e0bf13877fc96e338986b36d3528c6ec
+PODFILE CHECKSUM: 9e44f7fa85dd565a683f5dea9d83fcb055a21f02
 
 COCOAPODS: 1.10.1
