@@ -92,7 +92,7 @@ You can initialize this repository with code from a Subversion, Mercurial, or TF
 
 # 第三类：OC组件新增Swift
 
-
+> 注意：验证移除--use-libraries，podfile使用
 
 ```
 ~ pod spec lint --allow-warnings --sources='https://github.com/lionsom/LXSpecs.git,https://github.com/CocoaPods/Specs.git' --use-libraries --verbose --no-clean
