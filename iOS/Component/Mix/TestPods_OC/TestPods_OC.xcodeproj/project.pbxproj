@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1C0EA74FDA39225CF387C1FB /* Pods_TestPods_OC_TestPods_OCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46D65182A82C5F4C2222866 /* Pods_TestPods_OC_TestPods_OCUITests.framework */; };
 		26AA9585C9E8D9667A4BCEB1 /* Pods_TestPods_OCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BD2875EA9A7A7A6F05C12D /* Pods_TestPods_OCTests.framework */; };
+		998D553426158FD600C46DF2 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998D553326158FD600C46DF2 /* Test.swift */; };
 		99EDD5262609BBD90005D294 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EDD5252609BBD90005D294 /* AppDelegate.m */; };
 		99EDD5292609BBD90005D294 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EDD5282609BBD90005D294 /* SceneDelegate.m */; };
 		99EDD52C2609BBD90005D294 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EDD52B2609BBD90005D294 /* ViewController.m */; };
@@ -43,6 +44,8 @@
 		42BD2875EA9A7A7A6F05C12D /* Pods_TestPods_OCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestPods_OCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59511B8F6EA88FE247C4B1CF /* Pods-TestPods_OC-TestPods_OCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestPods_OC-TestPods_OCUITests.release.xcconfig"; path = "Target Support Files/Pods-TestPods_OC-TestPods_OCUITests/Pods-TestPods_OC-TestPods_OCUITests.release.xcconfig"; sourceTree = "<group>"; };
 		65ADD44FC817B050B78D2A28 /* Pods_TestPods_OC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestPods_OC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		998D553226158FD600C46DF2 /* TestPods_OC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestPods_OC-Bridging-Header.h"; sourceTree = "<group>"; };
+		998D553326158FD600C46DF2 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		99EDD5212609BBD90005D294 /* TestPods_OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestPods_OC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EDD5242609BBD90005D294 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		99EDD5252609BBD90005D294 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 				99EDD5322609BBDB0005D294 /* LaunchScreen.storyboard */,
 				99EDD5352609BBDB0005D294 /* Info.plist */,
 				99EDD5362609BBDB0005D294 /* main.m */,
+				998D553326158FD600C46DF2 /* Test.swift */,
+				998D553226158FD600C46DF2 /* TestPods_OC-Bridging-Header.h */,
 			);
 			path = TestPods_OC;
 			sourceTree = "<group>";
@@ -174,7 +179,6 @@
 				112AFF26549BF92103100852 /* Pods-TestPods_OCTests.debug.xcconfig */,
 				A4A1345C46CF0F40B4754728 /* Pods-TestPods_OCTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -190,6 +194,7 @@
 				99EDD51E2609BBD90005D294 /* Frameworks */,
 				99EDD51F2609BBD90005D294 /* Resources */,
 				9682F7D14870DA1704AAAD3E /* [CP] Embed Pods Frameworks */,
+				7B53330B22F5B5F0613BB129 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -228,6 +233,7 @@
 				99EDD5442609BBDC0005D294 /* Frameworks */,
 				99EDD5452609BBDC0005D294 /* Resources */,
 				D8C07EFC1F8B4FBD107D79A5 /* [CP] Embed Pods Frameworks */,
+				C6349119D22CD90A2D89B97E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -249,6 +255,7 @@
 				TargetAttributes = {
 					99EDD5202609BBD90005D294 = {
 						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
 					};
 					99EDD53B2609BBDC0005D294 = {
 						CreatedOnToolsVersion = 12.2;
@@ -352,6 +359,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7B53330B22F5B5F0613BB129 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestPods_OC/Pods-TestPods_OC-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestPods_OC/Pods-TestPods_OC-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestPods_OC/Pods-TestPods_OC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9682F7D14870DA1704AAAD3E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,6 +391,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestPods_OC/Pods-TestPods_OC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6349119D22CD90A2D89B97E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestPods_OC-TestPods_OCUITests/Pods-TestPods_OC-TestPods_OCUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestPods_OC-TestPods_OCUITests/Pods-TestPods_OC-TestPods_OCUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestPods_OC-TestPods_OCUITests/Pods-TestPods_OC-TestPods_OCUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D8C07EFC1F8B4FBD107D79A5 /* [CP] Embed Pods Frameworks */ = {
@@ -417,6 +458,7 @@
 			files = (
 				99EDD52C2609BBD90005D294 /* ViewController.m in Sources */,
 				99EDD5262609BBD90005D294 /* AppDelegate.m in Sources */,
+				998D553426158FD600C46DF2 /* Test.swift in Sources */,
 				99EDD5372609BBDB0005D294 /* main.m in Sources */,
 				99EDD5292609BBD90005D294 /* SceneDelegate.m in Sources */,
 			);
@@ -591,7 +633,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = TestPods_OC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -599,6 +643,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.LX.TestPods-OC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestPods_OC/TestPods_OC-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -609,7 +656,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = TestPods_OC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -617,6 +666,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.LX.TestPods-OC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestPods_OC/TestPods_OC-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -625,6 +676,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 112AFF26549BF92103100852 /* Pods-TestPods_OCTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TestPods_OCTests/Info.plist;
@@ -645,6 +697,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A4A1345C46CF0F40B4754728 /* Pods-TestPods_OCTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TestPods_OCTests/Info.plist;
@@ -665,6 +718,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BBA6C1FCE5389DC3DB311DDF /* Pods-TestPods_OC-TestPods_OCUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TestPods_OCUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -683,6 +737,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 59511B8F6EA88FE247C4B1CF /* Pods-TestPods_OC-TestPods_OCUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TestPods_OCUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

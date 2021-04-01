@@ -15,11 +15,38 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - Alamofire (5.4.1)
+  - BaiduMapKit (6.2.0):
+    - BaiduMapKit/Base (= 6.2.0)
+    - BaiduMapKit/Cloud (= 6.2.0)
+    - BaiduMapKit/Map (= 6.2.0)
+    - BaiduMapKit/Search (= 6.2.0)
+    - BaiduMapKit/Utils (= 6.2.0)
+  - BaiduMapKit/Base (6.2.0)
+  - BaiduMapKit/Cloud (6.2.0):
+    - BaiduMapKit/Base
+  - BaiduMapKit/Map (6.2.0):
+    - BaiduMapKit/Base
+  - BaiduMapKit/Search (6.2.0):
+    - BaiduMapKit/Base
+  - BaiduMapKit/Utils (6.2.0):
+    - BaiduMapKit/Base
+  - BMKLocationKit (2.0.0)
   - Masonry (1.1.0)
-  - OCAddSwiftDemo (0.1.3):
+  - MJExtension (3.2.4)
+  - MJRefresh (3.5.0)
+  - OCAddSwiftDemo (0.1.4):
     - AFNetworking (~> 3.0)
     - Alamofire
+    - BaiduMapKit (~> 6)
+    - BMKLocationKit (~> 2)
+    - MJExtension (~> 3)
+    - MJRefresh (~> 3)
+    - OnlyOCDemo
     - OnlySwiftDemo
+    - TDFModuleKit (= 1.0.6)
+    - UMCCommon (= 2.1.4)
+    - UMCShare/UI (= 6.9.8)
+    - WechatOpenSDK (~> 1)
   - OnlyOCDemo (0.0.3):
     - AFNetworking (~> 3.0)
     - Masonry (~> 1)
@@ -39,9 +66,17 @@ PODS:
   - SwiftAddOCDemo (0.1.1):
     - OnlyOCDemo
     - OnlySwiftDemo
+  - TDFModuleKit (1.0.6)
+  - UMCCommon (2.1.4)
+  - UMCShare/Core (6.9.8):
+    - UMCCommon
+  - UMCShare/UI (6.9.8):
+    - UMCCommon
+    - UMCShare/Core
+  - WechatOpenSDK (1.8.7.1)
 
 DEPENDENCIES:
-  - OCAddSwiftDemo
+  - OCAddSwiftDemo (= 0.1.4)
   - OnlyOCDemo/FunctionB
   - OnlySwiftDemo
   - SwiftAddOCDemo
@@ -50,8 +85,16 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - Alamofire
+    - BaiduMapKit
+    - BMKLocationKit
     - Masonry
+    - MJExtension
+    - MJRefresh
     - SDWebImage
+    - TDFModuleKit
+    - UMCCommon
+    - UMCShare
+    - WechatOpenSDK
   https://github.com/lionsom/LXSpecs.git:
     - OCAddSwiftDemo
     - OnlyOCDemo
@@ -61,13 +104,21 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  BaiduMapKit: 907c6d9b74f66c3ff4741fc4b568ae0b339917f8
+  BMKLocationKit: 097814ef672b1e57e86e6c1968d7892fb78002bf
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  OCAddSwiftDemo: 1806e75b394258d7e98b9d95962ca63961e81ac7
+  MJExtension: 88e0900751b6cac8de1cf724ca9838a0b28d5acb
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  OCAddSwiftDemo: b0b095c437b1d2f748c603a1e62c6bc3e71662f4
   OnlyOCDemo: 2aeb15cdfd42c658879d4c91bac69e8b5f5ce71b
   OnlySwiftDemo: be5b4b237f7cdbfe86b654bb721b24c6d50220c0
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
   SwiftAddOCDemo: ffcbfb339ab4e300ffe68a0247ae357652739fe4
+  TDFModuleKit: cc9694a3e2834c79260247f393709e5e7e0694e8
+  UMCCommon: b0703b0053323f598e01670ea702b8eb1e66e611
+  UMCShare: a250203b34a56cde25cc4c28335449b542f0255d
+  WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
 
-PODFILE CHECKSUM: 944c89e40de431ba17e3f7a75e6b11293bc500c1
+PODFILE CHECKSUM: 27817475b0dba97bfd91f4b0df5202e5ceeed92e
 
 COCOAPODS: 1.10.1
