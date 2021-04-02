@@ -105,13 +105,11 @@ pod spec lint --allow-warnings --sources='https://github.com/lionsom/LXSpecs.git
 
 
 pod repo push LXSpecs OCAddSwiftDemo.podspec --allow-warnings --skip-import-validation --sources='https://github.com/lionsom/LXSpecs.git,https://github.com/CocoaPods/Specs.git' --verbose 
-
-pod spec lint --allow-warnings --sources='https://github.com/lionsom/LXSpecs.git,https://github.com/CocoaPods/Specs.git' --verbose --no-clean
 ```
 
 
 
-
+pod lib lint --allow-warnings --sources='https://github.com/lionsom/LXSpecs.git,http://git.qpaas.com/PaasPods/PaasSpecs.git,https://github.com/CocoaPods/Specs.git' --verbose --no-clean
 
 
 
