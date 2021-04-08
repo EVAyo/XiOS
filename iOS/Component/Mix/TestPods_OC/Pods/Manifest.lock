@@ -76,6 +76,7 @@ PODS:
   - WechatOpenSDK (1.8.7.1)
 
 DEPENDENCIES:
+  - Masonry
   - OCAddSwiftDemo (= 0.1.4)
   - OnlyOCDemo/FunctionB
   - OnlySwiftDemo
@@ -119,6 +120,6 @@ SPEC CHECKSUMS:
   UMCShare: a250203b34a56cde25cc4c28335449b542f0255d
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
 
-PODFILE CHECKSUM: 27817475b0dba97bfd91f4b0df5202e5ceeed92e
+PODFILE CHECKSUM: 0b62b1049959b72c7b88281b7fd0d1a534ad0e4d
 
 COCOAPODS: 1.10.1

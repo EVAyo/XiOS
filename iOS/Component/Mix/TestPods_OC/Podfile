@@ -16,6 +16,8 @@ target 'TestPods_OC' do
   pod 'OCAddSwiftDemo', '0.1.4'
 
   pod 'SwiftAddOCDemo'
+  
+  pod 'Masonry'
 
   target 'TestPods_OCTests' do
     inherit! :search_paths
