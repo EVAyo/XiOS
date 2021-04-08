@@ -1,0 +1,6 @@
+framework module QYCUI {
+  umbrella header "QYCUI-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module QYCCategory {
+  umbrella header "QYCCategory-umbrella.h"
+
+  export *
+  module * { export * }
+}

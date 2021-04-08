@@ -1,0 +1,29 @@
+/* 
+  File.strings
+  Pods
+
+  Created by 启业云03 on 2020/8/27.
+  
+*/
+
+{
+    "扫一扫" = "Scan";
+    
+    "提示" =   "Tip";
+    
+    "知道了" = "I know";
+    
+    "确定" = "OK";
+    
+    "取消" = "Cancel";
+    
+    "跳转" = "Jump";
+    
+    "将二维码放入框内，即可自动扫描" = "Put the QRCode in the box.";
+    
+    "相机不可用" = "Camera is not available.";
+    
+    "您没有相机的访问权限!\n前往 设置 打开权限" = "Don’t have access to the camera!\nGo to Settings.";
+    
+    "请选择有效的二维码" = "Please select a valid QR code.";
+}

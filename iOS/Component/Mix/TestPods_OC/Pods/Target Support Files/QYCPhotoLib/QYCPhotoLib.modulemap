@@ -1,0 +1,6 @@
+framework module QYCPhotoLib {
+  umbrella header "QYCPhotoLib-umbrella.h"
+
+  export *
+  module * { export * }
+}

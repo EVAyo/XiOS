@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-TestPods_OC/Pods-TestPods_OC-resources.sh
 ${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/QYCH5/QYCH5.bundle
 ${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle

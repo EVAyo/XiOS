@@ -8,14 +8,18 @@
 #import "ViewController.h"
 
 //#import <OnlyOCDemo/AllHeader.h>
-#import <OnlyOCDemo/FunctionB.h>
-
-#import <OnlySwiftDemo/OnlySwiftDemo-Swift.h>
-
-#import <OCAddSwiftDemo/FunctionD_OC.h>
-#import <OCAddSwiftDemo/OCAddSwiftDemo-Swift.h>
+//#import <OnlyOCDemo/FunctionB.h>
+//
+//#import <OnlySwiftDemo/OnlySwiftDemo-Swift.h>
+//
+//#import <OCAddSwiftDemo/FunctionD_OC.h>
+//#import <OCAddSwiftDemo/OCAddSwiftDemo-Swift.h>
 
 #import <Masonry.h>
+
+//#import <QYCH5/QYCH5-Swift.h>
+
+#import "QYCH5-Swift.h"
 
 @interface ViewController ()
 
@@ -31,6 +35,7 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    /*
     // 第一类：纯OC组件
     // [FunctionA printSomethingA:@"A打印"];
     [FunctionB printSomethingB:@"B打印"];
@@ -52,6 +57,10 @@
     // OC组件中Swift源码中调用OC源码以及Swift Pod
     [D show_OC_Source:@"789"];
     [D show_SwiftPod:@"10"];
+     */
+    
+    ContainerWebViewVC *vc = [[ContainerWebViewVC alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 

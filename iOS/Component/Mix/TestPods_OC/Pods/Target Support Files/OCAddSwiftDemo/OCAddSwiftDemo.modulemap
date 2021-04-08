@@ -1,6 +1,0 @@
-framework module OCAddSwiftDemo {
-  umbrella header "OCAddSwiftDemo-umbrella.h"
-
-  export *
-  module * { export * }
-}

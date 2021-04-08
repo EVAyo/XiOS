@@ -1,0 +1,6 @@
+framework module QYCH5Module_Category {
+  umbrella header "QYCH5Module_Category-umbrella.h"
+
+  export *
+  module * { export * }
+}

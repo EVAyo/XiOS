@@ -1,0 +1,6 @@
+framework module QYCNavigationController {
+  umbrella header "QYCNavigationController-umbrella.h"
+
+  export *
+  module * { export * }
+}

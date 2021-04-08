@@ -1,0 +1,6 @@
+framework module QYCAssets {
+  umbrella header "QYCAssets-umbrella.h"
+
+  export *
+  module * { export * }
+}

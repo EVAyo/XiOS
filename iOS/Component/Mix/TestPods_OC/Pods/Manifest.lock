@@ -1,20 +1,19 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
-  - AFNetworking/NSURLSession (3.2.1):
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.1)
-  - AFNetworking/Security (3.2.1)
-  - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - Alamofire (5.4.1)
   - BaiduMapKit (6.2.0):
     - BaiduMapKit/Base (= 6.2.0)
     - BaiduMapKit/Cloud (= 6.2.0)
@@ -34,39 +33,109 @@ PODS:
   - Masonry (1.1.0)
   - MJExtension (3.2.4)
   - MJRefresh (3.5.0)
-  - OCAddSwiftDemo (0.1.4):
-    - AFNetworking (~> 3.0)
-    - Alamofire
+  - QYAlterView (1.0.3):
+    - QYCCategory (~> 1)
+    - YYCategories (~> 1)
+    - YYText (~> 1)
+  - QYCAccount (0.1.3):
+    - MJExtension (~> 3)
+    - YYCache (~> 1)
+  - QYCAppConfig (1.0.23):
+    - QYCAppConfig/Config (= 1.0.23)
+  - QYCAppConfig/Config (1.0.23)
+  - QYCApplicationCenterModule_Category (0.1.4):
+    - QYCMediator
+  - QYCAssets (0.1.7)
+  - QYCBlueToothModule_Category (0.1.4):
+    - QYCMediator
+  - QYCCategory (1.0.10)
+  - QYCEntContainer (0.1.2):
+    - QYCAccount (~> 0)
+  - QYCFormModule_Category (0.1.10):
+    - QYCMediator
+  - QYCH5 (0.0.1.T.3):
     - BaiduMapKit (~> 6)
     - BMKLocationKit (~> 2)
+    - Masonry (~> 1)
     - MJExtension (~> 3)
     - MJRefresh (~> 3)
-    - OnlyOCDemo
-    - OnlySwiftDemo
+    - QYAlterView (~> 1)
+    - QYCAppConfig (~> 1)
+    - QYCApplicationCenterModule_Category (~> 0)
+    - QYCAssets (~> 0)
+    - QYCBlueToothModule_Category (~> 0)
+    - QYCEntContainer (~> 0)
+    - QYCFormModule_Category (~> 0)
+    - QYCH5Module_Category (~> 0)
+    - QYCIconFont (~> 1)
+    - QYCMapModule_Category (~> 0)
+    - QYCNavigationController (~> 0)
+    - QYCNavigationExtension (~> 1)
+    - QYCNetwork (~> 1)
+    - QYCOrgStructureModule_Category (~> 0)
+    - QYCPhotoLib (~> 0)
+    - QYCProfileModule_Category (~> 0)
+    - QYCQChatModule_Category (~> 0)
+    - QYCQRCodeModule_Category (~> 0)
+    - QYCScan (~> 1)
+    - QYCUI (~> 1)
+    - QYCWebViewJavascriptBridge (~> 0)
+    - QYCWorkCircleModule_Category (~> 0)
     - TDFModuleKit (= 1.0.6)
+    - TZImagePickerController (~> 3)
     - UMCCommon (= 2.1.4)
     - UMCShare/UI (= 6.9.8)
     - WechatOpenSDK (~> 1)
-  - OnlyOCDemo (0.0.3):
-    - AFNetworking (~> 3.0)
+    - YYCategories (~> 1)
+  - QYCH5Module_Category (0.1.4):
+    - QYCMediator
+  - QYCIconFont (1.1.4):
+    - QYCIconFont/QYCIconfont (= 1.1.4)
+  - QYCIconFont/QYCIconfont (1.1.4):
+    - QYCIconFont/QYCIconfont/Iconfont (= 1.1.4)
+  - QYCIconFont/QYCIconfont/Iconfont (1.1.4)
+  - QYCMapModule_Category (0.1.6):
+    - QYCMediator
+  - QYCMediator (0.1.4)
+  - QYCNavigationController (0.1.3):
+    - QYCCategory (~> 1)
+    - QYCIconFont (~> 1)
+    - QYCNavigationExtension (~> 1)
+    - YYCategories (~> 1)
+  - QYCNavigationExtension (1.0.1)
+  - QYCNetwork (1.0.9):
+    - AFNetworking (~> 4)
+    - QYCAppConfig (~> 1)
+    - YYCache (~> 1)
+  - QYCOrgStructureModule_Category (0.1.4):
+    - QYCMediator
+  - QYCPhotoLib (0.1.3):
     - Masonry (~> 1)
-    - OnlyOCDemo/FunctionA (= 0.0.3)
-    - OnlyOCDemo/FunctionB (= 0.0.3)
-  - OnlyOCDemo/FunctionA (0.0.3):
-    - AFNetworking (~> 3.0)
-    - Masonry (~> 1)
+    - MJExtension (~> 3)
+    - QYAlterView (~> 1)
+    - QYCCategory (~> 1)
+    - QYCUI (~> 1)
+    - YYCategories (~> 1)
+  - QYCProfileModule_Category (0.1.5):
+    - QYCMediator
+  - QYCQChatModule_Category (0.1.12):
+    - QYCMediator
+  - QYCQRCodeModule_Category (0.1.4):
+    - QYCMediator
+  - QYCScan (1.0.2):
+    - QYCIconFont (~> 1)
+    - TZImagePickerController (~> 3)
+  - QYCUI (1.1.6):
+    - QYCIconFont (~> 1)
     - SDWebImage (~> 4)
-  - OnlyOCDemo/FunctionB (0.0.3):
-    - AFNetworking (~> 3.0)
-    - Masonry (~> 1)
-  - OnlySwiftDemo (0.1.2)
+  - QYCWebViewJavascriptBridge (0.1.0)
+  - QYCWorkCircleModule_Category (0.2.0):
+    - QYCMediator
   - SDWebImage (4.4.8):
     - SDWebImage/Core (= 4.4.8)
   - SDWebImage/Core (4.4.8)
-  - SwiftAddOCDemo (0.1.1):
-    - OnlyOCDemo
-    - OnlySwiftDemo
   - TDFModuleKit (1.0.6)
+  - TZImagePickerController (3.6.0)
   - UMCCommon (2.1.4)
   - UMCShare/Core (6.9.8):
     - UMCCommon
@@ -74,18 +143,46 @@ PODS:
     - UMCCommon
     - UMCShare/Core
   - WechatOpenSDK (1.8.7.1)
+  - YYCache (1.0.4)
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
+  - YYText (1.0.7)
 
 DEPENDENCIES:
   - Masonry
-  - OCAddSwiftDemo (= 0.1.4)
-  - OnlyOCDemo/FunctionB
-  - OnlySwiftDemo
-  - SwiftAddOCDemo
+  - QYCH5 (= 0.0.1.T.3)
 
 SPEC REPOS:
+  http://git.qpaas.com/PaasPods/PaasSpecs.git:
+    - QYAlterView
+    - QYCAccount
+    - QYCAppConfig
+    - QYCApplicationCenterModule_Category
+    - QYCAssets
+    - QYCBlueToothModule_Category
+    - QYCCategory
+    - QYCEntContainer
+    - QYCFormModule_Category
+    - QYCH5
+    - QYCH5Module_Category
+    - QYCIconFont
+    - QYCMapModule_Category
+    - QYCMediator
+    - QYCNavigationController
+    - QYCNavigationExtension
+    - QYCNetwork
+    - QYCOrgStructureModule_Category
+    - QYCPhotoLib
+    - QYCProfileModule_Category
+    - QYCQChatModule_Category
+    - QYCQRCodeModule_Category
+    - QYCScan
+    - QYCUI
+    - QYCWebViewJavascriptBridge
+    - QYCWorkCircleModule_Category
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
-    - Alamofire
     - BaiduMapKit
     - BMKLocationKit
     - Masonry
@@ -93,33 +190,57 @@ SPEC REPOS:
     - MJRefresh
     - SDWebImage
     - TDFModuleKit
+    - TZImagePickerController
     - UMCCommon
     - UMCShare
     - WechatOpenSDK
-  https://github.com/lionsom/LXSpecs.git:
-    - OCAddSwiftDemo
-    - OnlyOCDemo
-    - OnlySwiftDemo
-    - SwiftAddOCDemo
+    - YYCache
+    - YYCategories
+    - YYText
 
 SPEC CHECKSUMS:
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   BaiduMapKit: 907c6d9b74f66c3ff4741fc4b568ae0b339917f8
   BMKLocationKit: 097814ef672b1e57e86e6c1968d7892fb78002bf
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 88e0900751b6cac8de1cf724ca9838a0b28d5acb
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
-  OCAddSwiftDemo: b0b095c437b1d2f748c603a1e62c6bc3e71662f4
-  OnlyOCDemo: 2aeb15cdfd42c658879d4c91bac69e8b5f5ce71b
-  OnlySwiftDemo: be5b4b237f7cdbfe86b654bb721b24c6d50220c0
+  QYAlterView: 5faf08cb2c0f9752f240e5c9ea066fe3c74f60e6
+  QYCAccount: 9209b4a99a18b7428c4c2471414705898cd97ec0
+  QYCAppConfig: 6e8554cf7003a0757030405ee9b2718990f6e4ad
+  QYCApplicationCenterModule_Category: cd1e1cf42a401a577d8c5039f2962701ee19bd06
+  QYCAssets: d27527bb3a35fe02e6765d88bb3985ba364f084f
+  QYCBlueToothModule_Category: aa706585da1628d171a4951ffa447a258da67129
+  QYCCategory: b629fd560f63bf6ab354335b5671c012a662efb5
+  QYCEntContainer: 8ee65ac5e88288e2f5a8abbd6bcf90e56951b91e
+  QYCFormModule_Category: 36d56ff061f545a4081059f628f74d0483d2bb80
+  QYCH5: 1043573c3dc255f549360bb6ee4688dabfa11f4b
+  QYCH5Module_Category: c716cdc281be48cf8b81f17bf57870570b8e034f
+  QYCIconFont: 7ce1536546f564fcc7b653e17facb876d5d2c971
+  QYCMapModule_Category: e461510fbbebaded6c71084644e069914c3af0d6
+  QYCMediator: a5faddd5fc1492f7bf30b382dc400b9be78b833b
+  QYCNavigationController: 43185e174c4e6aec134bc92ddbb3821ab3999405
+  QYCNavigationExtension: 92b658087933b9679fb9aa32f7e6f16dc0579f3d
+  QYCNetwork: c0dce561af892aea2c5ef37116e73f64e4ffd1a4
+  QYCOrgStructureModule_Category: 6e2e73dfeb78ec4d7e4c39cfedab78736773216f
+  QYCPhotoLib: 71871c281834557250151f8f0040e9763ec9237d
+  QYCProfileModule_Category: 6252a73f4129e768b97881c11ac6e037fb0bbff9
+  QYCQChatModule_Category: 86bacaac3eb492d5e7984a7c3f8a1e2bb4051288
+  QYCQRCodeModule_Category: 0902c8a4c93a4ee36f564296c8208d891ff74bdc
+  QYCScan: 183490e9a27a6caafa683338fe20462f015a69af
+  QYCUI: 1d3be8b736aaa94c6bfce3fbf9a7cf220b24c532
+  QYCWebViewJavascriptBridge: ab8864d95c7cd971e40900c95ad2d5e4b515378f
+  QYCWorkCircleModule_Category: 75b9a89eba24cb766ea59eebe2e0c2f716566bb3
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
-  SwiftAddOCDemo: ffcbfb339ab4e300ffe68a0247ae357652739fe4
   TDFModuleKit: cc9694a3e2834c79260247f393709e5e7e0694e8
+  TZImagePickerController: a37d7eec87c54436e896a67947033ad2178d498b
   UMCCommon: b0703b0053323f598e01670ea702b8eb1e66e611
   UMCShare: a250203b34a56cde25cc4c28335449b542f0255d
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 0b62b1049959b72c7b88281b7fd0d1a534ad0e4d
+PODFILE CHECKSUM: 6df4663a988d185b33a28dc2c5a097021e20ebfa
 
 COCOAPODS: 1.10.1

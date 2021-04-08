@@ -1,0 +1,6 @@
+framework module QYCOrgStructureModule_Category {
+  umbrella header "QYCOrgStructureModule_Category-umbrella.h"
+
+  export *
+  module * { export * }
+}

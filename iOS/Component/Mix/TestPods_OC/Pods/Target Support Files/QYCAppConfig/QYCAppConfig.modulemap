@@ -1,0 +1,6 @@
+framework module QYCAppConfig {
+  umbrella header "QYCAppConfig-umbrella.h"
+
+  export *
+  module * { export * }
+}

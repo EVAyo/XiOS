@@ -1,0 +1,6 @@
+framework module QYCIconFont {
+  umbrella header "QYCIconFont-umbrella.h"
+
+  export *
+  module * { export * }
+}

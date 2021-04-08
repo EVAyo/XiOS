@@ -1,6 +1,0 @@
-framework module OnlySwiftDemo {
-  umbrella header "OnlySwiftDemo-umbrella.h"
-
-  export *
-  module * { export * }
-}

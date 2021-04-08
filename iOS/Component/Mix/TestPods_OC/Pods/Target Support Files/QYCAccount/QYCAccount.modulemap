@@ -1,0 +1,6 @@
+framework module QYCAccount {
+  umbrella header "QYCAccount-umbrella.h"
+
+  export *
+  module * { export * }
+}

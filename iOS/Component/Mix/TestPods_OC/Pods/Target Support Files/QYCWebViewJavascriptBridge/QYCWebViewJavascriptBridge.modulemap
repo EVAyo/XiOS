@@ -1,0 +1,6 @@
+framework module QYCWebViewJavascriptBridge {
+  umbrella header "QYCWebViewJavascriptBridge-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module QYCFormModule_Category {
+  umbrella header "QYCFormModule_Category-umbrella.h"
+
+  export *
+  module * { export * }
+}

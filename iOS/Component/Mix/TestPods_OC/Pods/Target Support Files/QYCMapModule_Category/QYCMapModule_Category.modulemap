@@ -1,0 +1,6 @@
+framework module QYCMapModule_Category {
+  umbrella header "QYCMapModule_Category-umbrella.h"
+
+  export *
+  module * { export * }
+}
