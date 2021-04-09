@@ -1,6 +1,0 @@
-framework module QYCMediator {
-  umbrella header "QYCMediator-umbrella.h"
-
-  export *
-  module * { export * }
-}

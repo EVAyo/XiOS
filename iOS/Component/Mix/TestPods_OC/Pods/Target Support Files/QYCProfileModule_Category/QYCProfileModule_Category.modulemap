@@ -1,6 +1,0 @@
-framework module QYCProfileModule_Category {
-  umbrella header "QYCProfileModule_Category-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,6 +1,0 @@
-framework module QYCEntContainer {
-  umbrella header "QYCEntContainer-umbrella.h"
-
-  export *
-  module * { export * }
-}

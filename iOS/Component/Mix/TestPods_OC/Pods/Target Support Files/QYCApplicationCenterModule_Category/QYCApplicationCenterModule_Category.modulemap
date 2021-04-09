@@ -1,6 +1,0 @@
-framework module QYCApplicationCenterModule_Category {
-  umbrella header "QYCApplicationCenterModule_Category-umbrella.h"
-
-  export *
-  module * { export * }
-}

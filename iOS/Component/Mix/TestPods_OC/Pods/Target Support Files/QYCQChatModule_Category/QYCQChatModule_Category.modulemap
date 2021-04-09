@@ -1,6 +1,0 @@
-framework module QYCQChatModule_Category {
-  umbrella header "QYCQChatModule_Category-umbrella.h"
-
-  export *
-  module * { export * }
-}

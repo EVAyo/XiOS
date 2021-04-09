@@ -1,6 +1,0 @@
-framework module QYCScan {
-  umbrella header "QYCScan-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,6 +1,0 @@
-framework module QYAlterView {
-  umbrella header "QYAlterView-umbrella.h"
-
-  export *
-  module * { export * }
-}
