@@ -134,7 +134,48 @@ end
 
 
 
-# 二、OC组件新增Swift
+# 二、纯OC组件
+
+### 组件验证：纯OC
+
+```shell
+# 本地验证
+~ pod lib lint --allow-warnings --sources='https://github.com/CocoaPods/Specs.git' --use-libraries --verbose --no-clean
+
+# 远程验证
+~ pod spec lint --allow-warnings --sources='https://github.com/CocoaPods/Specs.git' --use-libraries --verbose --no-clean
+
+# 更新
+~ pod repo push LXSpecs OnlyOCDemo.podspec --allow-warnings --use-libraries
+```
+
+
+
+
+
+# 三、⭐OC组件含Swift 集成到 OC项目
+
+> 参考：QYCH5组件新增 .swift 文件  branch : feature/LXApr_Mix , tag : 0.0.1.T.3
+
+
+
+## 1. OC组件含Swift
+
+### 组件验证：OC组件含Swift
+
+```shell
+pod lib lint --allow-warnings --sources='https://github.com/lionsom/LXSpecs.git,https://github.com/CocoaPods/Specs.git' --verbose --no-clean
+
+pod spec lint --allow-warnings --sources='https://github.com/lionsom/LXSpecs.git,https://github.com/CocoaPods/Specs.git' --verbose --no-clean
+
+pod repo push LXSpecs OCAddSwiftDemo.podspec --allow-warnings --skip-import-validation --sources='https://github.com/lionsom/LXSpecs.git,https://github.com/CocoaPods/Specs.git' --verbose 
+```
+
+
+
+## 2. OC组件含Swift集成到OC项目
+
+> 参考：QYCH5集成到启业云，项目分支：feature/LXApr_Mix， QYCH5  tag: 0.0.1.T.3
 
 
 
@@ -142,7 +183,49 @@ end
 
 
 
-# 三、Swift组件新增OC
+# 四、⭐纯Swift组件集成到 OC Pod 与 OC项目
+
+
+
+## 1. 纯Swift Pod
+
+> 参考：QYCUtility组件
+
+```objective-c
+// podspec
+s.swift_version = '5.0'
+
+// 导入
+import QYCUtility.Swift
+```
+
+
+
+## 2. OC Pod 依赖 Swift Pod
+
+> 参考：QYCCuteHand组件 依赖 QYCUtility组件
+
+注意点：
+
+```objective-c
+1、Example项目工程中新建Swift文件和桥接文件；
+2、Example的Podfile 中 必须使用 use_frameworks!
+3、.podspec中新增s.swift_version = '5.0'
+	 若有静态库，还需新增s.static_framework = true
+4、验证时 pod lib lint 不使用 --use-libraries
+```
+
+
+
+## 3. 含有Swift的OC Pod集成到OC项目中
+
+> 参考：QYCCuteHand集成到启业云
+
+```objective-c
+1、OC工程Profile中必须使用 use_frameworks!
+2、注意：若OC组件中包含静态库，需要在组件的.podspec中新增 s.static_framework = true
+
+```
 
 
 
@@ -157,6 +240,8 @@ end
 
 
 
+
+# 五、Swift组件新增OC
 
 
 
