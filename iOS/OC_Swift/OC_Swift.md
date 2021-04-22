@@ -2,6 +2,78 @@
 
 
 
+
+
+# 基础知识
+
+## use_frameworks!
+
+* [Why do we use use_frameworks! in CocoaPods?](https://stackoverflow.com/questions/41210249/why-do-we-use-use-frameworks-in-cocoapods)
+
+* [Podfile中的 use_frameworks!](https://segmentfault.com/a/1190000007076865)
+
+use_frameworks！ 告诉CocoaPods您要使用框架而不是静态库。由于Swift不支持静态库，因此您必须使用框架。
+
+## Cocoa Touch Frameworks
+
+它们始终是开源的，并且会像您的应用程序一样构建。 （因此，在您运行应用程序时以及始终在清理项目后，Xcode有时会对其进行编译。）框架仅支持iOS 8和更高版本，但是您可以在框架中使用Swift和Objective-C。
+
+## Cocoa Touch Static Libraries
+
+顾名思义，它们是静态的。 因此，当您将它们导入到项目中时，它们已经被编译。 您可以与其他人共享而不显示他们的代码。 请注意，静态库当前不支持Swift。 您将必须在库中使用Objective-C。 该应用程序本身仍可以用Swift编写。
+
+
+
+
+
+## OC Swift 混编
+
+Objective-C 与 Swift 混编在使用上主要依赖两个头文件：ProjectName-Bridging-Header.h 和 ProjectName-Swift.h。
+
+对于 Swift 调用 Objective-C，在 ProjectName-Bridging-Header.h 中 import 要使用的 Objective-C 头文件。
+
+对于 Objective-C 调用 Swift，需要编译过程中生成的 ProjectName-Swift.h 文件，此文件会将 Objective-C 需要使用的 Swift 类转成 Objective-C 格式的 .h 文件。
+
+
+
+当 Objective-C 与 Swift 进行混编时，编译的过程（Pipeline）是：
+
+- 首先编译 Swift Module。预编译 Bridging Header 后，再编译 Swift 源文件。
+- Swift 编译完成后，生成 ProjectName-Swift.h 的头文件供 Objective-C 使用。
+- 最后编译 Objective-C 源文件。
+
+
+
+
+
+
+
+##  
+
+[CocoaPods 1.5.0 — Swift Static Libraries](https://blog.cocoapods.org/CocoaPods-1.5.0/)
+
+Xcode9，swift就支持打成静态库了，所以不用非要弄成动态库。
+
+
+
+随着支持swift静态库，pod1.5也更新的对应的功能，如果swift的 pod 依赖于某个OC的 pod，需要为该OC版 pod 启用`modular headers`，所以多了 `use_modular_headers!`来全局开启，不过开启之后，之前一些不严谨的依赖，可能会报错，需要具体情况具体分析了，网上相关的文章也很多，就不在这里一一赘述了。而且我也不建议这种跨语言的交叉依赖，比如我的项目主要是OC，依赖的swift版 pod，就是纯swift写的。
+
+
+
+
+
+
+
+##  Clang Module
+
+
+
+
+
+
+
+
+
 # 一、OC项目新增Swift
 
 
@@ -88,7 +160,7 @@
 
 
 
-## 4、OC添加Swift Pod
+## 4、OC项目添加Swift Pod
 
 Podfile文件如下：
 
@@ -155,11 +227,22 @@ end
 
 # 三、⭐OC组件含Swift 集成到 OC项目
 
+## 1. OC组件含Swift
+
 > 参考：QYCH5组件新增 .swift 文件  branch : feature/LXApr_Mix , tag : 0.0.1.T.3
 
+注意点：
+
+```objective-c
+1、Example项目工程中新建Swift文件和桥接文件；
+2、Example的Podfile 中 必须使用 use_frameworks!
+3、.podspec中新增s.swift_version = '5.0'
+4、若有静态库，还需新增s.static_framework = true  
+  				    	与  s.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
+5、验证时 pod lib lint 不使用 --use-libraries
+```
 
 
-## 1. OC组件含Swift
 
 ### 组件验证：OC组件含Swift
 
@@ -176,6 +259,26 @@ pod repo push LXSpecs OCAddSwiftDemo.podspec --allow-warnings --skip-import-vali
 ## 2. OC组件含Swift集成到OC项目
 
 > 参考：QYCH5集成到启业云，项目分支：feature/LXApr_Mix， QYCH5  tag: 0.0.1.T.3
+
+
+
+* https://www.codeleading.com/article/85905061910/
+* http://luoxianming.cn/2016/03/27/CocoaPods/
+
+[Objective-C Swift 混编的模块二进制化 1：基础知识](https://juejin.cn/post/6844903844758077453)
+
+![](media_OC&Swift/014.png)
+
+
+
+注意点：
+
+```o
+1、OC主工程新增一个Swift文件与桥接文件，Objective-C Bridging Header = XXX
+2、Swift Language Version = 5.0
+3、Defines Module = YES;
+
+```
 
 
 
@@ -211,8 +314,9 @@ import QYCUtility.Swift
 1、Example项目工程中新建Swift文件和桥接文件；
 2、Example的Podfile 中 必须使用 use_frameworks!
 3、.podspec中新增s.swift_version = '5.0'
-	 若有静态库，还需新增s.static_framework = true
-4、验证时 pod lib lint 不使用 --use-libraries
+4、若有静态库，还需新增s.static_framework = true  
+  							与  s.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
+5、验证时 pod lib lint 不使用 --use-libraries
 ```
 
 
@@ -223,8 +327,6 @@ import QYCUtility.Swift
 
 ```objective-c
 1、OC工程Profile中必须使用 use_frameworks!
-2、注意：若OC组件中包含静态库，需要在组件的.podspec中新增 s.static_framework = true
-
 ```
 
 
@@ -242,14 +344,6 @@ import QYCUtility.Swift
 
 
 # 五、Swift组件新增OC
-
-
-
-
-
-
-
-
 
 
 
