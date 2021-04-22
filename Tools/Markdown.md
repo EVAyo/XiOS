@@ -1,4 +1,9 @@
+H<sub>2</sub>O  CO<sub>2</sub>
+爆米<sup>TM</sup>
 
+
+
+<u>Underlined Text</u>
 
 
 
@@ -17,19 +22,7 @@
 
 
 
-
-
 <div align=left><img src="http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg" width="350" height="350" >
-
-
-
-
-
-
-
-
-
-
 
 
 
