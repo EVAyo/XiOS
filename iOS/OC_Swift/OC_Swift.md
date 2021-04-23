@@ -189,6 +189,23 @@ Objective-C 与 Swift 混编在使用上主要依赖两个头文件：ProjectNam
 
 
 
+如果您的Swift吊舱依赖于Objective-C，则您需要为该Objective-C吊舱启用“模块化标头”
+
+
+
+
+
+报错：
+
+https://www.codeleading.com/article/85905061910/
+
+```
+pre_install do |installer|
+  # workaround for https://github.com/CocoaPods/CocoaPods/issues/3289
+  Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
+end
+```
+
 
 
 ##  
@@ -463,6 +480,8 @@ s.swift_version = '5.0'
 
 // 导入
 import QYCUtility.Swift
+// 或者
+@import QYCUtility;
 ```
 
 
@@ -489,16 +508,28 @@ import QYCUtility.Swift
 > 参考：QYCCuteHand集成到启业云
 
 ```objective-c
-1、OC工程Profile中必须使用 use_frameworks!
+【错误】1、OC工程Profile中必须使用 use_frameworks! 
+  
+ 无需任何修改，直接引入Swift组件，安装即可！
 ```
 
 
 
+### 报错
 
+安装 QYCCuteHand（含Swift）Pod，运行启业云保错：
 
+![](media_OC_Swift/019.jpg)
 
+解决：
 
+第一步：先修改项目支持的SWIFT_VERSION为组件库支持的最高版本；
 
+![](media_OC_Swift/020.jpg)
+
+第二步：项目中新建一个Swift文件并自动创建桥接文件。
+
+![](media_OC_Swift/021.jpg)
 
 
 
