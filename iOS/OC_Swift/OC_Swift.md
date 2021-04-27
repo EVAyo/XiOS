@@ -1,6 +1,10 @@
+# 参考
+
 [iOS 静态库和动态库](https://www.cnblogs.com/dins/p/ios-jing-tai-ku-he-dong-tai-ku.html)
 
 [Swift与OC混编过程中的配置](https://juejin.im/post/5d5a399a6fb9a06af50fca2b)
+
+[CocoaPods 1.5.0 — Swift Static Libraries](https://blog.cocoapods.org/CocoaPods-1.5.0/)
 
 
 
@@ -163,6 +167,15 @@ use_frameworks！ 告诉CocoaPods您要使用 Frameworks 而不是 Static Librar
 
 
 
+```shell
+# podfile
+use_frameworks! :linkage => :static
+```
+
+
+
+
+
 ## OC Swift 混编
 
 Objective-C 与 Swift 混编在使用上主要依赖两个头文件：ProjectName-Bridging-Header.h 和 ProjectName-Swift.h。
@@ -183,66 +196,25 @@ Objective-C 与 Swift 混编在使用上主要依赖两个头文件：ProjectNam
 
 ## 支持 Swift 静态库
 
+[CocoaPods 1.5.0 — Swift Static Libraries](https://blog.cocoapods.org/CocoaPods-1.5.0/)
+
 > 更新: Xcode9 beta 4 和 CocoaPods 1.5 已经支持 Swift 静态库.
 
 
 
 ## use_modular_headers!
 
+随着支持swift静态库，pod1.5也更新的对应的功能，如果swift的 pod 依赖于某个OC的 pod，需要为该OC版 pod 启用`modular headers`，所以多了 `use_modular_headers!`来全局开启，不过开启之后，之前一些不严谨的依赖，可能会报错，需要具体情况具体分析了。而且我也不建议这种跨语言的交叉依赖，比如我的项目主要是OC，依赖的swift版 pod，就是纯swift写的。
+
 首先，CocoaPods1.5新增的属性use_modular_headers!，是将所有的pods转为 Modular。Modular是可以直接在Swift中 import 的，不需要再经过 bridging-header 的桥接。
 
+如果您的 Swift Pod依赖于Objective-C，则您需要为该 Objective-C Pod 启用 “modular headers”
 
-
-如果您的Swift吊舱依赖于Objective-C，则您需要为该Objective-C吊舱启用“模块化标头”
-
-
-
-
-
-报错：
-
-https://www.codeleading.com/article/85905061910/
-
-```
-pre_install do |installer|
-  # workaround for https://github.com/CocoaPods/CocoaPods/issues/3289
-  Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
-end
-```
-
-
-
-##  
-
-[CocoaPods 1.5.0 — Swift Static Libraries](https://blog.cocoapods.org/CocoaPods-1.5.0/)
-
-Xcode9，swift就支持打成静态库了，所以不用非要弄成动态库。
-
-
-
-随着支持swift静态库，pod1.5也更新的对应的功能，如果swift的 pod 依赖于某个OC的 pod，需要为该OC版 pod 启用`modular headers`，所以多了 `use_modular_headers!`来全局开启，不过开启之后，之前一些不严谨的依赖，可能会报错，需要具体情况具体分析了，网上相关的文章也很多，就不在这里一一赘述了。而且我也不建议这种跨语言的交叉依赖，比如我的项目主要是OC，依赖的swift版 pod，就是纯swift写的。
-
-
-
-
+单个库使用：`:modular_headers => true`
 
 
 
 ##  Clang Module
-
-
-
-
-
-# 混编 Podfile 设置
-
-全部使用：
-
-问题：包大了
-
-```
-use_frameworks! :linkage => :static
-```
 
 
 
@@ -253,8 +225,6 @@ use_frameworks! :linkage => :static
 
 
 # ------ Part TWO 混编实战 ------
-
-
 
 
 
@@ -512,14 +482,14 @@ import QYCUtility.Swift
 > 参考：QYCCuteHand集成到启业云
 
 ```objective-c
-【错误】1、OC工程Profile中必须使用 use_frameworks! 
+【方式一】OC工程Profile中使用 use_frameworks! 
   
- 无需任何修改，直接引入Swift组件，安装即可！
+【方式二】无需任何修改，直接引入Swift组件，安装即可！
 ```
 
 
 
-### 报错
+### 报错一
 
 安装 QYCCuteHand（含Swift）Pod，运行启业云保错：
 
@@ -536,6 +506,43 @@ import QYCUtility.Swift
 ![](media_OC_Swift/021.jpg)
 
 
+
+### 报错二
+
+https://www.codeleading.com/article/85905061910/
+
+Objective-C项目中的podfile引入了swift库后编译时报了下面的错误：
+
+```bash
+Undefined symbol: static Swift.String.+ infix(Swift.String, Swift.String) -> Swift.String
+```
+
+**解决方案：**
+
+在podfile引入的swift库之前加入use_frameworks!
+
+```bash
+use_frameworks!
+
+pod 'XXXX'
+```
+
+再次执行pod install之后又报了下面的错误： 
+
+```bash
+The ‘Pods-XXX‘ target has transitive dependencies that include statically linked binaries:
+```
+
+**解决方案：**
+
+在podfile中加入下面的代码：
+
+```bash
+pre_install do |installer|
+  # workaround for https://github.com/CocoaPods/CocoaPods/issues/3289
+  Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
+end
+```
 
 
 
