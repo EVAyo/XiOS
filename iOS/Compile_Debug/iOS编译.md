@@ -172,137 +172,9 @@ LLVM 将 LLVM IR 生成当前平台的汇编代码，期间 LLVM 根据编译设
 
 
 
-# 四、实战
-
-## 4.1. `__attribute__`
-
-> `__attribtue__` 是一个高级的的编译器指令，它允许开发者指定更更多的编译检查和一些高级的编译期优化。
->
-> 分为三种：
->
-> - 函数属性 （Function Attribute）
-> - 类型属性 (Variable Attribute )
-> - 变量属性 (Type Attribute )
+# 四、编译优化 - 详见《iOS编译优化》
 
 
-
-搜索项目中的 `__attribute__`，发现了如下使用：
-
-```
-@property (nonatomic, copy) NSString *appKey __attribute__((deprecated("此属性已被弃用，替换方式请参考最新 https://www.dokit.cn/ 的使用手册")));
-```
-
-
-
-在三方库中最常见的，声明一个属性或者方法在当前版本弃用了
-
-```
-// SDWebImage库中
-@property (nonatomic, assign) BOOL shouldUseCredentialStorage __deprecated_msg("Property deprecated. Does nothing. Kept only for backwards compatibility");
-```
-
-进入 `__deprecated_msg` 发现，是对 `__attribute__` 的封装。
-
-![](media_Compile/010.jpg)
-
-
-
-列举几个常用
-
-```
-//弃用API，用作API更新
-#define __deprecated	__attribute__((deprecated)) 
-
-//带描述信息的弃用
-#define __deprecated_msg(_msg) __attribute__((deprecated(_msg)))
-
-//遇到__unavailable的变量/方法，编译器直接抛出Error
-#define __unavailable	__attribute__((unavailable))
-
-//告诉编译器，即使这个变量/方法 没被使用，也不要抛出警告
-#define __unused	__attribute__((unused))
-
-//和__unused相反
-#define __used		__attribute__((used))
-
-//如果不使用方法的返回值，进行警告
-#define __result_use_check __attribute__((__warn_unused_result__))
-
-//OC方法在Swift中不可用
-#define __swift_unavailable(_msg)	__attribute__((__availability__(swift, unavailable, message=_msg)))
-```
-
-
-
-## 4.2. Clang警告处理
-
-```
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
-///代码
-#pragma clang diagnostic pop
-
-// 这段代码作用
-1.对当前编译环境进行压栈
-2.忽略-Wundeclared-selector（未声明的）Selector警告
-3.编译代码
-4.对编译环境进行出栈
-
-// 常用举例
--Wdeprecated-declarations - retain cycle
--Wincompatible-pointer-types - 不兼容指针类型
--Wdeprecated-declarations - 方法启用告警
---Wunused-variable - 未使用变量
--Wundeclared-selector - sel中使用了不存在的方法名
-```
-
-
-
-## 4.3. Xcode编译优化
-
-* forward declaration
-
-  所谓`forward declaration`，就是`@class CLASSNAME`，而不是`#import CLASSNAME.h`。这样，编译器能大大提高#import的替换速度。
-
-* 对常用的工具类进行打包（Framework/.a）
-
-* 常用头文件放到预编译文件里
-
-  XCode的pch文件是预编译文件，这里的内容在执行XCode build之前就已经被预编译，并且引入到每一个.m文件里了。
-
-* Debug模式下，不生成dsym文件
-
-  上文提到了，dysm文件里存储了调试信息，在Debug模式下，我们可以借助XCode和LLDB进行调试。所以，不需要生成额外的dsym文件来降低编译速度。
-
-  ![](media_Compile/012.jpg)
-
-* Debug开启`Build Active Architecture Only`，Debug 时是不需要生成全架构
-
-  在XCode -> Build Settings -> Build Active Architecture Only 改为YES。这样做，可以只编译当前的版本，比如arm7/arm64等等，记得只开启Debug模式。这个选项在高版本的XCode中自动开启了。
-
-  ![](media_Compile/013.jpg)
-
-* Debug模式下，关闭编译器优化
-
-  ![](media_Compile/011.jpg)
-
-* 优化头文件搜索路径：
-
-  避免工程 Header Search Paths 设置了路径递归引用：
-
-  ![](media_Compile/014.jpg)
-
-
-
-## 4.4. 显示Xcode编译耗时
-
-关闭Xcode，执行以下命令显示编译时间，然后重启Xcode即可
-
-```
-$ defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
-```
-
-![](media_Compile/015.jpg)
 
 
 
@@ -376,5 +248,4 @@ InstalledDir: /usr/local/opt/llvm/bin
 
 
 # 六、LLDB使用 - 详见《iOS调试》
-
 

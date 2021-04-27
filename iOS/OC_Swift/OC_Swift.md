@@ -163,8 +163,6 @@ use_frameworks！ 告诉CocoaPods您要使用 Frameworks 而不是 Static Librar
 
 
 
-
-
 ## OC Swift 混编
 
 Objective-C 与 Swift 混编在使用上主要依赖两个头文件：ProjectName-Bridging-Header.h 和 ProjectName-Swift.h。
@@ -180,6 +178,12 @@ Objective-C 与 Swift 混编在使用上主要依赖两个头文件：ProjectNam
 - 首先编译 Swift Module。预编译 Bridging Header 后，再编译 Swift 源文件。
 - Swift 编译完成后，生成 ProjectName-Swift.h 的头文件供 Objective-C 使用。
 - 最后编译 Objective-C 源文件。
+
+
+
+## 支持 Swift 静态库
+
+> 更新: Xcode9 beta 4 和 CocoaPods 1.5 已经支持 Swift 静态库.
 
 
 
