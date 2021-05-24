@@ -228,7 +228,27 @@ Objective-C 与 Swift 混编在使用上主要依赖两个头文件：ProjectNam
 
 
 
-# 一、OC项目新增Swift
+## 混编场景举例
+
+同一target内混编：
+
+- Project中 OC 调用 Swift
+- Project中 Swift 调用 OC
+- Pod中 Swift 调用 OC
+- Pod中 OC 调用 Swift
+
+不同target间混编：
+
+- OC Project 调用 Swift Pod
+- Swift Project 调用 OC Pod
+- OC Pod 调用 Swift Pod
+- Swift Pod 调用 OC Pod
+
+
+
+
+
+# 一、OC Pro 调用 Swift
 
 
 
@@ -246,7 +266,7 @@ Objective-C 与 Swift 混编在使用上主要依赖两个头文件：ProjectNam
 
 ## 2、项目配置
 
-首先，在工程的 `Build Settings` 中把 `defines module` 设为 `YES`.
+首先，在工程的 `Build Settings` 中把 `defines module` 设为 `YES`。混编必须使用Module，不论OC调用Swift还是Swift调用OC。
 
 ![](media_OC_Swift/004.jpg)
 
@@ -277,8 +297,6 @@ Objective-C 与 Swift 混编在使用上主要依赖两个头文件：ProjectNam
 
 
 ## 3、创建Swift类
-
-
 
 ### 1. OC类调用Swift方法
 
@@ -355,6 +373,10 @@ end
     [self presentViewController:wkVC animated:YES completion:nil];
 }
 ```
+
+
+
+## 二、Swift Pro 调用 OC
 
 
 
