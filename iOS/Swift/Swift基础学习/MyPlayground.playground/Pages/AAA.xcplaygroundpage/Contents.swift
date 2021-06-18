@@ -45,3 +45,17 @@ func 函数描述(v1: Int, v2: String) -> Bool {
 
 函数描述(v1: 1, v2: "2")
 
+
+
+
+
+// 多重可选项
+func 多重可选项() {
+    var num1: Int? = 10
+    var num2: Int?? = num1
+    var num3: Int?? = 10
+    
+    var age1: Optional = .some(10) //省略泛型类型
+
+}
+多重可选项()
