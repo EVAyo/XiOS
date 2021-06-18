@@ -304,6 +304,38 @@ Chrome翻译插件，超级方便。
 
 
 
+## 5、JSON-handle
+
+Json工具
+
+
+
+## 6、AdGuard
+
+广告拦截器
+
+
+
+## 7、LastPass
+
+密码管理
+
+
+
+## 8、SimpleUndoClose
+
+这个简单的弹出可让您轻而易举的撤销关闭的标签！
+
+
+
+## 9、Vimium
+
+
+
+
+
+
+
 
 
 # 五、GitHub工具
