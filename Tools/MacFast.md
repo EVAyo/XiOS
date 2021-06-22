@@ -280,6 +280,74 @@ xxx
 
 [谷粒-Chrome插件英雄榜 ChromeAppHeroes](https://github.com/zhaoolee/ChromeAppHeroes)
 
+[你极力推荐的 Chrome 扩展有哪些？ - 知乎](https://www.zhihu.com/roundtable/mycollegestyle)
+
+
+
+
+
+## 基础功能增强
+
+
+
+### Infinity New Tab
+
+
+
+### Online Download Manager
+
+
+
+### Imagus
+
+
+
+### Search by Image
+
+
+
+### FireShot
+
+
+
+### OneTab Plus
+
+
+
+### ImageAssitant
+
+
+
+### Super History Cleaner
+
+
+
+### AD Block
+
+
+
+### 书签侧边栏
+
+
+
+
+
+
+
+## 学习效率
+
+
+
+## 黑科技
+
+
+
+## 生活娱乐
+
+
+
+
+
 ##1、OneTap
 
 标签管理插件，节省高达95％的内存，并减轻标签页混乱现象。
@@ -332,7 +400,7 @@ Json工具
 
 
 
-
+## 10、Absolute Enable Right Click & Copy
 
 
 
