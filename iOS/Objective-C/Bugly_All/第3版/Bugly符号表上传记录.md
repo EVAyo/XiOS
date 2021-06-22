@@ -71,3 +71,25 @@ ${SRCROOT}/sh/Bugly/dSYMUpload3.3.4.sh
 
 ![](media/002.png)
 
+
+
+## 5.日志
+
+### 成功标识
+
+![](media/003.png)
+
+### 完整日志
+
+![](media/004.png)
+
+
+
+## 6. Bugly控制台查看
+
+![](media/005.png)
+
+
+
+
+
