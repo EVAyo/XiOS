@@ -276,6 +276,14 @@ xxx
 
 
 
+## 12、Xnip
+
+可滚动截图
+
+
+
+
+
 # 四、Chrome插件
 
 [谷粒-Chrome插件英雄榜 ChromeAppHeroes](https://github.com/zhaoolee/ChromeAppHeroes)
