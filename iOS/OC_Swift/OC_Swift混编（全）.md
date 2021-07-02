@@ -539,7 +539,20 @@ end
 
 # 八、Swift Pod 调用 OC Pod
 
-> 待后续......
+> QYYScan_Base 调用 QYCIconfont
+
+```swift
+1.引入 s.dependency 'QYCIconFont', '~> 1'
+2.头文件 import QYCIconFont
+3.调用OC方法
+ 	let off = QYCIconFont.QYCFontImage.icon(withName: "light-off", fontSize: 25, color: _DarkColor(0xFFFFFF, 0xC4C4C4))
+```
+
+
+
+
+
+
 
 
 
