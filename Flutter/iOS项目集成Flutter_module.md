@@ -165,12 +165,15 @@ $ flutter build ios-framework --output=../myFlutterApp
 
 在Flutter项目目录下，执行
 
-```
-// 构建Framework
+```bash
+# 构建Framework
 $ flutter build ios-framework
 
-// 指定输出路径
+# 指定输出路径
 $ flutter build ios-framework --output=some/path/MyApp/Flutter/
+
+# 在 Xcode 11 中，你可以添加 --xcframework --no-universal 参数来生成 XCFrameworks，而不是使用通用的 framework。
+$ flutter build ios-framework --xcframework --no-universal --output=some/path/MyApp/Flutter/ --no-profile
 ```
 
 ![](media_iOSAddFlutter/005.jpg)
@@ -232,7 +235,6 @@ FlutterMethodChannel
 # 六、iOS运行问题
 
 ![](media_iOSAddFlutter/iOS集成Flutter.png)
-
 
 
 
