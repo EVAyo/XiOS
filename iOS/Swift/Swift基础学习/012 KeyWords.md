@@ -47,3 +47,50 @@ https://juejin.cn/post/6844903792647864328
 
 
 # [@autoclosure](./03函数与闭包.md)
+
+
+
+
+
+
+
+# ============分割线=============
+
+
+
+# Any / AnyObject
+
+![](media_012KeyWords/001.png)
+
+
+
+
+
+# is、as?、as!、as
+
+> // 知识点：向下转型
+>
+>   // as! 强制类型转换，无法转换时会抛出运行时异常
+>
+>   // as？可选类型转换，无法转换时返回nil
+
+![](media_012KeyWords/002.png)
+
+
+
+# X.self、X.Type、AnyClass
+
+![](media_012KeyWords/003.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
