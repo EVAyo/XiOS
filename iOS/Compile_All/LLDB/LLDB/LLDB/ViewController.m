@@ -26,6 +26,9 @@
     NSLog(@"456");
     NSLog(@"789");
     
+    NSArray *arr = @[@1, @2];
+    arr[4];
+    
     self.age = 20;
     
     [self test01];

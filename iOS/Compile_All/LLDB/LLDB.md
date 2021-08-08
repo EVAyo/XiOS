@@ -317,11 +317,39 @@ n VS ni
 ## image lookup — 模块查找
 
 * **image lookup**
-    * **image lookup -t 类型** ：查找某个类型的信息  
+
+    * **image lookup -t 类型** ：查找某个类型的信息
+
+        * **-t 等价于 --type**
+
+        * **image lookup -t NSInteger**
+
+        * **image lookup -t ViewController**
+
+            ![](media_LLDB/014.png)
+
     * **image lookup -a 地址**：根据内存地址查找在模块中的位置
+
+        * 根据崩溃得到内存地址
+
+            ![](media_LLDB/015.png)
+
+        * **image lookup -a 0x000000010b655d40**：可快速查看崩溃位置
+
+            ```bash
+            (lldb) image lookup -a 0x000000010b655d40
+                  Address: LLDB[0x0000000100001d40] (LLDB.__TEXT.__text + 512)
+                  Summary: LLDB`-[ViewController touchesBegan:withEvent:] + 448 at ViewController.m:30:5
+            ```
+
     * **image lookup -n 符号或者函数名**：查找某个符号或函数的位置
+
+        * **image lookup -n test01**：查看test01函数的位置
+
+            ![](media_LLDB/016.png)
 
 * **image list**
     * **列出所有加载的模块信息**
     * **image list -O -f**
         * 打印出模块的偏移地址、全路径
+
