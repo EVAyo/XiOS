@@ -39,7 +39,7 @@
 
 
 
-## OC源文件编译过程
+# OC源文件编译过程
 
 * `$ clang -ccc-print-phases main.m`
 * `$ clang -E main.m`
@@ -79,6 +79,14 @@
     https://llvm.org/docs/LangRef.html
 
 ![](media_LLVM/010.png)
+
+
+
+
+
+# Swift文件编译过程
+
+![](media_LLVM/011.png)
 
 
 
