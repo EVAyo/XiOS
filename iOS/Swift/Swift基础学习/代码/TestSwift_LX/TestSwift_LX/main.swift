@@ -29,6 +29,7 @@ var e = TestEnum.test1("12334", 3, true, "4567")
 // 00 00 00 00 00 00 00 E4
 
 print(Mems.ptr(ofVal: &e))
+print(Mems.memStr(ofVal: &e))
 
 // 31 32 33 33 34 00 00 00
 // 00 00 00 00 00 00 00 E5
@@ -46,6 +47,7 @@ var e1 = TestEnum.test2(5, 7)
 // 00 00 00 00 00 00 00 00
 
 print(Mems.ptr(ofVal: &e1))
+print(Mems.memStr(ofVal: &e1))
 
 // 05 00 00 00 00 00 00 00
 // 07 00 00 00 00 00 00 00
@@ -63,6 +65,7 @@ var e5 = TestEnum.test5("678")
 
 
 print(Mems.ptr(ofVal: &e5))
+print(Mems.memStr(ofVal: &e5))
 
 // 36 37 38 00 00 00 00 00
 // 00 00 00 00 00 00 00 E3
