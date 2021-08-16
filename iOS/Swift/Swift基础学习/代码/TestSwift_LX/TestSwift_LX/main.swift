@@ -10,6 +10,92 @@ import Foundation
 print("Hello, World!")
 
 
+func testClassAndStruct() {
+    class Size {
+        var width = 1
+        var height = 2
+    }
+    
+    struct Point {
+        var x = 3
+        var y = 4
+    }
+    
+    // var ptr = malloc(17)
+    // print(malloc_size(ptr))
+    
+    /*
+     print("MemoryLayout<Size>.stride", MemoryLayout<Size>.stride)
+     print("MemoryLayout<Point>.stride", MemoryLayout<Point>.stride)
+     
+     print("------------------------")
+     
+     var size = Size()
+     
+     print(Mems.size(ofRef: size))
+     
+     print("size变量的地址", Mems.ptr(ofVal: &size))
+     print("size变量的内存", Mems.memStr(ofVal: &size))
+     
+     print("size所指向内存的地址", Mems.ptr(ofRef: size))
+     print("size所指向内存的内容", Mems.memStr(ofRef: size))
+     
+     print("------------------------")
+     
+     var point = Point()
+     print("point变量的地址", Mems.ptr(ofVal: &point))
+     print("point变量的内存", Mems.memStr(ofVal: &point))
+     */
+}
+
+
+
+/*
+// 查看自动初始化器与自定义初始化器 汇编区别
+func testStruct01() {
+    struct Point1 {
+        var x: Int
+        var y: Int
+        init() {
+            x = 11
+            y = 22
+        }
+    }
+    
+    struct Point2 {
+        var x: Int = 11
+        var y: Int = 22
+    }
+    
+    _ = Point1()
+    _ = Point2()
+}
+
+testStruct01()
+
+
+// 查看结构体内存
+func testStruct02() {
+    struct Point {
+        var x: Int = 10     // 8
+        var y: Int = 20     // 8
+        var b: Bool = true  // 1
+    }
+    var p = Point()
+    print(Mems.memStr(ofVal: &p))
+ 
+ 
+ print(MemoryLayout<Point>.size)      // 17
+ print(MemoryLayout<Point>.stride)    // 24
+ print(MemoryLayout<Point>.alignment) // 8
+}
+
+testStruct02()
+
+*/
+
+
+/*
 enum TestEnum {
     case test1(String, Int, Bool, String)
     case test2(Int, Int)
@@ -82,3 +168,4 @@ print(MemoryLayout<Int>.stride)     // 8
 print(MemoryLayout<Bool>.stride)    // 1
 
 print("end")
+ */

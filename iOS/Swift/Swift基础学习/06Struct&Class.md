@@ -16,6 +16,8 @@
 
 ### 自动生成初始化器
 
+> **保证所有成员都有初始值！！！**
+
 ![](media_06Struct&Class/002.png)
 
 ![](media_06Struct&Class/003.png)
@@ -23,6 +25,8 @@
 
 
 ### 自定义初始化器
+
+> **结构体若自定义初始化，则不会自动生成其他初始化器！！！**
 
 ![](media_06Struct&Class/004.png)
 
@@ -40,11 +44,13 @@
 
 # 类
 
-![](media_06Struct&Class/007.png)
-
 
 
 ## 初始化器
+
+![](media_06Struct&Class/007.png)
+
+
 
 ![](media_06Struct&Class/008.png)
 
@@ -53,6 +59,73 @@
 
 
 # 结构体与类的本质区别
+
+* 初始化器
+  * 结构体
+    * 会自动生成初始化器，保证每个成员都有初始值
+  * 类
+    * 若成员有初始化值，则编译器会自动生成无参的初始化器
+    * 若成员没有初始化，则编译器不会生成任何初始化器
+
+* 类型
+  * 结构体是值类型
+  * 类是引用类型
+
+* 内存分布
+  * 结构体 在 栈空间
+  * 类 在 堆空间
+
+
+
+![](media_06Struct&Class/009.png)
+
+
+
+## 如何查看结构体与类的内存信息？
+
+```swift
+class Size {
+    var width = 1
+    var height = 2
+}
+    
+struct Point {
+    var x = 3
+    var y = 4
+}
+
+var ptr = malloc(17)
+print(malloc_size(ptr))
+
+print("MemoryLayout<Size>.stride", MemoryLayout<Size>.stride)
+print("MemoryLayout<Point>.stride", MemoryLayout<Point>.stride)
+
+print("------------------------")
+
+var size = Size()
+
+print(Mems.size(ofRef: size))
+
+print("size变量的地址", Mems.ptr(ofVal: &size))
+print("size变量的内存", Mems.memStr(ofVal: &size))
+
+print("size所指向内存的地址", Mems.ptr(ofRef: size))
+print("size所指向内存的内容", Mems.memStr(ofRef: size))
+
+print("------------------------")
+
+var point = Point()
+print("point变量的地址", Mems.ptr(ofVal: &point))
+print("point变量的内存", Mems.memStr(ofVal: &point))
+```
+
+
+
+
+
+
+
+
 
 **值类型**
 
@@ -72,9 +145,7 @@
 >
 > 不同于值类型，在*引用类型*被赋值到一个常量，变量或者本身被传递到一个函数的时候它是*不会*被拷贝的。相对于拷贝，这里使用的是同一个对现存实例的引用。
 
-![](media_06Struct&Class/009.png)
-
-
+ 
 
 ## 值类型
 
