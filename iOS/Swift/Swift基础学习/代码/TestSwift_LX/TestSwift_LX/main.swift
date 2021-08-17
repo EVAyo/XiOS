@@ -10,6 +10,76 @@ import Foundation
 print("Hello, World!")
 
 
+class Point {
+    var x = 11      // 8
+    var b = true    // 1
+    var y = 16      // 8
+}
+
+
+var p = Point()
+
+//class是对象类型数据，使用MemoryLayout对class类型计算其内存结果实际上是对其class类型的引用指针进行操作
+print(MemoryLayout<Point>.size)      // 8
+print(MemoryLayout<Point>.stride)    // 8
+print(MemoryLayout<Point>.alignment) // 8
+
+//print(malloc_size(p))
+print(Mems.size(ofRef: p))
+
+print("p变量的地址", Mems.ptr(ofVal: &p))
+print("p变量的内存的内容", Mems.memStr(ofVal: &p))
+
+print("p所指向内存的地址", Mems.ptr(ofRef: p))
+print("p所指向内存的内容", Mems.memStr(ofRef: p))
+
+print(class_getInstanceSize(Point.self))
+print(class_getInstanceSize(type(of: p)))
+
+malloc_size(<#T##ptr: UnsafeRawPointer!##UnsafeRawPointer!#>)
+
+//class Size {
+//    var w: Int = 0
+//    var h: Int = 0
+//}
+//
+//var s2 = Size()
+//print("s2: \(Mems.ptr(ofRef: s2))")
+//
+//s2 = Size()
+//print("s2: \(Mems.ptr(ofRef: s2))")
+
+
+//func test(s: Size) {
+//    print("s: \(Mems.ptr(ofRef: s))")
+//}
+//
+//var s2 = Size()
+//print("s2: \(Mems.ptr(ofRef: s2))")
+//test(s: s2)
+
+
+
+/*
+struct Size1 {
+    var w: Int
+    var h: Int
+}
+
+
+var s1 = Size1(w: 10, h: 20)
+print("s1: \(Mems.ptr(ofVal: &s1))")
+
+s1 = Size1(w: 20, h: 30)
+print("s1: \(Mems.ptr(ofVal: &s1))")
+
+var s2 = s1
+print("s2: \(Mems.ptr(ofVal: &s2))")
+*/
+
+
+
+
 func testClassAndStruct() {
     class Size {
         var width = 1
