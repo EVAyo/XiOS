@@ -9,7 +9,24 @@ import Foundation
 
 print("Hello, World!")
 
+typealias Fn = (Int) -> Int
+func getFn() -> Fn {
+var num = 0
+func plus(_ i: Int) -> Int {
+num += i
+return num
+}
+return plus
+} // 返回的plus和num形成了闭包
 
+
+
+
+
+
+
+
+/*
 class Point {
     var x = 11      // 8
     var b = true    // 1
@@ -37,6 +54,9 @@ print(class_getInstanceSize(Point.self))
 print(class_getInstanceSize(type(of: p)))
 
 malloc_size(<#T##ptr: UnsafeRawPointer!##UnsafeRawPointer!#>)
+*/
+
+
 
 //class Size {
 //    var w: Int = 0
