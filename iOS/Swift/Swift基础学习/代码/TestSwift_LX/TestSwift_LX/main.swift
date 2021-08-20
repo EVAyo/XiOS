@@ -10,18 +10,24 @@ import Foundation
 print("Hello, World!")
 
 typealias Fn = (Int) -> Int
+
+var num = 3
+
 func getFn() -> Fn {
-var num = 0
-func plus(_ i: Int) -> Int {
-num += i
-return num
-}
-return plus
+    func plus(_ i: Int) -> Int {
+        num += i
+        return num
+    }
+    return plus
 } // 返回的plus和num形成了闭包
 
+var fn = getFn()
 
-
-
+print(fn(1))
+print(fn(2)) 
+print(fn(3))
+print(fn(4))
+print(num)
 
 
 
