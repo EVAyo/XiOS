@@ -9,25 +9,42 @@ import Foundation
 
 print("Hello, World!")
 
-typealias Fn = (Int) -> Int
 
-var num = 3
+typealias Fn = (Int) -> Int
 
 func getFn() -> Fn {
     func plus(_ i: Int) -> Int {
-        num += i
-        return num
+        return i
     }
     return plus
-} // 返回的plus和num形成了闭包
+}
 
+// 这个fn类似于普通的变量
 var fn = getFn()
 
-print(fn(1))
-print(fn(2)) 
-print(fn(3))
-print(fn(4))
-print(num)
+print(MemoryLayout.stride(ofValue: fn))
+
+
+
+//typealias Fn = (Int) -> Int
+//
+//var num = 3
+//
+//func getFn() -> Fn {
+//    func plus(_ i: Int) -> Int {
+//        num += i
+//        return num
+//    }
+//    return plus
+//} // 返回的plus和num形成了闭包
+//
+//var fn = getFn()
+//
+//print(fn(1))
+//print(fn(2))
+//print(fn(3))
+//print(fn(4))
+//print(num)
 
 
 
