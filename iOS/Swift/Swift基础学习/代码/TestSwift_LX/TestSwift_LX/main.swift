@@ -10,19 +10,45 @@ import Foundation
 print("Hello, World!")
 
 
-typealias Fn = (Int) -> Int
-
-func getFn() -> Fn {
-    func plus(_ i: Int) -> Int {
-        return i
+typealias Fn = (Int) -> (Int, Int)
+func getFns() -> (Fn, Fn) {
+    var num1 = 0
+    var num2 = 0
+    func plus(_ i: Int) -> (Int, Int) {
+        num1 += i
+        num2 += i << 1
+        return (num1, num2)
     }
-    return plus
+    func minus(_ i: Int) -> (Int, Int) {
+        num1 -= i
+        num2 -= i << 1
+        return (num1, num2)
+    }
+    return (plus, minus)
 }
 
-// 这个fn类似于普通的变量
-var fn = getFn()
+let (p, m) = getFns()
+print(p(5)) // (5, 10)
+print(m(4)) // (1, 2)
+print(p(3)) // (4, 8)
+print(m(2)) // (2, 4)
 
-print(MemoryLayout.stride(ofValue: fn))
+
+//typealias Fn = (Int) -> Int
+//
+//func getFn() -> Fn {
+//    var num = 2
+//    func plus(_ i: Int) -> Int {
+//        num += i
+//        return num
+//    }
+////    num = 3
+//    return plus
+//}
+//
+//// 这个fn类似于普通的变量
+//var fn = getFn()
+//print(fn(1))
 
 
 
