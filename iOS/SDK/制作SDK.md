@@ -30,6 +30,14 @@ https://github.com/CocoaPods/Specs/blob/master/Specs/3/f/1/RongCloudIM/5.1.3.2/R
 
 
 
+https://www.jianshu.com/p/ad07419980c7
+
+https://www.jianshu.com/p/c92c08d8afda
+
+https://www.jianshu.com/p/d3a1ac66a9e6
+
+https://www.jianshu.com/p/c068a8fbba17
+
 
 
 # fa 
