@@ -10,6 +10,61 @@ import Foundation
 print("Hello, World!")
 
 
+struct Circle {
+    // 存储属性
+    var radius: Double {
+        willSet {
+            print("willSet", newValue)
+        }
+        didSet {
+            print("didSet", oldValue, radius)
+        }
+    }
+    // 计算属性
+    var x: Double {
+        set {
+            radius = 10
+        }
+        get {
+            radius
+        }
+        willSet {
+            print("willSet", newValue)
+        }
+        didSet {
+            print("didSet", oldValue, radius)
+        }
+    }
+    init() {
+        self.radius = 1.0
+        print("Circle init!")
+    }
+}
+
+
+/*
+enum TestEnum : Int {
+    case test1 = 1, test2 = 2, test3 = 3
+    var rawValue: Int {
+        switch self {
+        case .test1:
+            return 10
+        case .test2:
+            return 11
+        case .test3:
+            return 12
+        }
+    }
+}
+
+var t = TestEnum.test1
+var r = t.rawValue
+
+TestEnum.test1.rawValue = 100
+*/
+
+
+/*
 typealias Fn = (Int) -> (Int, Int)
 func getFns() -> (Fn, Fn) {
     var num1 = 0
@@ -32,6 +87,7 @@ print(p(5)) // (5, 10)
 print(m(4)) // (1, 2)
 print(p(3)) // (4, 8)
 print(m(2)) // (2, 4)
+*/
 
 
 //typealias Fn = (Int) -> Int
