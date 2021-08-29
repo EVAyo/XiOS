@@ -9,7 +9,42 @@ import Foundation
 
 print("Hello, World!")
 
+struct Shape {
+    // 存储实例属性
+    var width: Int = 0
+    // 存储类型属性
+    static var count: Int = 0
+    
+    // 计算实例属性：本质方法
+    var height: Int {
+        set {
+            width = newValue / 2
+        }
+        get {
+            width
+        }
+    }
+    // 计算类型属性
+    static var num: Int {
+        set {
+            count += 1
+        }
+        get {
+            count
+        }
+    }
+}
 
+var s1 = Shape()
+print(s1.width)
+print(s1.height)
+
+print(Shape.count)
+print(Shape.num)
+
+
+
+/*
 struct Shape {
     var width: Int
     var side: Int {
@@ -34,6 +69,7 @@ struct Shape {
 }
 
 func test(_ num: inout Int) {
+    print("func test")
     num = 20
 }
 
@@ -53,7 +89,7 @@ print("----------")
 test(&s.girth)
 s.show()
 
-
+*/
 
 
 
