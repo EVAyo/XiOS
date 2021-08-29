@@ -10,6 +10,58 @@ import Foundation
 print("Hello, World!")
 
 
+struct Shape {
+    var width: Int
+    var side: Int {
+        willSet {
+            print("willSetSide", newValue)
+        }
+        didSet {
+            print("didSetSide", oldValue, side) } }
+    var girth: Int {
+        set {
+            width = newValue / side
+            print("setGirth", newValue)
+        }
+        get {
+            print("getGirth")
+            return width * side
+        }
+    }
+    func show() {
+        print("width=\(width), side=\(side), girth=\(girth)")
+    }
+}
+
+func test(_ num: inout Int) {
+    num = 20
+}
+
+
+var s = Shape(width: 10, side: 4)
+
+test(&s.width)
+s.show()
+
+print("----------")
+
+test(&s.side)
+s.show()
+
+print("----------")
+
+test(&s.girth)
+s.show()
+
+
+
+
+
+
+
+
+
+/*
 struct Circle {
     // 存储属性
     var radius: Double {
@@ -28,18 +80,13 @@ struct Circle {
         get {
             radius
         }
-        willSet {
-            print("willSet", newValue)
-        }
-        didSet {
-            print("didSet", oldValue, radius)
-        }
     }
     init() {
         self.radius = 1.0
         print("Circle init!")
     }
 }
+*/
 
 
 /*
