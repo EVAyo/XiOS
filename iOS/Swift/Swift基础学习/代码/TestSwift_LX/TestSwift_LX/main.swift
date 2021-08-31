@@ -9,6 +9,28 @@ import Foundation
 
 print("Hello, World!")
 
+
+
+/*
+var num1 = 1
+var num2 = 2
+var num3 = 3
+
+print("End")
+
+
+var num1 = 10
+class Car {
+    static var count = 2
+}
+Car.count = 11
+var num3 = 12
+*/
+
+
+
+
+/*
 struct Shape {
     // 存储实例属性
     var width: Int = 0
@@ -41,6 +63,8 @@ print(s1.height)
 
 print(Shape.count)
 print(Shape.num)
+*/
+
 
 
 
