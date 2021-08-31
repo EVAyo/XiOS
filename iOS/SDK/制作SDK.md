@@ -1,3 +1,9 @@
+[cocoapods-xcframework](https://github.com/TyrantDante/cocoapods-xcframework)
+
+
+
+
+
 https://github.com/CocoaPods/CocoaPods/issues/9549
 
 https://github.com/CocoaPods/CocoaPods/pull/9720
@@ -39,6 +45,14 @@ https://www.jianshu.com/p/d3a1ac66a9e6
 https://www.jianshu.com/p/c068a8fbba17
 
 
+
+
+
+
+
+
+
+[iOS中Framework Library嵌套使用](https://www.jianshu.com/p/874e178cdc9d)
 
 # fa 
 
@@ -102,6 +116,12 @@ SDK（software development kits）
 
 # pod package
 
+```bash
+$ pod package QYCH5SDK.podspec --force --exclude-deps --no-mangle --embedded --spec-sources='http://git.qpaas.com/PaasPods/PaasSpecs.git, https://github.com/CocoaPods/Specs.git' --configuration=Debug
+```
+
+
+
 
 
 ```swift
@@ -143,7 +163,7 @@ SDK（software development kits）
 
 
 
-```swift
+```bash
 Usage:
 
     $ pod package NAME [SOURCE]
@@ -202,6 +222,52 @@ pod package QYCH5SDK.podspec --force --exclude-deps --no-mangle --embedded --spe
 
 
 [SDK开发和打包静态库遇到的坑](https://xdev.in/posts/sdk-development/)
+
+
+
+
+
+# 解包
+
+* 进入Framework文件夹中
+
+    ```bash
+    $ cd OpenSDK.Framework
+    ```
+
+* 查看静态库支持的架构
+
+    ```bash
+    $ lipo -info OpenSDK
+    ```
+
+* 抽离出arm64的架构，生成一个arm64的XX
+
+    ```bash
+    $ lipo OpenSDK -thin arm64 -outpath OpenSDK_arm64
+    ```
+
+* 查看.o文件
+
+    ```bash
+    $ ar -x OpenSDK_arm64 （noflat 文件）
+    ```
+
+* 查看.o文件内部方法
+
+    ```bash
+    $ nm *.o >> OpenSDK.symbols.txt
+    ```
+
+    
+
+
+
+
+
+
+
+
 
 
 
