@@ -24,12 +24,9 @@ class Animal {
 
 class Dog : Animal {
     override func speak() {
-        super.speak()
         print("Dog speak")
     }
     override func eat() {
-        super.speak()
-        super.eat()
         print("Dog eat")
     }
     func run() {
@@ -38,9 +35,15 @@ class Dog : Animal {
 }
 
 var anim = Animal()
+//anim.speak()
+//anim.eat()
+//anim.sleep()
+
+anim = Dog()
 anim.speak()
 anim.eat()
 anim.sleep()
+//anim.run()
 
 /*
 var num1 = 1
