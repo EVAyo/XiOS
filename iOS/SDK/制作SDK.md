@@ -229,6 +229,8 @@ pod package QYCH5SDK.podspec --force --exclude-deps --no-mangle --embedded --spe
 
 # 解包
 
+[MachOView](https://github.com/gdbinit/MachOView)
+
 * 进入Framework文件夹中
 
     ```bash
@@ -260,6 +262,52 @@ pod package QYCH5SDK.podspec --force --exclude-deps --no-mangle --embedded --spe
     ```
 
     
+
+
+
+# 场景
+
+
+
+1.swift不支持.a的静态库,因此只能制作.framework的静态库
+
+如果静态库中使用了任何category，主工程Build Settings下Other Linker Flags是必须要加上-ObjC的，而动态库则不用。
+
+## 静态库依赖静态库
+
+* 两个静态库里面不能包含相同类（符号），如果有在链接的时候就会报符号重复的错误
+* 静态库（以`.a`或`.framework`结尾）构建完成后的产物不会包含依赖的另一个以`.framework`结尾的静态库的代码
+* 静态库（以`.a`或`.framework`结尾）构建完成后的产物包含依赖的另一个以`.a`结尾的静态库的代码
+
+
+
+
+
+
+
+OC动态库 + Swift静态库
+
+
+
+
+
+当主工程是OC工程时，调用Swift库有一个常见的报错，image not found xxxx。这个报错通常可能由于以下几个原因。
+
+- 可能是setting中Always Embed Swift Standard Libraries没有选成YES。
+- 可能是Swift的库版本不对应，需要重新出Swift库。
+- 可能是工程没有自动帮你引入Swift支持库，这个时候我们可以在工程中新建一个.swift文件，创建桥接文件选YES，然后在该文件中包含一些swift的头文件，比如UIKIT，CoreImage之类的，错误信息报的是哪个库就添加哪个，可以强行让工程引入这些缺失的支持库。
+
+
+
+
+
+
+
+# H5_SDK 过程
+
+
+
+
 
 
 

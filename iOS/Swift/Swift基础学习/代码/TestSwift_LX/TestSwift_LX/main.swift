@@ -10,6 +10,37 @@ import Foundation
 print("Hello, World!")
 
 
+class Animal {
+    func speak() {
+        print("Animal speak")
+    }
+    func eat() {
+        print("Animal eat")
+    }
+    func sleep() {
+        print("Animal sleep")
+    }
+}
+
+class Dog : Animal {
+    override func speak() {
+        super.speak()
+        print("Dog speak")
+    }
+    override func eat() {
+        super.speak()
+        super.eat()
+        print("Dog eat")
+    }
+    func run() {
+        print("Dog run")
+    }
+}
+
+var anim = Animal()
+anim.speak()
+anim.eat()
+anim.sleep()
 
 /*
 var num1 = 1
