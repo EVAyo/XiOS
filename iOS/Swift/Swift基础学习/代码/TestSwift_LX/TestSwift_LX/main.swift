@@ -10,6 +10,7 @@ import Foundation
 print("Hello, World!")
 
 
+/*
 class Animal {
     func speak() {
         print("Animal speak")
@@ -44,6 +45,10 @@ anim.speak()
 anim.eat()
 anim.sleep()
 //anim.run()
+ */
+ 
+ 
+ 
 
 /*
 var num1 = 1
