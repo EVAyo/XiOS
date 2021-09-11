@@ -37,3 +37,63 @@
 * 设置U盘为第一启动项，F2进入Bios
 * 重启，一步步安装即可！！
 
+
+
+
+
+
+
+# 安装包分类
+
+* apt：Advanced Packaging Tool（apt）是[Linux](https://baike.baidu.com/item/Linux/27050)下的一款安装包[管理工具](https://baike.baidu.com/item/管理工具/9143974)，是一个客户/[服务器系统](https://baike.baidu.com/item/服务器系统/2997788)。
+
+* [Linux apt基本知识](https://www.runoob.com/linux/linux-comm-apt.html)
+
+* 软件后缀分类
+
+  ![](media_Ubuntu/003.png)
+
+
+
+# 翻墙 - V2ray
+
+
+
+
+
+
+
+# Github
+
+* 先安装git
+  * `$ sudo apt install git`
+* 创建ssh key
+  * `$ ssh-keygen -t rsa -C "email@qq.com" `
+* 拷贝`id_rsa.pub`里的公钥，前往[Github - ssh]()设置
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
