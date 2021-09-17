@@ -182,7 +182,7 @@ Person.m
 
 我们知道，所有的OC类和对象，在runtime层都是用struct表示的，category也不例外，在runtime层，category用结构体category_t（在objc-runtime-new.h中可以找到此定义），它包含了：
 
-```
+```objective-c
 struct category_t {
     const char *name;
     classref_t cls;
@@ -211,7 +211,7 @@ struct category_t {
 
 * ##### `struct _category_t` ：该结构体就是每一个分类的结构
 
-```
+```objective-c
 struct _category_t {
 	const char *name;    //类名
 	struct _class_t *cls;  // 类
@@ -231,7 +231,7 @@ struct _category_t {
 
 * ##### `_OBJC_$_CATEGORY_Person_$_DD` ：该结构体是 Person+DD分类本身的初始化
 
-```
+```objective-c
 static struct _category_t _OBJC_$_CATEGORY_Person_$_DD __attribute__ ((used, section ("__DATA,__objc_const"))) = 
 {
 	"Person",         //类名  
@@ -247,7 +247,7 @@ static struct _category_t _OBJC_$_CATEGORY_Person_$_DD __attribute__ ((used, sec
 
 * ##### `_OBJC_$_CATEGORY_INSTANCE_METHODS_Person_$_DD` ：实例方法列表 结构体
 
-```
+```objective-c
 static struct /*_method_list_t*/ {
 	unsigned int entsize;  // sizeof(struct _objc_method)
 	unsigned int method_count;

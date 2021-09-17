@@ -1,10 +1,6 @@
+[iOS 火星坐标/地球坐标/百度坐标整理及解决方案汇总？如何转火星坐标？](https://www.jianshu.com/p/3cd701299cef)
 
-
-
-
-[Apple Document - CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager#//apple_ref/doc/uid/TP40007125)
-
-
+[iOS中的地图与坐标](https://markmiao.com/2020/11/28/map/)
 
 
 
@@ -40,8 +36,6 @@
 
 
 # 坐标系介绍
-
-[iOS中的地图与坐标](https://markmiao.com/2020/11/28/map/)
 
 > 苹果系统地图在海外全球通用，为GPS坐标系。在国内使用的是高德数据，所以返回的经纬度是火星坐标系的。国内测试，超出国境线就无法获取经纬度数据。
 >
@@ -85,9 +79,35 @@
 
 
 
+iOS 坐标转换
+
+[JZLocationConverter-Swift](https://github.com/JackZhouCn/JZLocationConverter-Swift)
+
+[CLLocation+Sino](https://github.com/graveliang/CLLocation)
+
+[iOS地图开发2-坐标系的转换(swift)](https://cloud.tencent.com/developer/article/1524369)
+
+
+
+[WGS84坐标转火星坐标（iOS篇）](https://www.keakon.net/2011/07/02/WGS84坐标转火星坐标（iOS篇）)
+
+* [coordinate](https://bitbucket.org/keakon/welcometomars/src/master/)
+
+[AHLocationManager](https://github.com/AidaHe/AHLocationManager)
+
+* [iOS中地图经纬度坐标转换](https://www.jianshu.com/p/abdb35b0ba78)
+
+
+
+[TQLocationConverter](https://github.com/TinyQ/TQLocationConverter)
+
+
+
 
 
 # iOS系统定位
+
+[Apple Document - CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager#//apple_ref/doc/uid/TP40007125)
 
 ## 1.导入`CoreLocation.framework`
 
