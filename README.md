@@ -1,29 +1,39 @@
-1学习需要循序渐进，更需要恒心。
-
-人与人之间差距没那么大，别人能行，为什么我不行？
+[梯子推荐：稳定、便宜(￥5/mon)、速度快、节点多 ](https://fnf.xyz/auth/register?code=nGSC)
 
 
 
-## 梯子推荐
+# awesome-ios
 
-[推荐：稳定、便宜(￥5/mon)、速度快、节点多 ](https://fnf.xyz/auth/register?code=nGSC)
+* [kechengsou](https://github.com/kechengsou)
+    * [awesome-ios](https://github.com/kechengsou/awesome-ios)
+    * [local path](./iOS/Awesome-iOS/kechengsou/awesome-ios-2020-06-01.pdf)
 
-**翻墙提速**
+* [vsouza](https://github.com/vsouza)
 
-```shell
-// 1.机场打开全局模式
-// 2.终端命令前加上代理
-// 3.光速
-$ ALL_PROXY=socks5://127.0.0.1:1086 pod install
-```
-**github图片无法访问**
-```
-原因：图片放在 `raw.githubusercontent.com` 网站上，该网站被墙了，导致无法访问！
+    * [awesome-ios](https://github.com/vsouza/awesome-ios)
 
-解决方案：
-1.使用梯子，开启Global模式，或手动将该网址添加到名单中允许访问；
-2.获取IP，在hosts文件中添加。
-```
+    * [local path](./iOS/Awesome-iOS/vsouza/README.md) 
+
+* [onmyway133](https://github.com/onmyway133)
+    * [awesome-ios-architecture](https://github.com/onmyway133/awesome-ios-architecture)
+    * [local path](./iOS/Awesome-iOS/onmyway133/README.md) 
+
+
+
+| 地址                                                         | 摘要                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [Trip-to-iOS-Design-Patterns](https://github.com/skyming/Trip-to-iOS-Design-Patterns) | iOS 设计模式相关资料整理<br>- InfoQ - iOS应用架构谈 <br>- App 架构设计实践<br/>- 组件化设计<br/>- IM架构梳理 |
+| [iOS-Tips](https://github.com/awesome-tips/iOS-Tips)         | iOS知识小集                                                  |
+| [USTC-Course](https://github.com/USTC-Resource/USTC-Course)  | 中国科学技术大学课程资源<br>https://ustc-resource.github.io/USTC-Course/ |
+| [awesome-ios](https://github.com/vsouza/awesome-ios#how-to-use) | 精选的真棒 iOS 生态系统列表，包括目标 C 和 Swift 项目<br>http://awesomeios.com |
+| [analyze](https://github.com/draveness/analyze)              | iOS开源框架源码解析                                          |
+| [Halfrost-Field](https://github.com/halfrost/Halfrost-Field) | Halfrost-Field的博客仓库                                     |
+| [ReadyForBAT](https://github.com/MisterBooo/ReadyForBAT)     | 慕课网iOS面试实战项目总结                                    |
+
+
+
+# 个人笔记入口
+
 
 
 ## iOS
@@ -31,6 +41,7 @@ $ ALL_PROXY=socks5://127.0.0.1:1086 pod install
 [fastlane打包iOS - fastlane.md](https://github.com/lionsom/XiOS/blob/master/iOS/CI:CD/fastlane.md)
 
 [jenkins+fastlane打包iOS - Jenkins.md](https://github.com/lionsom/XiOS/blob/master/iOS/CI:CD/Jenkins.md)
+
 
 
 ## Mac常用推荐
@@ -47,6 +58,9 @@ $ ALL_PROXY=socks5://127.0.0.1:1086 pod install
 
 [PATH日常 - PATH.md](https://github.com/lionsom/XiOS/blob/master/Tools/PATH.md)
 
+[Ubuntu系统安装](./Tools/Ubuntu.md)
+
+
 
 ## 书籍阅读
 
@@ -54,17 +68,4 @@ $ ALL_PROXY=socks5://127.0.0.1:1086 pod install
 | -------------------- | ------------------------------------------------------------ |
 | 《编码》             | 近期阅读中...可查看部分阅读笔记：[《编码》阅读](https://github.com/lionsom/iOS-/blob/master/Reading/《编码》阅读.md) |
 | 《网络是怎样连接的》 | 我的阅读笔记：https://www.jianshu.com/p/6c92358dffc4         |
-
-
-## 学习推荐
-
-| 地址                                                         | 摘要                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Trip-to-iOS-Design-Patterns](https://github.com/skyming/Trip-to-iOS-Design-Patterns) | iOS 设计模式相关资料整理<br>- InfoQ - iOS应用架构谈 <br>- App 架构设计实践<br/>- 组件化设计<br/>- IM架构梳理 |
-| [iOS-Tips](https://github.com/awesome-tips/iOS-Tips)         | iOS知识小集                                                  |
-| [USTC-Course](https://github.com/USTC-Resource/USTC-Course)  | 中国科学技术大学课程资源<br>https://ustc-resource.github.io/USTC-Course/ |
-| [awesome-ios](https://github.com/vsouza/awesome-ios#how-to-use) | 精选的真棒 iOS 生态系统列表，包括目标 C 和 Swift 项目<br>http://awesomeios.com |
-| [analyze](https://github.com/draveness/analyze)              | iOS开源框架源码解析                                          |
-| [Halfrost-Field](https://github.com/halfrost/Halfrost-Field) | Halfrost-Field的博客仓库                                     |
-| [ReadyForBAT](https://github.com/MisterBooo/ReadyForBAT)     | 慕课网iOS面试实战项目总结                                    |
 
