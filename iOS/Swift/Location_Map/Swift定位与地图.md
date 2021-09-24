@@ -69,37 +69,33 @@
 
 # 坐标系转换
 
-[百度地图 - 经纬度查看](https://lbsyun.baidu.com/jsdemo/demo/yLngLatLocation.htm)
+## 网页测试地址
 
-[高德地图 - 经纬度查看](https://lbs.amap.com/tools/picker)
+* [百度地图 BD-09 - 经纬度查看](https://lbsyun.baidu.com/jsdemo/demo/yLngLatLocation.htm)
 
-[Google Earth - 经纬度查看](https://earth.google.com/)
+* [高德地图 GCJ-02 - 经纬度查看](https://lbs.amap.com/tools/picker)
 
-[坐标系在线转换](https://tool.lu/coordinate/)
+* [Google Earth WGS-84 - 经纬度查看](https://earth.google.com/)
 
-
-
-iOS 坐标转换
-
-[JZLocationConverter-Swift](https://github.com/JackZhouCn/JZLocationConverter-Swift)
-
-[CLLocation+Sino](https://github.com/graveliang/CLLocation)
-
-[iOS地图开发2-坐标系的转换(swift)](https://cloud.tencent.com/developer/article/1524369)
+* [坐标系在线转换](https://tool.lu/coordinate/)
 
 
 
-[WGS84坐标转火星坐标（iOS篇）](https://www.keakon.net/2011/07/02/WGS84坐标转火星坐标（iOS篇）)
+## iOS坐标转换
 
-* [coordinate](https://bitbucket.org/keakon/welcometomars/src/master/)
+* [JZLocationConverter-Swift](https://github.com/JackZhouCn/JZLocationConverter-Swift)
 
-[AHLocationManager](https://github.com/AidaHe/AHLocationManager)
+* [CLLocation+Sino](https://github.com/graveliang/CLLocation)
 
-* [iOS中地图经纬度坐标转换](https://www.jianshu.com/p/abdb35b0ba78)
+* [iOS地图开发2-坐标系的转换(swift)](https://cloud.tencent.com/developer/article/1524369)
 
+* [WGS84坐标转火星坐标（iOS篇）](https://www.keakon.net/2011/07/02/WGS84坐标转火星坐标（iOS篇）)
+    * [coordinate](https://bitbucket.org/keakon/welcometomars/src/master/)
 
+* [AHLocationManager](https://github.com/AidaHe/AHLocationManager)
+    * [iOS中地图经纬度坐标转换](https://www.jianshu.com/p/abdb35b0ba78)
 
-[TQLocationConverter](https://github.com/TinyQ/TQLocationConverter)
+* [TQLocationConverter](https://github.com/TinyQ/TQLocationConverter)
 
 
 
