@@ -6,5 +6,6 @@
         <page name='06-可选项'/>
         <page name='官方Example'/>
         <page name='泛型'/>
+        <page name='String'/>
     </pages>
 </playground>
