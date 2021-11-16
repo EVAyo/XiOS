@@ -59,7 +59,7 @@ $ flutter create --template module my_flutter
 
 
 
-## 选项A — 踩坑记录
+## 选项A - 踩坑记录
 
 ### 1、无法编译QYCFeature
 
@@ -143,7 +143,7 @@ $ flutter build ios-framework --output=../myFlutterApp
 
 
 
-## 选项B — 踩坑记录
+## 选项B - 踩坑记录
 
 ### 1、生成三个环境的Framework导致不能兼容
 
