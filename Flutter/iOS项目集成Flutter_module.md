@@ -1,6 +1,9 @@
-[Flutter中文网 - 将 Flutter module 集成到 iOS 项目](https://flutter.cn/docs/development/add-to-app/ios/project-setup)
+* [Flutter中文网 - 将 Flutter 集成到现有应用](https://flutter.cn/docs/development/add-to-app)
 
-[Flutter中文网 - 在 iOS 应用中添加 Flutter 页面](https://flutter.cn/docs/development/add-to-app/ios/add-flutter-screen#create-a-flutterengine)
+    * [将 Flutter module 集成到 iOS 项目](https://flutter.cn/docs/development/add-to-app/ios/project-setup)
+
+    * [在 iOS 应用中添加 Flutter 页面](https://flutter.cn/docs/development/add-to-app/ios/add-flutter-screen#create-a-flutterengine)
+    * [在混合开发模式下进行调试](https://flutter.cn/docs/development/add-to-app/debugging)
 
 
 
@@ -8,7 +11,7 @@
 
 # 一、创建 Flutter module
 
-```
+```bash
 $ flutter create --template module my_flutter
 ```
 
@@ -212,6 +215,22 @@ FlutterPlugin.framework
 
 
 
+## 第一步：源码引入Flutter
+
+```ruby
+flutter_application_path = '../flutter'
+load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
+install_all_flutter_pods(flutter_application_path)
+```
+
+## 第二步：模拟器运行Xcode项目，再在AndroidStudio中运行flutter attach即可
+
+
+
+
+
+
+
 打开Flutter_module项目运行 `flutter attach`，
 
 打开Xcode运行，若失败，重复几次。
@@ -219,6 +238,10 @@ FlutterPlugin.framework
 出现 `Syncing files to device iPhone 11 Pro Max...` 即为成功
 
 此时Flutter可进行 `Hot Reload` 、`Hot Restart` 、断点等操作；
+
+
+
+
 
 
 

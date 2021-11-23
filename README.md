@@ -4,16 +4,16 @@
 
 # awesome-ios
 
+* [matteocrippa](https://github.com/matteocrippa)
+    * [awesome-swift](https://github.com/matteocrippa/awesome-swift)
+
 * [kechengsou](https://github.com/kechengsou)
     * [awesome-ios](https://github.com/kechengsou/awesome-ios)
     * [local path](./iOS/Awesome-iOS/kechengsou/awesome-ios-2020-06-01.pdf)
-
 * [vsouza](https://github.com/vsouza)
-
     * [awesome-ios](https://github.com/vsouza/awesome-ios)
 
     * [local path](./iOS/Awesome-iOS/vsouza/README.md) 
-
 * [onmyway133](https://github.com/onmyway133)
     * [awesome-ios-architecture](https://github.com/onmyway133/awesome-ios-architecture)
     * [local path](./iOS/Awesome-iOS/onmyway133/README.md) 
