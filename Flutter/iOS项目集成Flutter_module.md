@@ -1,7 +1,6 @@
 * [Flutter中文网 - 将 Flutter 集成到现有应用](https://flutter.cn/docs/development/add-to-app)
-
     * [将 Flutter module 集成到 iOS 项目](https://flutter.cn/docs/development/add-to-app/ios/project-setup)
-
+    
     * [在 iOS 应用中添加 Flutter 页面](https://flutter.cn/docs/development/add-to-app/ios/add-flutter-screen#create-a-flutterengine)
     * [在混合开发模式下进行调试](https://flutter.cn/docs/development/add-to-app/debugging)
 
@@ -223,7 +222,10 @@ load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
 install_all_flutter_pods(flutter_application_path)
 ```
 
-## 第二步：模拟器运行Xcode项目，再在AndroidStudio中运行flutter attach即可
+## 第二步：模拟器运行Xcode项目，再在Android Studio中运行flutter attach即可
+
+* Xcode移除QYCFlutterModule模块，在项目工程中新增QYCFlutterModule的Classes
+* 运行Xcode，成功后，Android Studio 运行 flutter attach
 
 
 
