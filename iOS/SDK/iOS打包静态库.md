@@ -63,7 +63,7 @@ armv6: iPhone、iPhone 2、iPhone 3G、iPod Touch(第一代)、iPod Touch(第二
 
 ### 1.2、支持所有模拟器机型 / 真机机型架构
 
-设置 `Build Active Architecture Only 设为 NO`
+设置 `Build Active Architecture Only 设为 NO`，意思是当前打包的`.framework`支持所有的设备，否则打包时只能用当前版本的模拟器或真机运行。
 
 ![](media_Library/自制002.jpg)
 
