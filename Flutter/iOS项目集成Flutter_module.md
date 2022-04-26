@@ -208,11 +208,9 @@ FlutterPlugin.framework
 
 
 
-# 四、Xcode中调试Flutter模块
-
-包括：『热重启』、『热加载』、『断点』
 
 
+# 四、Xcode中调试Flutter Module   【2022.04.26】
 
 ## 第一步：源码引入Flutter
 
@@ -222,34 +220,25 @@ load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
 install_all_flutter_pods(flutter_application_path)
 ```
 
-## 第二步：模拟器运行Xcode项目，再在Android Studio中运行flutter attach即可
+## 第二步：iOS14以后开启本地网络权限【仅Debug，Release不行】
+
+[**https://flutter.cn/docs/development/add-to-app/ios/project-setup#local-network-privacy-permissions**](https://flutter.cn/docs/development/add-to-app/ios/project-setup#local-network-privacy-permissions)
+
+> **请注意** This service must not be enabled in the **Release** version of your app, or you may experience App Store rejections.
+
+![](media_iOSAddFlutter/plist.png)
+
+## 第三步：先运行Xcode项目，再运行flutter attach
 
 * Xcode移除QYCFlutterModule模块，在项目工程中新增QYCFlutterModule的Classes
 * 运行Xcode，成功后，Android Studio 运行 flutter attach
-
-
-
-
-
-
-
-打开Flutter_module项目运行 `flutter attach`，
-
-打开Xcode运行，若失败，重复几次。
-
-出现 `Syncing files to device iPhone 11 Pro Max...` 即为成功
-
-此时Flutter可进行 `Hot Reload` 、`Hot Restart` 、断点等操作；
-
-
+* 出现 `Syncing files to device iPhone 11 Pro Max...` 即为成功
 
 
 
 
 
 # 五、iOS与Flutter交互
-
-
 
 FlutterMethodChannel
 
