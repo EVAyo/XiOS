@@ -9,7 +9,29 @@
 
 * 参考blog
   * [Alamofire 5.x 源码阅读分析(Source Code reading and analysis)](https://rayy.top/2019-2019-12-09-alamofire/)
-  * [Alamofire源码学习目录合集](https://juejin.cn/post/6914685327172960263/)
+  
+  *  [Alamofire 5.4.0 源码学习目录合集](https://juejin.cn/post/6914685327172960263/)
+  
+       [Alamofire源码学习(一): Almofire文件结构图整理](https://juejin.cn/post/6907871142954926088)
+       [Alamofire源码学习(二): Session](https://juejin.cn/post/6908711156773289998/)
+       [Alamofire源码学习(三): Session相关的其他几个类](https://juejin.cn/post/6910223545154928648)
+       [Alamofire源码学习(四): Request基类](https://juejin.cn/post/6910949808299573255)
+       [Alamofire源码学习(五): Request的四个子类](https://juejin.cn/post/6914677667283337230/)
+       [Alamofire源码学习(六): RequestInterceptor请求拦截器](https://juejin.cn/post/6915771618988032014/)
+       [Alamofire源码学习(七): HTTPMethod与HTTPHeaders](https://juejin.cn/post/6915786108991176712/)
+       [Alamofire源码学习(八): URLConvertible与URLRequestConvertible](https://juejin.cn/post/6916068820809416712/)
+       [Alamofire源码学习(九): ParameterEncoding与ParameterEncoder](https://juejin.cn/post/6916833048394743821/)
+       [Alamofire源码学习(十): URLEncodedFormEncoder--自定义的表单参数编码器](https://juejin.cn/post/6917257706319872007/#heading-16)
+       [Alamofire源码学习(十一): MultipartFormData与MultipartUpload：多表单数据上传](https://juejin.cn/post/6921360348243034120/)
+       [Alamofire源码学习(十二): 响应与解析](https://juejin.cn/post/6922832459331534861/)
+       [Alamofire源码学习(十三): Cache](https://juejin.cn/post/6946112456007614478/)
+       [Alamofire源码学习(十四): AFError](https://juejin.cn/post/6946493878862086158/)
+       [Alamofire源码学习(十五): 服务器验证处理与身份验证处理](https://juejin.cn/post/6960223833919848462/)
+       [Alamofire源码学习(十六): Alamofire中的线程安全](https://juejin.cn/post/6962915495892762638/)
+       [Alamofire源码学习(十七): 工具扩展](https://juejin.cn/post/6970335587718922247)
+       [Alamofire源码学习(十八): 调用解析](https://juejin.cn/post/6996211099682996232/)
+
+
 
 
 
@@ -68,6 +90,21 @@ end
 
 ## 文件分层
 
+```
+- Source
+	- Alamore.swift
+	- Core
+		- Manager.swift
+		- ParameterEncoding.swift
+		- Request.swift
+	- Features
+		- Download.swift
+		- MultipartFromData.swift
+		- ResponseSeriallization.swift
+		- Upload.swift
+		- Validation.swift
+```
+
 * Alamofire.swift：提供 `AF` 名空间的定义。
 
 * Core：包含 Session/Request/Response, 以及请求参数序列化等功能实现。
@@ -78,15 +115,107 @@ end
 
   
 
-  ![](media_Alamofire/001.jpg)
+  ![](media_Alamofire/002.jpg)
 
 * Feature：包含响应序列化实现, 便捷响应序列化处理等
 
-  ![](media_Alamofire/001.jpg)
+  ![](media_Alamofire/003.jpg)
 
 
 
-## 文件介绍
+## 文件介绍 - Core
+
+### Session.swift
+
+> Session类是ALamofire的核心类, 封装了URLSession类, 管理所有的请求调度。
+
+#### property
+
+```swift
+    /// 一个默认的单例
+    public static let `default` = Session()
+```
+
+#### init
+
+```swift
+// Session有两个初始化方法, 一个必要初始化方法, 一个便捷初始化方法.
+
+Creates a `Session` from a `URLSession` and other parameters.
+
+Creates a `Session` from a `URLSessionConfiguration`.
+```
+
+#### deinit
+
+```swift
+deinit {
+	finishRequestsForDeinit()
+    session.invalidateAndCancel()
+}
+
+// MARK: - Invalidation
+
+func finishRequestsForDeinit() {
+    requestTaskMap.requests.forEach { request in
+        rootQueue.async {
+            request.finish(error: AFError.sessionDeinitialized)
+        }
+    }
+}
+```
+
+#### All Requests API
+
+```swift
+// MARK: - All Requests API
+
+/// 获取当前的请求Request
+public func withAllRequests(perform action: @escaping (Set<Request>) -> Void) {
+    rootQueue.async {
+        action(self.activeRequests)
+    }
+}
+
+/// 取消所有的请求Request
+/// 这是一个异步操作，不会阻止创建将来的“请求”。
+/// 已取消 “请求”由于内部工作，可能不会立即取消，如果在取消时接近完成，则可能根本不会取消。
+public func cancelAllRequests(completingOnQueue queue: DispatchQueue = .main, completion: (() -> Void)? = nil) {
+    withAllRequests { requests in
+        requests.forEach { $0.cancel() }
+        queue.async {
+            completion?()
+        }
+    }
+}
+```
+
+#### Request
+
+* **DataRequest**
+
+    ![](media_Alamofire/DataRequest.png)
+
+* **DataStreamRequest**
+
+    ![](media_Alamofire/DataStreamRequest.png)
+
+* **DownloadRequest**
+
+    ![](media_Alamofire/DownloadRequest.png)
+
+* **UploadRequest**
+
+    * **Data**
+    * **File**
+    * **InputStream**
+    * **InputStream**
+
+    ![](media_Alamofire/UploadRequest.png)
+
+
+
+
 
 * URLConvertible+URLRequestConvertible.swift
   * `public protocol URLConvertible`：采用"URLConvertible"协议的类型可用于构建"URL"，然后可用于构建"URLRequests"。

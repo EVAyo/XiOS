@@ -178,7 +178,7 @@ $ flutter build ios-framework --output=some/path/MyApp/Flutter/
 $ flutter build ios-framework --xcframework --no-universal --output=some/path/MyApp/Flutter/ --no-profile
 ```
 
-![](media_iOSAddFlutter/005.jpg)
+![](media_iOSAddFlutter/005_1.png)
 
 
 

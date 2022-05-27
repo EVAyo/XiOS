@@ -3,10 +3,14 @@
 - 大批量的app内测。
 - 针对app审核难过包，可以考虑企业签名暂时代替appstore发布(网上资料说是有封开发者账号的风险)。
 
+
+
 # 二.原理
 
 - OTA:`iOS4`新加的一项技术，可以让开发者脱离AppStore，从指定的服务器下载安装应用。
 - 以`https://itms-services://?action=download-manifest&url=https://192.168.1.xxx/manifest.plist`开头的链接，Safari会自动去读取`manifest.plist`中的信息，进行下载，安装等操作。
+
+
 
 # 三.准备工作
 
@@ -24,8 +28,6 @@
     - 如果是企业内部应用/绕开苹果审核而发布的应用，就必须用`企业账号`/`发布到Enterprise Deployment`打出来的`ipa`
 - `manifest.plist`
 - https协议服务器(`iOS7.1以前的版本支持http协议`)
-
-
 
 
 
