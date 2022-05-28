@@ -8,3 +8,14 @@
 
 [Apple Document - Xcode Scheme](https://developer.apple.com/library/archive/featuredarticles/XcodeConcepts/Concept-Schemes.html#//apple_ref/doc/uid/TP40009328-CH8-SW1)
 
+
+
+
+
+
+
+```
+$ find Source -name "*.swift" | xargs cat |wc -l
+> 3363
+```
+

@@ -94,7 +94,7 @@ Flutter channels:
 带"*"号的分支即你本地的Flutter SDK 跟踪的分支，要切换分支，可以使用`flutter channel beta` 或 `flutter channel master`，Flutter官方建议跟踪稳定分支，但你也可以跟踪`master`分支，这样可以查看最新的变化，但这样稳定性要低的多。
 
 ```
-$ flutter channel bet    
+$ flutter channel beta    
 // 等同于git 切换分支
 $ git checkout stable
 ```
@@ -310,6 +310,11 @@ Your application code is in my_first/lib/main.dart.
 ```
 
 ### 第四步：运行 `flutter run` 
+
+```
+  $ cd my_demo_01
+  $ flutter run
+```
 
 > **【提示】第一次运行模拟器，会非常慢！！！因为要安装一些必备的工具！**
 

@@ -1,6 +1,8 @@
-[Flutter中文网 - 将 Flutter module 集成到 iOS 项目](https://flutter.cn/docs/development/add-to-app/ios/project-setup)
-
-[Flutter中文网 - 在 iOS 应用中添加 Flutter 页面](https://flutter.cn/docs/development/add-to-app/ios/add-flutter-screen#create-a-flutterengine)
+* [Flutter中文网 - 将 Flutter 集成到现有应用](https://flutter.cn/docs/development/add-to-app)
+    * [将 Flutter module 集成到 iOS 项目](https://flutter.cn/docs/development/add-to-app/ios/project-setup)
+    
+    * [在 iOS 应用中添加 Flutter 页面](https://flutter.cn/docs/development/add-to-app/ios/add-flutter-screen#create-a-flutterengine)
+    * [在混合开发模式下进行调试](https://flutter.cn/docs/development/add-to-app/debugging)
 
 
 
@@ -8,7 +10,7 @@
 
 # 一、创建 Flutter module
 
-```
+```bash
 $ flutter create --template module my_flutter
 ```
 
@@ -59,7 +61,7 @@ $ flutter create --template module my_flutter
 
 
 
-## 选项A — 踩坑记录
+## 选项A - 踩坑记录
 
 ### 1、无法编译QYCFeature
 
@@ -143,7 +145,7 @@ $ flutter build ios-framework --output=../myFlutterApp
 
 
 
-## 选项B — 踩坑记录
+## 选项B - 踩坑记录
 
 ### 1、生成三个环境的Framework导致不能兼容
 
@@ -176,7 +178,7 @@ $ flutter build ios-framework --output=some/path/MyApp/Flutter/
 $ flutter build ios-framework --xcframework --no-universal --output=some/path/MyApp/Flutter/ --no-profile
 ```
 
-![](media_iOSAddFlutter/005.jpg)
+![](media_iOSAddFlutter/005_1.png)
 
 
 
@@ -206,25 +208,37 @@ FlutterPlugin.framework
 
 
 
-# 四、Xcode中调试Flutter模块
-
-包括：『热重启』、『热加载』、『断点』
 
 
+# 四、Xcode中调试Flutter Module   【2022.04.26】
 
-打开Flutter_module项目运行 `flutter attach`，
+## 第一步：源码引入Flutter
 
-打开Xcode运行，若失败，重复几次。
+```ruby
+flutter_application_path = '../flutter'
+load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
+install_all_flutter_pods(flutter_application_path)
+```
 
-出现 `Syncing files to device iPhone 11 Pro Max...` 即为成功
+## 第二步：iOS14以后开启本地网络权限【仅Debug，Release不行】
 
-此时Flutter可进行 `Hot Reload` 、`Hot Restart` 、断点等操作；
+[**https://flutter.cn/docs/development/add-to-app/ios/project-setup#local-network-privacy-permissions**](https://flutter.cn/docs/development/add-to-app/ios/project-setup#local-network-privacy-permissions)
+
+> **请注意** This service must not be enabled in the **Release** version of your app, or you may experience App Store rejections.
+
+![](media_iOSAddFlutter/plist.png)
+
+## 第三步：先运行Xcode项目，再运行flutter attach
+
+* Xcode移除QYCFlutterModule模块，在项目工程中新增QYCFlutterModule的Classes
+* 运行Xcode，成功后，Android Studio 运行 flutter attach
+* 出现 `Syncing files to device iPhone 11 Pro Max...` 即为成功
+
+
 
 
 
 # 五、iOS与Flutter交互
-
-
 
 FlutterMethodChannel
 
