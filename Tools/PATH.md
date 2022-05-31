@@ -87,7 +87,7 @@ Copyright (C) 2007 Free Software Foundation, Inc.
 
 // ========== 说明 ============
 其中 /etc/profile /etc/bashrc 和 /etc/paths 是系统级环境变量，对所有用户都有效。但它们的加载时机有所区别：
-/etc/profile  全局公有配置，不建议修改，用户登录时候都会加载该文件
+/etc/profile    全局公有配置，不建议修改，用户登录时候都会加载该文件
 /etc/bashrc		全局公有配置，bash shell执行时，不管是何种方式，都会读取此文件
 /etc/paths 		全局公有配置，全局配置建议修改该文件，任何用户登陆时都会读取该文件
 
