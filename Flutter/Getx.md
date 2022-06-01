@@ -12,13 +12,13 @@
 
 
 
-### GetX Use Article
+* GetX Use Article
 
-* 使用：[ Flutter GetX使用---简洁的魅力！](https://juejin.cn/post/6924104248275763208)
-* 原理：[ Flutter GetX深度剖析 | 我们终将走出自己的路](https://juejin.cn/post/6984593635681517582)
-* 插件说明：[ 本IDEA插件超详细使用教程](https://juejin.cn/post/7005003323753365517)
+    * 使用：[ Flutter GetX使用---简洁的魅力！](https://juejin.cn/post/6924104248275763208)
 
+    * 原理：[ Flutter GetX深度剖析 | 我们终将走出自己的路](https://juejin.cn/post/6984593635681517582)
 
+    * 插件说明：[ 本IDEA插件超详细使用教程](https://juejin.cn/post/7005003323753365517)
 
 
 
