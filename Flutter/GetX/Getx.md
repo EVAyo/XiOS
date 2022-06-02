@@ -24,13 +24,15 @@
 
 * 教程
     * [Flutter GetX系列教程](https://www.liujunmin.com/flutter/getx/introduction.html)
-        * [Flutter GetX零基础视频教程](https://www.bilibili.com/video/BV1uq4y1U7fF?p=1)
+        * [bilibili_Flutter GetX零基础视频教程](https://www.bilibili.com/video/BV1uq4y1U7fF?p=1)
 
 
 
-
-
-
+* [猫神](https://github.com/ducafecat)
+    * [猫神官网](https://learn.ducafecat.tech/)
+    * Demo
+        * [getx_quick_start](https://github.com/ducafecat/getx_quick_start)
+        * [flutter_ducafecat_news_getx](https://github.com/ducafecat/flutter_ducafecat_news_getx)
 
 
 
