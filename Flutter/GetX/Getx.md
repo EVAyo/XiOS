@@ -1,6 +1,8 @@
 * [**pub.dev_get**](https://pub.dev/packages/get)
     * [**README.zh-cn.md**](https://github.com/jonataslaw/getx/blob/master/README.zh-cn.md)
 
+
+
 * **插件**
 
     - getx_template：一键生成每个页面必需的文件夹、文件、模板代码等等
@@ -10,15 +12,14 @@
         - [Android Studio/Intellij扩展](https://plugins.jetbrains.com/plugin/14975-getx-snippets)
         - [VSCode扩展](https://marketplace.visualstudio.com/items?itemName=get-snippets.get-snippets)
 
+    * GetX Use Article
 
+        * 使用：[ Flutter GetX使用---简洁的魅力！](https://juejin.cn/post/6924104248275763208)
 
-* GetX Use Article
+        * 原理：[ Flutter GetX深度剖析 | 我们终将走出自己的路](https://juejin.cn/post/6984593635681517582)
 
-    * 使用：[ Flutter GetX使用---简洁的魅力！](https://juejin.cn/post/6924104248275763208)
+        * 插件说明：[ 本IDEA插件超详细使用教程](https://juejin.cn/post/7005003323753365517)
 
-    * 原理：[ Flutter GetX深度剖析 | 我们终将走出自己的路](https://juejin.cn/post/6984593635681517582)
-
-    * 插件说明：[ 本IDEA插件超详细使用教程](https://juejin.cn/post/7005003323753365517)
 
 
 

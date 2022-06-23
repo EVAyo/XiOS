@@ -212,6 +212,8 @@ FlutterPlugin.framework
 
 # 四、Xcode中调试Flutter Module   【2022.04.26】
 
+
+
 ## 第一步：源码引入Flutter
 
 ```ruby
@@ -220,13 +222,17 @@ load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
 install_all_flutter_pods(flutter_application_path)
 ```
 
+
+
 ## 第二步：iOS14以后开启本地网络权限【仅Debug，Release不行】
 
-[**https://flutter.cn/docs/development/add-to-app/ios/project-setup#local-network-privacy-permissions**](https://flutter.cn/docs/development/add-to-app/ios/project-setup#local-network-privacy-permissions)
+* [Local Network Privacy Permissions](https://flutter.cn/docs/development/add-to-app/ios/project-setup#local-network-privacy-permissions)
 
-> **请注意** This service must not be enabled in the **Release** version of your app, or you may experience App Store rejections.
+**请注意** This service must not be enabled in the **Release** version of your app, or you may experience App Store rejections.
 
 ![](media_iOSAddFlutter/plist.png)
+
+
 
 ## 第三步：先运行Xcode项目，再运行flutter attach
 
