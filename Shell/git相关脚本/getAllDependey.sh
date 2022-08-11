@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 #
-# Version:1.1
-# 支持分支引入组件clone
-#
 # Version:1.0
-# 批量拉取组件到本地
+# 获取所有组件的依赖库列表
 #
 
 #Config Color
@@ -17,7 +14,7 @@ NC='\033[0m' # No Color
 BaseURL="http://git.qpaas.com/PaasPods/X_X.git"
 
 # 本地仓库路径
-Local_Path="${HOME}/Work/Com11"
+Local_Path="${HOME}/Work/Com"
 
 # 0=仅拉取分支引入组件，1＝拉取全部组件
 Clone_Type=0
@@ -188,7 +185,7 @@ QYCVideoLiveModule
 QYCFilePreview)
 
 # clone仓库
-Git_Clone() {
+Get_Dependency() {
     echo -e "${GREEN} ========== git clone Start ========== ${NC}"
     
     # 区分不同数组

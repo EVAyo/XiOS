@@ -38,13 +38,12 @@ QYCFileProcesse
 QYCForm
 QYCGlobalSearch
 QYCIOT
-QYCMapModule
 QYCOrgStructure
 QYCQRCode
 QYCSignIn
 QYCSignInWithApple
-QYCVideoLiveModule
-QYCFilePreview)
+QYCFilePreview
+QYCShowCallerModule)
 
 # 从master分支切出新分支
 Git_Checkout() {
