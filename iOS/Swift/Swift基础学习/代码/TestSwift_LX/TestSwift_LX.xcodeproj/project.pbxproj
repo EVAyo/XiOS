@@ -11,6 +11,8 @@
 		46E50E3726C588B800FB7464 /* Mems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E50E3626C588B800FB7464 /* Mems.swift */; };
 		9993758A28A6034C00FBB9B4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9993758928A6034C00FBB9B4 /* String.swift */; };
 		9993758C28A6042700FBB9B4 /* Generics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9993758B28A6042700FBB9B4 /* Generics.swift */; };
+		9993758E28A6288000FBB9B4 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9993758D28A6288000FBB9B4 /* Array.swift */; };
+		9993759028A6335500FBB9B4 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9993758F28A6335500FBB9B4 /* Operator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +33,8 @@
 		46E50E3626C588B800FB7464 /* Mems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mems.swift; sourceTree = "<group>"; };
 		9993758928A6034C00FBB9B4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9993758B28A6042700FBB9B4 /* Generics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generics.swift; sourceTree = "<group>"; };
+		9993758D28A6288000FBB9B4 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		9993758F28A6335500FBB9B4 /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 				46E50E2E26C5866200FB7464 /* main.swift */,
 				9993758928A6034C00FBB9B4 /* String.swift */,
 				9993758B28A6042700FBB9B4 /* Generics.swift */,
+				9993758D28A6288000FBB9B4 /* Array.swift */,
+				9993758F28A6335500FBB9B4 /* Operator.swift */,
 			);
 			path = TestSwift_LX;
 			sourceTree = "<group>";
@@ -129,6 +135,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9993758A28A6034C00FBB9B4 /* String.swift in Sources */,
+				9993759028A6335500FBB9B4 /* Operator.swift in Sources */,
+				9993758E28A6288000FBB9B4 /* Array.swift in Sources */,
 				9993758C28A6042700FBB9B4 /* Generics.swift in Sources */,
 				46E50E2F26C5866200FB7464 /* main.swift in Sources */,
 				46E50E3726C588B800FB7464 /* Mems.swift in Sources */,

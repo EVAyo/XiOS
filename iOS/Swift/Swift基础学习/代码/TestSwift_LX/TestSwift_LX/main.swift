@@ -10,6 +10,9 @@ import Foundation
 /* String内存探究 */
 StringTest().test()
 
+/* Array内存探究 */
+ArrayTest().test()
+
 /* 泛型 */
 GenericsTest().test()
 
