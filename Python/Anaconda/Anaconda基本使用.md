@@ -62,7 +62,10 @@ unset __conda_setup
 
 于是乎就有了前面所说的问题。
 
+
+
 ## 二、Conda基本命令
+
 ### 环境管理命令
 创建新的python环境：`$ conda create --name myenv`
 并且还可以指定python的版本：`$ conda create -n myenv python=3.7`
@@ -86,6 +89,7 @@ unset __conda_setup
 安装到指定环境：`$ conda install -n myenv <package>`
 更新包：`$ conda update <package>`
 删除包：`$ conda remove <package>`
+
 
 
 ## 三、创建自己的虚拟环境
@@ -114,6 +118,7 @@ learn环境就是我们刚刚创建的环境；
 
 
 ![](https://upload-images.jianshu.io/upload_images/1859399-b1f33406c43d471d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 
 ## 五、PyCharm绑定Anaconda中的`默认(base)`的Python解释器

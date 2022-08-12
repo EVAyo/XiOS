@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		46E50E2F26C5866200FB7464 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E50E2E26C5866200FB7464 /* main.swift */; };
 		46E50E3726C588B800FB7464 /* Mems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E50E3626C588B800FB7464 /* Mems.swift */; };
+		9993758A28A6034C00FBB9B4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9993758928A6034C00FBB9B4 /* String.swift */; };
+		9993758C28A6042700FBB9B4 /* Generics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9993758B28A6042700FBB9B4 /* Generics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +29,8 @@
 		46E50E2B26C5866200FB7464 /* TestSwift_LX */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TestSwift_LX; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E50E2E26C5866200FB7464 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		46E50E3626C588B800FB7464 /* Mems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mems.swift; sourceTree = "<group>"; };
+		9993758928A6034C00FBB9B4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		9993758B28A6042700FBB9B4 /* Generics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 			children = (
 				46E50E3626C588B800FB7464 /* Mems.swift */,
 				46E50E2E26C5866200FB7464 /* main.swift */,
+				9993758928A6034C00FBB9B4 /* String.swift */,
+				9993758B28A6042700FBB9B4 /* Generics.swift */,
 			);
 			path = TestSwift_LX;
 			sourceTree = "<group>";
@@ -122,6 +128,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9993758A28A6034C00FBB9B4 /* String.swift in Sources */,
+				9993758C28A6042700FBB9B4 /* Generics.swift in Sources */,
 				46E50E2F26C5866200FB7464 /* main.swift in Sources */,
 				46E50E3726C588B800FB7464 /* Mems.swift in Sources */,
 			);
