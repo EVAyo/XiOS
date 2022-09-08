@@ -1,18 +1,9 @@
 
+# VSCode使用
 
-# 前端学习路径规划
+* [官方文档](https://code.visualstudio.com/docs)
 
-* [千古前端图文教程 - github](https://github.com/qianguyihao/Web)
-    * [Document](https://web.qianguyihao.com/)
+- [VS Code 中文社区](https://github.com/vscodecc/vscodecc) 
 
-- [MDN 官方文档](https://developer.mozilla.org/zh-CN/docs/Web)
-
-* [2020年Web前端最新导航（常见前端框架、前端大牛）](https://www.cnblogs.com/qianguyihao/p/10701923.html)
-* [2022年Web前端入门的自学路线](https://www.cnblogs.com/qianguyihao/p/8776837.html)
-
-
-
-# 推荐博客
-
-- [阮一峰](http://www.ruanyifeng.com/blog/)
-- [张鑫旭](http://www.zhangxinxu.com/wordpress/)
+- [知乎专栏](https://zhuanlan.zhihu.com/vs-code) - Visual Studio Code的最新资讯，热门文章，使用技巧，插件推荐，插件开发攻略等，全部都可以在这里找到。带你玩转VSCode！
+- [《Visual Studio Code 权威指南》](https://union-click.jd.com/jdc?e=jdext-1261348777639735296-0&p=AyIGZRhbHQsWAVIaXxEyEgRdG1sRBxU3EUQDS10iXhBeGlcJDBkNXg9JHUlSSkkFSRwSBF0bWxEHFRgMXgdIMkRxFAUJD1RQZT0cBnwKDE4%2BaDpgB2ILWStbHAIQD1QaWxIBIgdUGlsRBxEEUxprJQIXNwd1g6O0yqLkB4%2B%2FjcePwitaJQIWD1cfWhwKGwVSG1wlAhoDZc31gdeauIyr%2FsOovNLYq46cqca50ytrJQEiXABPElAeEgRSG1kQCxQBUxxZHQQQA1YTXAkDIgdUGlscChECXRs1FGwSD1UbWRALFwRWK1slASJZOxoLRlUXU1NONU9QEkdXWRlJbBUDVB9TFgAVN1caWhcA)
