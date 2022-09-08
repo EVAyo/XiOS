@@ -96,7 +96,7 @@ Python的语法支持，支持Python的单测、lint、语法高亮、代码格�
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_jpg/6nNCNSoRubxGpmJ6hyGvI8qQKBS6DP9OJprXtu3zr1AvSX14AmFugB2NqggDMLNwOGeLibRepbe6o0HEzVSd7lQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-## CodeIf
+### CodeIf
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_jpg/6nNCNSoRubxGpmJ6hyGvI8qQKBS6DP9O0yRTHBEZPedWuzlabXMDeiar5XIwlIVCbLk7sUibUiaoUuzS7dBGqP2gA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
@@ -180,6 +180,3 @@ vscode中支持jupyter，和Python插件对jupyter的支持类似。
 
 vscode当中好用的插件还有非常多，如果还知道什么其他神器的，不妨在下方留言分享给大家吧~
 
-```
-
-```
