@@ -1,8 +1,33 @@
-大家好，我是梁唐。
+# VSCode使用
 
-之前给小伙伴安利过vscode，很有就有小伙伴反馈说vscode虽然还挺好用，但是插件太多了，不知道要安装哪些。乱装一通不但效果不好，而且还会导致每次打开vscode都要吃掉不少内存，还会非常得慢。
+* [官方文档](https://code.visualstudio.com/docs)
 
-所以今天就和大家安利几款老梁用得比较多的vscode插件。
+- [VS Code 中文社区](https://github.com/vscodecc/vscodecc) 
+
+- [知乎专栏](https://zhuanlan.zhihu.com/vs-code) - Visual Studio Code的最新资讯，热门文章，使用技巧，插件推荐，插件开发攻略等，全部都可以在这里找到。带你玩转VSCode！
+- [《Visual Studio Code 权威指南》](https://union-click.jd.com/jdc?e=jdext-1261348777639735296-0&p=AyIGZRhbHQsWAVIaXxEyEgRdG1sRBxU3EUQDS10iXhBeGlcJDBkNXg9JHUlSSkkFSRwSBF0bWxEHFRgMXgdIMkRxFAUJD1RQZT0cBnwKDE4%2BaDpgB2ILWStbHAIQD1QaWxIBIgdUGlsRBxEEUxprJQIXNwd1g6O0yqLkB4%2B%2FjcePwitaJQIWD1cfWhwKGwVSG1wlAhoDZc31gdeauIyr%2FsOovNLYq46cqca50ytrJQEiXABPElAeEgRSG1kQCxQBUxxZHQQQA1YTXAkDIgdUGlscChECXRs1FGwSD1UbWRALFwRWK1slASJZOxoLRlUXU1NONU9QEkdXWRlJbBUDVB9TFgAVN1caWhcA)
+
+
+
+# 插件推荐
+
+## HTML相关插件
+
+### 汉化
+
+Chinese (Simplified) (简体中文) Language Pack for Visual Studio Code
+
+
+
+### 预览html
+
+open in browser
+
+
+
+
+
+
 
 ## 语言支持
 
