@@ -204,4 +204,4 @@
 
 ![](media_002/055.png)
 
-[](00代码/HTML综合练习/index.html)
+[00代码/HTML综合练习/index.html](00代码/HTML综合练习/index.html)
