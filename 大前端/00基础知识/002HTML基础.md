@@ -200,8 +200,15 @@
 ![](media_002/054.png)
 
 
-# 综合练习
+# 综合练习01
 
 ![](media_002/055.png)
 
-[00代码/HTML综合练习/index.html](00代码/HTML综合练习/index.html)
+[00代码/HTML综合练习01/index.html](00代码/HTML综合练习01/index.html)
+
+
+# 综合练习02
+
+![](media_002/056.png)
+
+[00代码/HTML综合练习02/index.html](00代码/HTML综合练习02/index.html)
