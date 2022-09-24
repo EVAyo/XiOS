@@ -8,27 +8,24 @@
     <title>Document</title>
 
     <style>
-        /* 子选择器 */
-        .navi>a {
-            color: red;
-        }
-
-        /* 后代选择器 */
-        .navi a {
+        div,
+        p,
+        .pig li {
             color: green;
         }
     </style>
-
 </head>
 
 <body>
+    <div>兄弟</div>
 
-    <div class="navi">
-        <a href="#">我是儿子</a>
-        <p>
-            <a href="#">我是孙子</a>
-        </p>
-    </div>
+    <p>水果店</p>
+
+    <ul class="pig">
+        <li>佩奇</li>
+        <li>乔治</li>
+        <li>猪爸</li>
+    </ul>
 
 </body>
 
