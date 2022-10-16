@@ -24,7 +24,17 @@
             font-size: 12px;
             color: #4c4c4c;
 
-            height: 41px;
+            /* height: 41px; */
+
+            /* a属于行内元素 - 直接设置宽高无效，此时需要转换 行内块元素 */
+            display: inline-block;
+
+            padding: 0px 20px;
+        }
+
+        .nav a:hover {
+            background-color: #eeeeee;
+            color: orange;
         }
     </style>
 </head>
