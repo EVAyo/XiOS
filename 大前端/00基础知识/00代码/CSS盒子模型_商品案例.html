@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,17 +36,57 @@
             margin-top: 50px;
             */
             margin: 100px auto;
-
-
         }
 
-    </style> 
+        .box img {
+            width: 100%;
+        }
+
+        .review {
+            font-size: 14px;
+
+            /* 因为这个段落没有 width属性 所有 padding不会撑开盒子的宽度 */
+            padding: 0 28px;
+
+            margin-top: 30px;
+        }
+
+        .appraise {
+            font-size: 12px;
+            
+            color: gray;
+
+            margin-top: 20px;
+
+            padding: 0 28px;
+        }
+
+        .info .title {
+            font-size: large;
+
+            margin-top: 20px;
+
+            padding: 0 28px;
+        }
+
+    </style>
 </head>
+
 <body>
-    
+
     <div class="box">
-        1234
+        <img class="topImage" src="../黑马pink课件/html_css_material-master/第五天/images/img.jpg" alt="头像">
+
+        <p class="review">快递牛，整体不错蓝牙可以说秒连。红米给力</p>
+        
+        <p class="appraise">来自于1323154645的评价</p>
+
+        <div class="info">
+            <p class="title">Redmi AirDots真无线蓝...</p>
+        </div>
+
     </div>
 
 </body>
+
 </html>
