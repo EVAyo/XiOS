@@ -1,12 +1,10 @@
+# 一、内网透传方案
 
+* 收费 [花生壳](https://b.oray.com/)
 
+* 自建 [FRP](https://github.com/fatedier/frp)
 
-
-收费 [花生壳](https://b.oray.com/)
-
-自建 [FRP](https://github.com/fatedier/frp)
-
-其他 [不用第三方实现内网穿透](https://blog.csdn.net/qq_37063860/article/details/83119887)
+* 其他 [不用第三方实现内网穿透](https://blog.csdn.net/qq_37063860/article/details/83119887)
 
 [简单的端口映射教程](https://zhuanlan.zhihu.com/p/43233032)
 
@@ -14,7 +12,7 @@
 
 
 
-# 一、迅速使用 NATAPP
+# 二、迅速使用 NATAPP
 
 [官网 - NATAPP](https://natapp.cn/)
 
