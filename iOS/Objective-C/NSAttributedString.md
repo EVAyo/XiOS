@@ -1,9 +1,5 @@
 [如何正确的使用NSAttributedString在iOS中实现行间距与行高](https://www.jianshu.com/p/5a3e742df512)
 
-
-
-
-
 ```objective-c
 NSFontAttributeName                设置字体属性，默认值：字体：Helvetica(Neue) 字号：12
 NSForegroundColorAttributeNam      设置字体颜色，取值为 UIColor对象，默认值为黑色

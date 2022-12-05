@@ -52,6 +52,32 @@
 
 
 
+# App之间跳转实现
+
+
+
+## 方式一：URL Schemes
+
+[Apple Document —— About Apple URL Schemes](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899)
+
+
+
+
+
+## 方式二：
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

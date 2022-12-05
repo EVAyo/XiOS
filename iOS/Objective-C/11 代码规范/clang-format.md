@@ -61,7 +61,7 @@ AlignAfterOpenBracket: Align
 
 脚本如下：
 
-```
+```shell
 #!/bin/bash
 
 #  Created by Sin on 19/10/11.
