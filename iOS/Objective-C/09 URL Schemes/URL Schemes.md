@@ -18,8 +18,7 @@
 
 ### 注册Schemes
 
-在Info.plist中进行配置
-URL Identifier，一个字符串对象。该字符串是你自定义的 `URL Schemes` 的名字。建议采用反转域名的方法保证该名字的唯一性，比如 `com.yourCompany.yourApp`
+在Info.plist中进行配置URL Identifier，一个字符串对象。该字符串是你自定义的 `URL Schemes` 的名字。建议采用反转域名的方法保证该名字的唯一性，比如 `com.yourCompany.yourApp`
 
 ![](./media_URL Schemes/info_plist.png)
 
@@ -101,9 +100,13 @@ LionsomApp://?token=123abc&registered=1
 
 [Apple Document - Support Universal Links](https://developer.apple.com/library/archive/documentation/General/Conceptual/AppSearch/UniversalLinks.html)
 
+[Supporting universal links in your app](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app/)
+
 [官方检验Universal Links](https://search.developer.apple.com/appsearch-validation-tool/)
 
 
+
+https://www.jianshu.com/p/f1c97d0d0d22
 
 ## 简介
 

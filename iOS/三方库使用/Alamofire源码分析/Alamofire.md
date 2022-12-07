@@ -132,8 +132,8 @@ end
 #### property
 
 ```swift
-    /// 一个默认的单例
-    public static let `default` = Session()
+/// 一个默认的单例
+public static let `default` = Session()
 ```
 
 #### init
