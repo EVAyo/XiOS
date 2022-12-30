@@ -450,3 +450,14 @@ Json工具
 
 暗黑
 
+
+
+
+
+# 六、清理Mac
+
+* 缓存
+    * `~/资源库/Caches`
+
+* 来自iOS的备份数据 - [官网](https://support.apple.com/zh-cn/HT204215)
+    * `~/资源库/Application Support/MobileSync/Backup`
