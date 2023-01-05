@@ -60,7 +60,7 @@ https://juejin.cn/post/6844903792647864328
 
 # Any / AnyObject
 
-![](media_012KeyWords/001.png)
+![](images/001.png)
 
 
 
@@ -74,13 +74,13 @@ https://juejin.cn/post/6844903792647864328
 >
 >   // as？可选类型转换，无法转换时返回nil
 
-![](media_012KeyWords/002.png)
+![](images/002.png)
 
 
 
 # X.self、X.Type、AnyClass
 
-![](media_012KeyWords/003.png)
+![](images/003.png)
 
 
 

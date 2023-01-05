@@ -18,7 +18,7 @@ Xcode 11 中新建 iOS 项目工程时，会有很多变化，最大的变化就
 
 把 Info.plist 中的 ```Application Scene Manifest → Scene Configuration → Application Session Role → Storyboard Name``` 和 ```Main storyboard file base name``` 字段删除。
 
-![](media_100day/001_001.jpg)
+![](images/001_001.jpg)
 
 ### 3、是否保留 SceneDelegate 的配置方法
 
