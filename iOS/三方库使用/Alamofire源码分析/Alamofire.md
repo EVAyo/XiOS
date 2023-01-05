@@ -33,6 +33,12 @@
 
 
 
+[Alamofire学习（一）网络基础](https://juejin.cn/post/6844904119770038279)
+
+[Alamofire（二）URLSession](https://juejin.cn/post/6844904119774216205)
+
+[Alamofire（三）后台下载原理](https://juejin.cn/post/6844904119778410504)
+
 
 
 ## 支持
