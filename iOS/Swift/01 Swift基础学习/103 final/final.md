@@ -32,9 +32,9 @@
 
 
 
+# 有何好处
 
-
-
+使用 final 可以提高性能。使用 final 修饰可以避免系统的动态派发(Dynamic Dispatch)。关于 Dynamic Dispatch 的更多优化可以参见[此处](https://link.juejin.cn/?target=https%3A%2F%2Fdeveloper.apple.com%2Fswift%2Fblog%2F%3Fid%3D27)。
 
 # 单例模式与final关键字
 

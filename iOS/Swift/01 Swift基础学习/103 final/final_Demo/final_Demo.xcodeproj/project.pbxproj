@@ -14,6 +14,7 @@
 		99848F092967BAA600FF8AB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99848F082967BAA600FF8AB6 /* Assets.xcassets */; };
 		99848F0C2967BAA600FF8AB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99848F0A2967BAA600FF8AB6 /* LaunchScreen.storyboard */; };
 		99848F142967BAB700FF8AB6 /* finalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99848F132967BAB700FF8AB6 /* finalTest.swift */; };
+		99848F372967F67800FF8AB6 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99848F362967F67800FF8AB6 /* Singleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		99848F0B2967BAA600FF8AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99848F0D2967BAA600FF8AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99848F132967BAB700FF8AB6 /* finalTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finalTest.swift; sourceTree = "<group>"; };
+		99848F362967F67800FF8AB6 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				99848F012967BAA400FF8AB6 /* SceneDelegate.swift */,
 				99848F032967BAA400FF8AB6 /* ViewController.swift */,
 				99848F132967BAB700FF8AB6 /* finalTest.swift */,
+				99848F362967F67800FF8AB6 /* Singleton.swift */,
 				99848F052967BAA400FF8AB6 /* Main.storyboard */,
 				99848F082967BAA600FF8AB6 /* Assets.xcassets */,
 				99848F0A2967BAA600FF8AB6 /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				99848F142967BAB700FF8AB6 /* finalTest.swift in Sources */,
 				99848F042967BAA400FF8AB6 /* ViewController.swift in Sources */,
 				99848F002967BAA400FF8AB6 /* AppDelegate.swift in Sources */,
+				99848F372967F67800FF8AB6 /* Singleton.swift in Sources */,
 				99848F022967BAA400FF8AB6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
