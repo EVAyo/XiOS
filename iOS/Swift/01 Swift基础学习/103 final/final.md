@@ -12,7 +12,7 @@
 
 
 
-# final修饰class
+## final修饰class
 
 ![](images/001.png)
 
@@ -20,12 +20,22 @@
 
 
 
-# final修饰function
+## final修饰function
 
 ![](images/002.png)
 
 
 
-# final修饰属性
+## final修饰属性
 
 ![](images/003.png)
+
+
+
+
+
+
+
+# 单例模式与final关键字
+
+https://blog.csdn.net/nakiri_arisu/article/details/79645956

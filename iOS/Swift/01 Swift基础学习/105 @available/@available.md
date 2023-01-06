@@ -1,97 +1,135 @@
-​		Swift 2.0 中，引入了可用性的概念。对于函数，类，协议等，可以使用`@available`声明这些类型的生命周期依赖于特定的平台和操作系统版本。而`#available`用在判断语句中（if, guard, while等），在不同的平台上做不同的逻辑。
+[@available 和 #available](https://swift.gg/2016/04/13/swift-qa-2016-04-13/)
+
+​		
+
+Swift 2.0 中，引入了可用性的概念。对于函数，类，协议等，可以使用`@available`声明这些类型的生命周期依赖于特定的平台和操作系统版本。而`#available`用在判断语句中（if, guard, while等），在不同的平台上做不同的逻辑。
 
 
 
-
-
-
-
-@available： 可用来标识计算属性、函数、类、协议、结构体、枚举等类型的生命周期。（依赖于特定的平台版本 或 Swift 版本）。它的后面一般跟至少两个参数，参数之间以逗号隔开。其中第一个参数是固定的，代表着平台和语言，可选值有以下这几个：
-
-iOS
-iOSApplicationExtension
-macOS
-macOSApplicationExtension
-watchOS
-watchOSApplicationExtension
-tvOS
-tvOSApplicationExtension
-swift
-
-可以使用*指代支持所有这些平台。
-有一个我们常用的例子，当需要关闭ScrollView的自动调整inset功能时：
-
-
-
-```bash
-if #available(iOS 11.0, *) {
-
-  scrollView.contentInsetAdjustmentBehavior = .never
-
-} else {
-
-  automaticallyAdjustsScrollViewInsets = false
-
-}
-```
-
-还有一种用法是放在函数、结构体、枚举、类或者协议的前面，表示当前类型仅适用于某一平台：
-
-
+## 使用一览
 
 ```swift
-@available(iOS 12.0, *)
-func adjustDarkMode() {
-  /* code */
+// MARK: - @available #available 使用
+
+@available(iOS 12, *)
+func A() {
+    print("")
 }
-@available(iOS 12.0, *)
-struct DarkModeConfig {
-  /* code */
+
+func B() {
+    if #available(iOS 8, *) {
+        // iOS8及其以上系统运行
+    }
+
+    guard #available(iOS 8, *) else {
+        return // iOS8以下系统就直接返回
+    }
 }
-@available(iOS 12.0, *)
-protocol DarkModeTheme {
-  /* code */
+
+// MARK: - 多参数
+
+@available(iOS 13, OSX 10.15, tvOS 13, watchOS 6, *)
+func C() {
+    // todo
+}
+
+// MARK: - 废弃
+
+@available(*, deprecated, message: "不要再使用该方法了")
+func E() {
+    // todo
+}
+
+// MARK: -  约束swift版本
+
+@available(swift 5.2)
+func F() {
+    // todo
+}
+
+// MARK: - 手动参数
+
+@available(iOS, introduced: 9.0, message: "111")
+func D() {
+    // todo
+}
+
+// MARK: - 最全参数
+
+@available(iOS, introduced: 7.0, deprecated: 10.0, message: "Please Use newFunction instead", renamed: "newFunction")
+func oldFunction() {}
+
+func newFunction() {}
+
+// MARK: - #unavailable
+// Swift 5.6(搭配 Xcode 13.3) 推出了跟 #available 意思相反的 #unavailable
+func G() {
+	// 表示 iOS 16 之前(不包含 16)的版本將採用 if { } 裡的寫法。
+    if #unavailable(iOS 16.0) {
+        // todo
+    }
 }
 ```
 
-版本和平台的限定可以写多个：
+
+
+## 参数介绍
+
+`@available(iOS 9, *)`必须包含至少2个特性参数，其中`iOS 9`表示必须在 iOS 9 版本以上才可用；
+另外一个特性参数：星号（*），表示包含了所有平台，目前有以下几个平台：
+
+- iOS
+- iOSApplicationExtension
+- OSX
+- OSXApplicationExtension
+- watchOS
+- watchOSApplicationExtension
+- tvOS
+- tvOSApplicationExtension
 
 
 
-```swift
-@available(OSX 10.15, iOS 13, tvOS 13, watchOS 6, *)
-public func applying(_ difference: CollectionDifference<Element>) -> ArraySlice<Element>?
-```
+`@available(iOS 9, *)`是一种简写形式。全写形式是`@available(iOS, introduced=9.0)`。`introduced=9.0`参数表示指定平台(iOS)从 9.0 开始引入该声明。为什么可以采用简写形式呢？当只有`introduced`这样一种参数时，就可以简写成以上简写形式。同理：@available(iOS 8.0, OSX 10.10, *) 这样也是可以的。表示同时在多个平台上（iOS 8.0 及其以上；OSX 10.10及其以上）的可用性。
 
-注意：作为条件语句的available前面是#，作为标记位时是@
-刚才说了，available后面参数至少要有两个，后面的可选参数这些：
+另外，`@available`还有其他一些参数可以使用，分别是：
 
-deprecated：从指定平台标记为过期，可以指定版本号
+- **unavailable**：表示该声明在指定的平台上是无效的。
 
-obsoleted=版本号：从指定平台某个版本开始废弃（注意弃用的区别，deprecated是还可以继续使用，只不过是不推荐了，obsoleted是调用就会编译错误）该声明
-message=信息内容：给出一些附加信息
-unavailable：指定平台上是无效的
-renamed=新名字：重命名声明
+- **introduced**：表示指定平台从哪一版本开始引入该声明。格式如下：
 
-我们看几个例子，这个是Array里flatMap的函数说明：
+    ```swift
+    introduced: 版本号
+    ```
 
+- **deprecated**：表示指定平台从哪一版本开始弃用该声明。虽然被弃用，但是依然使用的话也是没有问题的。格式如下：若省略版本号，则表示目前弃用，同时可直接省略冒号。
 
+    ```swift
+    deprecated: 版本号
+    ```
 
-```swift
-@available(swift, deprecated: 4.1, renamed: "compactMap(_:)", message: "Please use compactMap(_:) for the case where closure returns an optional value")
-public func flatMap<ElementOfResult>(_ transform: (Element) throws -> ElementOfResult?) rethrows -> [ElementOfResult]
-```
+- **obsoleted**：表示指定平台从哪一版本开始废弃该声明。当一个声明被废弃后，它就从平台中移除，不能再被使用。格式如下：
 
-它的含义是针对swift语言，该方式在swift4.1版本之后标记为过期，对应该函数的新名字为compactMap(*:)，如果我们在4.1之上的版本使用该函数会收到编译器的警告，即⚠️Please use compactMap(*:) for the case where closure returns an optional value。
-在Realm库里，有一个销毁NotificationToken的方法，被标记为unavailable：
+    ```swift
+    obsoleted: 版本号
+    ```
 
+- **message**：说明信息。当使用被弃用或者被废弃的声明时，编译器会抛出警告或错误信息。格式如下：
 
+    ```swift
+    message: "说明信息"
+    ```
 
-```swift
-extension RLMNotificationToken {
-    @available(*, unavailable, renamed: "invalidate()")
-    @nonobjc public func stop() { fatalError() }
-}
-```
+- **renamed**：新的声明名称信息。当使用旧声明时，编译器会报错提示修改为新名字。格式如下：
 
-标记为unavailable就不会被编译器联想到。这个主要是为升级用户的迁移做准备，从可用stop()的版本升上了，会红色报错，提示该方法不可用。因为有renamed，编译器会推荐你用invalidate()，点击fix就直接切换了。所以这两个标记参数常一起出现。
+    ```swift
+    renamed: "新的声明名称"
+    ```
+
+- 如果 **available** 特性除了平台名称参数外，只指定了一个 **introduced** 参数，那么可以使用以下简写语法代替：
+
+    ```swift
+    @available(平台名称 版本号, *)
+    ```
+
+    
+
