@@ -21,29 +21,29 @@ class B: A {
     }
 }
 
-//// MARK: - final修饰class
-//
-// final class C {
-//    // ToDo
-// }
-//
-// class D: C {
-//    // ToDo
-// }
-//
-//// MARK: - final修饰function
-//
-// class E {
-//    final func method() {
-//        // ToDo...
-//    }
-// }
-//
-// class F: E {
-//    override func method() {
-//        // ToDo...
-//    }
-// }
+// MARK: - final修饰class
+
+final class C {
+    // ToDo
+}
+
+class D: C {
+    // ToDo
+}
+
+// MARK: - final修饰function
+
+class E {
+    final func method() {
+        // ToDo...
+    }
+}
+
+class F: E {
+    override func method() {
+        // ToDo...
+    }
+}
 
 // MARK: - final修饰属性
 

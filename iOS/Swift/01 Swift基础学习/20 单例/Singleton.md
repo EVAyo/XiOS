@@ -1,4 +1,4 @@
-
+[单例集合](https://juejin.cn/s/swift%205%20%E5%8D%95%E4%BE%8B)
 
 [Swift **单例**模式讲解和代码示例](https://refactoringguru.cn/design-patterns/singleton/swift/example)
 
