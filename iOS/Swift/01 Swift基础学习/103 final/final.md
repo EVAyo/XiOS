@@ -36,14 +36,7 @@
 
 使用 final 可以提高性能。使用 final 修饰可以避免系统的动态派发(Dynamic Dispatch)。关于 Dynamic Dispatch 的更多优化可以参见[此处](https://link.juejin.cn/?target=https%3A%2F%2Fdeveloper.apple.com%2Fswift%2Fblog%2F%3Fid%3D27)。
 
+## 通过减少动态分发来提升性能 
 
+像许多其他语言一样，Swift允许类覆盖其超类中声明的方法和属性。这意味着程序必须在运行时确定正在转介哪种方法或属性，然后执行间接呼叫或间接访问。该技术称为动态调度，以每种间接用法的恒定运行时开销成本提高语言表达性。在性能敏感的代码中，这种开销通常是不受欢迎的。这篇博客文章通过消除这种动力来展示提高性能的三种方法：final, private, and Whole Module Optimization.
 
-
-
-
-
-
-
-# 单例模式与final关键字
-
-https://blog.csdn.net/nakiri_arisu/article/details/79645956

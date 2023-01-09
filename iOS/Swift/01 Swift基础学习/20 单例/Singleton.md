@@ -44,6 +44,21 @@
 
 
 
+# 单例规则
+
+关于单例，有三个重要的准则需要牢记：
+
+1. 单例必须是唯一的(要不怎么叫单例？) 在程序生命周期中只能存在一个这样的实例。单例的存在使我们可以全局访问状态。例如：
+
+`NSNotificationCenter`, `UIApplication`和`NSUserDefaults`。
+
+1. 为保证单例的唯一性，单例类的初始化方法必须是私有的。这样就可以避免其他对象通过单例类创建额外的实例。
+2. 考虑到规则1，为保证在整个程序的生命周期中值有一个实例被创建，单例必须是线程安全的。并发有时候确实挺复杂，简单说来，如果单例的代码不正确，如果有两个线程同时实例化一个单例对象，就可能会创建出两个单例对象。也就是说，必须保证单例的线程安全性，才可以保证其唯一性。通过调用`dispatch_once`，即可保证实例化代码只运行一次。
+
+在程序中保持单例的唯一性，只初始化一次，这样并不难。需要记住：单例实现要满足隐藏的`dispatch_once`规则。
+
+
+
 # OC单例例子
 
 使用 GCD 中的 `dispatch_once_t` 可以保证里面的代码只被调用一次，以此保证单例在线程上的安全。
@@ -64,6 +79,69 @@
 
 
 # Swift 单例的实现
+
+
+
+## 0. 历史版本的单例
+
+- [SwiftSingleton](https://link.jianshu.com/?t=https://github.com/hpique/SwiftSingleton)
+- [dispatch_once singleton model in swift](https://link.jianshu.com/?t=http://stackoverflow.com/questions/24024549/dispatch-once-singleton-model-in-swift)
+- [Apple Swift Blog](https://link.jianshu.com/?t=https://developer.apple.com/swift/blog/?id=7)
+- [THE RIGHT WAY TO WRITE A SINGLETON](https://krakendev.io/blog/the-right-way-to-write-a-singleton?utm_content=buffer0072d)
+
+
+
+### a. 翻译OC单例
+
+因为在 Swift 中可以无缝直接使用 GCD，所以我们可以很方便地把类似方式的单例用 Swift 进行改写：
+
+```swift
+class TheOneAndOnlyKraken {
+    class var sharedInstance: TheOneAndOnlyKraken {
+        struct Static {
+            static var onceToken: dispatch_once_t = 0
+            static var instance: TheOneAndOnlyKraken? = nil
+        }
+        dispatch_once(&Static.onceToken) {
+            Static.instance = TheOneAndOnlyKraken()
+        }
+        return Static.instance!
+    }
+}
+```
+
+
+
+### b. 结构体方法
+
+```swift
+class TheOneAndOnlyKraken {
+    class var sharedInstance: TheOneAndOnlyKraken {
+        struct Static {
+            static let instance = TheOneAndOnlyKraken()
+        }
+        return Static.instance
+    }
+}
+```
+
+**Swift 1.0**时，不支持静态类变量，那时这个方法是不得已而为之。但使用结构体，就可以支持这个功能。因为静态变量的限制，我们被约束在这样的一个模型中。这比Objective-C移植版本好一些，但还不够好。
+
+
+
+### c. private 全局变量
+
+还有另一种更受大家欢迎，并被认为是 Swift 1.2 之前的最佳实践的做法。由于 Swift 1.2 之前 class 不支持存储式的 property，我们想要使用一个只存在一份的属性时，就只能将其定义在全局的 scope 中。值得庆幸的是，在 Swift 中是有访问级别的控制的，我们可以在变量定义前面加上 private 关键字，使这个变量只在当前文件中可以被访问。这样我们就可以写出一个没有嵌套的，语法上也更简单好看的单例了：
+
+```swift
+private let sharedInstance = TestViewController()
+
+class TestViewController: UIViewController  {
+    class var sharedManager : TestViewController {
+        return sharedInstance
+    }
+}
+```
 
 
 
@@ -172,7 +250,7 @@ Swift 全局变量初始化时默认使用`dispatch_once`，这保证了全局�
 
 
 
-## 说明
+### 说明
 
 `static let shared = Tools()` 是线程安全的，并且将在第一次调用时进行赋值。
 
@@ -184,73 +262,15 @@ Swift 全局变量初始化时默认使用`dispatch_once`，这保证了全局�
 
 
 
+### 为何看不到`dispatch_once`？
+
+* 单行单例方法
+
+    ![](images/001.png)
+
+* 全局单例方法
+
+    ![](images/002.png)
 
 
 
-
-
-
-
-
-- 2.因为在 Swift 中可以无缝直接使用 GCD，所以我们可以很方便地把类似方式的单例用 Swift 进行改写：
-
-
-
-```
-class TestViewController: UIViewController {
-  class var sharedManager : TestViewController {
-    struct Static {
-      static var onceToken : dispatch_once_t = 0
-      static var staticInstance : TestViewController? = nil
-    }
-    dispatch_once(&Static.onceToken) {
-      Static.staticInstance = TestViewController()
-    }
-    return Static.staticInstance!
-  }
-}
-```
-
-- 3.因为 Swift 1.2 之前并不支持存储类型的类属性，所以我们需要使用一个 struct 来存储类型变量。
-
-
-这样的写法当然没什么问题，但是在 Swift 里我们其实有一个更简单的保证线程安全的方式，那就是 let。把上面的写法简化一下，可以变成：
-
-
-
-```
-class TestViewController: UIViewController {
-   class var sharedManager : TestViewController {
-       struct Static {
-          static let sharedInstance : TestViewController = TestViewController()
-       }
-       return Static.sharedInstance
-    }
- }
-```
-
-1. 1. 还有另一种更受大家欢迎，并被认为是 Swift 1.2 之前的最佳实践的做法。由于 Swift 1.2 之前 class 不支持存储式的 property，我们想要使用一个只存在一份的属性时，就只能将其定义在全局的 scope 中。值得庆幸的是，在 Swift 中是有访问级别的控制的，我们可以在变量定义前面加上 private 关键字，使这个变量只在当前文件中可以被访问。这样我们就可以写出一个没有嵌套的，语法上也更简单好看的单例了：
-
-
-
-```
-private let sharedInstance = TestViewController()
-  class TestViewController: UIViewController  {
-      class var sharedManager : TestViewController {
-          return sharedInstance
-      }
-  }
-```
-
-1. 1. swift3.0以后我们普遍使用“果没有特别的需求，我们推荐使用下面这样的方式来写一个单例：
-
-
-
-```
-class TestViewController: UIViewController  {
-     private static let sharedInstance = TestViewController()
-     class var sharedManager : TestViewController {
-          return sharedInstance
-      }
-  }
-```
