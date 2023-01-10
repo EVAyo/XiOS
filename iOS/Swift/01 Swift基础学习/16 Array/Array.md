@@ -141,7 +141,7 @@ var shoppingList = ["Eggs", "Milk1", "Milk2", "Milk3", "Milk4", "Milk5"];
 
 ```swift
 for item in shoppingList {
-		print(item);
+	print(item);
 }
 ```
 
@@ -149,7 +149,7 @@ for item in shoppingList {
 
 ```swift
 for (index, value) in shoppingList.enumerated() {
-		print(index, value);
+	print(index, value);
 }
 
 0 Milk1
