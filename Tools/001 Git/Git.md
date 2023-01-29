@@ -261,7 +261,7 @@ $ git remote set-url origin new_url
 
 ## 七、Github打Tag
 
-```
+```shell
 /// 查看tag
 $ git tag
 
@@ -295,9 +295,10 @@ $ git checkout -b chuanhua V7.12.0
 
 ### 7.1. 删除tag
 
-
-
-
+```shell
+删除本地tag
+$ git tag -d 1.0.0
+```
 
 
 
