@@ -281,7 +281,7 @@ pod package QYCH5SDK.podspec --force --exclude-deps --no-mangle --embedded --spe
 
 
 
-
+## [动静态库的混用](https://www.hanleylee.com/various-libraries-in-ios.html#%E5%8A%A8%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E6%B7%B7%E7%94%A8)
 
 
 
