@@ -138,3 +138,13 @@
     ⑤、软件版本实时模块升级
     ⑥、在其它大部分平台上，动态库都可以用于不同应用间共享， 共享可执行文件，这就大大节省了内存。
 
+
+
+
+
+# 三、Swift Framework中使用Module
+
+[iOS-开发进阶07：Module与Swift库](https://www.jianshu.com/p/4dab600555dc)
+
+如果我们的`Framework`中需要用到`Swift-OC`混编，但是`Framework`中不能使用桥接文件，因此这种情况下可以使用`Module`解决。
+

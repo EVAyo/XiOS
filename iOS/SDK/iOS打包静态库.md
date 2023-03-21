@@ -137,34 +137,3 @@ $ lipo -info xxx.framework
 
 
 
-## 打包.framework
-
-1、创建Pod，导入三方库AFN、SDW、YYKit
-
-
-
-2、PPNetWork
-
-* AccoutTool
-* EntId
-
-
-
-3、XLForm 
-
-* entid
-* libxml  [解决方案](https://www.jianshu.com/p/f0d4bc22784b)
-* qyccolor
-* 头文件 + 常量 + define
-* 百度Map，pod安装不上 ` $ ALL_PROXY=socks5://127.0.0.1:1086 pod install --verbose --no-repo-update`
-* QYCFontImage 字体库
-* 各类Controller：LinkWebViewController
-
-
-
-
-
-
-
-
-

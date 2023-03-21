@@ -287,6 +287,10 @@ pod package QYCH5SDK.podspec --force --exclude-deps --no-mangle --embedded --spe
 
 OC动态库 + Swift静态库
 
+- 静态库可以依赖静态库
+- 动态库可以依赖动态库
+- 动态库不能依赖静态库! 动态库不能依赖静态库是因为静态库不需要在运行时再次加载, 如果多个动态库依赖同一个静态库, 会出现多个静态库的拷贝, 而这些拷贝本身只是对于内存空间的消耗.
+
 
 
 
