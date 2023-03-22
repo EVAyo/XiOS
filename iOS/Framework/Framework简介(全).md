@@ -2,6 +2,8 @@
 
 # ====== Part One 基础知识 ======
 
+[(iOS)年轻人，听说你想使用Framework - 基礎觀念](https://juejin.cn/post/6844903736154800141)
+
 
 
 # 一、库
@@ -245,6 +247,12 @@ use_frameworks！ 告诉CocoaPods您要使用 Frameworks 而不是 Static Librar
 
 
 
+## Modular Headers
+
+[CocoaPods - Modular Headers](https://blog.cocoapods.org/CocoaPods-1.5.0/)
+
+
+
 ## OC Swift 混编
 
 Objective-C 与 Swift 混编在使用上主要依赖两个头文件：ProjectName-Bridging-Header.h 和 ProjectName-Swift.h。
@@ -280,33 +288,207 @@ import QYCUtility.Swift
 
 # 四、Module 系统
 
+[module官方介绍](https://links.jianshu.com/go?to=https%3A%2F%2Fclang.llvm.org%2Fdocs%2FModules.html%23export-declaration)
+
 如果我们的`Framework`中需要用到`Swift-OC`混编，但是`Framework`中不能使用桥接文件，因此这种情况下可以使用`Module`解决。
 
+## 4.1 Module简介
+
+> Module(模块)-最小的代码单元。
+
+- 一个Module是机器代码和数据的最小单位，可以独立于其他代码单位进行链接。
+- 通常，Module是通过编译单个源文件生成的目标文件。例如，当前的test.m被编译成目标文件test.o时，当前的目标文件就代表了一个Module。
+- 但有一个问题，Module在调用的时候会产生开销，比如我们在使用一个静态库的时候，可以这样使用
+
+假设有A.h、B.h两个头文件、c.m、d.m两个实现文件，两个.m文件都使用#include引入A、B两个头文件。当编译两个.m文件会导致A、B两个头文件分别被编译两次。
+为了解决头文件重复编译这个问题现在基本上都使用#import引入头文件，使用#import会默认开启Module，这样头文件会预先编译成二进制，再有文件导入时就不会重新编译。
 
 
 
+## 4.2 Module 化
 
-# 三、Swift Framework中使用Module
+[百度 App Objective-C/Swift 组件化混编之路（二）- 工程化](https://xie.infoq.cn/article/7e29766cbac9d1d182f5f64c6)
+
+**1. 基本概念**
+
+- **module**：是一个编译单元，或构建产物，对一个软件库的结构化替代封装，供链接器使用（更多介绍请查阅 Clang-Module：https://clang.llvm.org/docs/Modules.html#introduction）
+
+- **umbrella header**：module 对外公开的根头文件，包含了这个 module 中所有其他公开头文件的引用。以 Foundation 框架的根头文件 `<Foundation/Foundation.h>`为例：
+
+    ![](media_Framework/010.png)
+
+对编译器来讲，每次编译过程一个 module 只会加载一次，避免多次引入并加载相同的头文件带来的编译耗时问题。所以 module 化后编译效率更高。
+
+- **modulemap**：描述 module 和 module header 间的关系，描述现有 header 如何映射到 module 的逻辑结构。modulemap 结构如下：
+
+```swift
+framework module SwiftOCMixture {  umbrella header "SwiftOCMixture.h"
+  export *  module * { export * }}
+
+module SwiftOCMixture.Swift {    header "SwiftOCMixture-Swift.h"    requires objc}
+```
+
+> ModuleMap 采用模块映射语言，但是到现在( 2020 年 Q3 为止)该语法依然不够稳定，所以建议：编写 modulemap 时需要尽可能使用少的关键字实现 module 功能，比如 framework、umbrella、header、extern、use。
+
+建议 modulemap 内声明一个 umbrella header，便于快速引用对应的头文件，但必须将所有公开的头文件填充到 umbrella header 文件内。否则将得到一个警告：
+
+```swift
+<module-includes>
+Umbrella header for module 'XXX' does not include header 'absolute path to a public header'
+```
+
+> 不包含 umbrella header 的 module ，modulemap 中不必添加 `module * { export * }`包含 umbrella header 的 framework，不用配置任何(包括 MODULEMAP_FILE )即可自动 module 化
+
+
+
+**2. module 相关的 build setting 参数**
+
+上古时期，程序员通过 Makefile 来控制程序的编译链接过程。现如今在 IDE 的封装下，复杂度大大降低，只需要通过 IDE 来控制关键变量和自定义变量，在 Xcode 中，这个控制变量被称为 build setting，build setting 和 Module 化相关的变量主要有这些：
+
+- 对 module 自身的描述：
+
+    DEFINES_MODULE：YES/NO，module 化需要设置为 YES
+
+    `MODULEMAP_FILE：指向 module.modulemap 路径`
+
+    `HEADER_SEARCH_PATHS：modulemap 内定义的 Objective-C 头文件，必须在 HEADER_SEARCH_PATHS 内能搜索到`
+
+    PRODUCT_MODULE_NAME：module 名称，默认和 Target name 相同
+
+- 对外部 module 的引用：
+
+    FRAMEWORK_SEARCH_PATHS：依赖的 Framework 搜索路径
+
+    OTHER_CFLAGS：编译选项，可配置依赖的其他 modulemap 文件路径 -fmodule-map-file=${modulemap_path}
+
+    HEADER_SEARCH_PATHS：头文件搜索路径，可用于配置源码中引用的其他 Library 的头文件
+
+    OTHER_LDFLAGS：依赖其他二进制的编译依赖选项
+
+    SWIFT_INCLUDE_PATHS：swiftmodule 搜索路径，可用于配置依赖的其他 swiftmodule
+
+    OTHER_SWIFT_FLAGS：Swift 编译选项，可配置依赖的其他 modulemap 文件路径 -Xcc -fmodule-map-file=${modulemap_path}
+
+
+
+## 4.3 Swift Framework中使用Module
 
 [iOS-开发进阶07：Module与Swift库](https://www.jianshu.com/p/4dab600555dc)
 
+[自制Framework：swift与OC混编，自定义module](https://www.jianshu.com/p/0316a3798e11)
 
 
 
+**为何选择自定义module**
 
-## 动静态库以 .framework 形式被 `embed` 或 `not embed` 对包体积的影响
-
-
-
-
-
-[(iOS)年轻人，听说你想使用Framework - 基礎觀念](https://juejin.cn/post/6844903736154800141)
-
-
-
-## Xcode 里 Linking vs. Embedding Frameworks
+在swift与OC的开发中，如果我们面向Target，其实不必选择module，因为一个桥接头文件(Buid Settings 中 Objective-C Bridging Header)即可解决调用问题。
+但在Framework中却不能如此处理，因为framework没有桥接配置。
+对于初学者来说，我们可以将OC或C的头文件引用到XXXframework.h中，就可以在framework内的swift代码中随意使用。
+但问题出现了，xxxframework.h引用的文件，必须为Public类型，所有引用此Framwork的target都可以随意调用，这个结果显然不是我们想要的。
+我们迫切的需要一种方式，可以让framework内的OC代码以project的形式被swift使用，这就用到了module。
 
 
 
+**如何在Framework中使用module**
+
+1. 新建一个Framework项目，暂命名为moduleMap(自行定义即可)
+
+2. 新建一个swift文件，命名为TestOc，用来测试调用OC代码
+
+3. 新建一个文件夹（new group），命名为mapoc
+
+4. 在mapoc中新建一个头文件myheader.h，及一个OC的类MyocHeader，再创建一个空文件，命名为module.modulemap
+
+5. module.modulemap中添加以下内容
+
+    ```swift
+    module mapoc {
+        header "myheader.h"
+        export *
+    }
+    ```
+
+最终文件结构如下图：
+
+![](media_Framework/011.png)
+
+6. 进入Build Settings ，找到Import Paths，添加一条记录$(SRCROOT)/moduleMap/mapoc
+7. command+b 编译成功，此时即可在TestOc中import mapoc
+8. 在mapoc/myheader.h中引入MyocHeader.h，如下图
+
+![](media_Framework/012.png)
+
+9. 编译一次，TestOc中即可调用MyocHeader类，如下图
+
+    ![](media_Framework/013.png)
+
+此时的头文件都是project类型的，当被其它项目引用时，是看不到这些project类的。
+当然，如果你想把某个OC的类暴露给别的项目，即需要将头文件设置为public，则只需要在moduleMap.h中引用即可，此处无需赘述。
+
+注意：如果你想设置多个module，只需要如上文中的mapoc一样，添加新的文件夹，文件夹中添加module.modulemap文件，增加一个公共请求头，并将请求头引用到module.modulemap 中，将文件夹路径新增到Import Paths中即可。
 
 
+
+# 五、Framework的Embed & Sign
+
+![](media_Framework/009.png)
+
+> 由于iOS的签名机制，应用导入第三方或者自己制作的包显然需要证书的签名，OS X则对应选择Embed Without Sign。
+
+* **Do Not Embed**
+* **Embed & Sign**
+* **Embed Without Signing**
+
+
+
+**Embed**：嵌入，用于动态库，动态库在运行时链接，所以它们需要被打进bundle里面。如何判断呢？使用终端执行：
+
+**是否可以embed?**
+
+```undefined
+file frameworkToLink.framework/frameworkToLink
+```
+
+如果返回：
+
+- `current ar archive`：说明是静态库，选择`Do not embed`
+- `Mach-0 dynamically`：说明是动态库，选择`Embed`
+
+
+
+**Signing**：只用于动态库，如果已经有签名了就不需要再签名。如何判断呢？使用终端执行：
+
+**是否可以sign?**
+
+```css
+codesign -dv frameworkToLink.framwork
+```
+
+如果返回：
+
+- `code object is not signed at all` 或者 `adhoc`:选择`Embed and sign`
+- 其它：表示已经正确签名，选择`Embed Without Signing`
+
+
+
+ **获取当前钥匙串可用的签名**
+
+```
+security find-identity -p codesigning
+```
+
+
+
+**对framework进行签名**
+
+```
+codesign --force --verify --verbose --sign "上一步获取的证书" xxx.framework
+```
+
+
+
+**验证签名是否成功**
+
+```
+codesign -v --strict --deep --verbose=2 xxx.framework
+```
