@@ -61,7 +61,7 @@ shoppingList[1] = "bottle of water"
 var occupations = [
     "Malcolm": "Captain",
     "Kaylee": "Mechanic",
- ]
+]
 occupations["Jayne"] = "Public Relations"
 
 //: Arrays automatically grow as you add elements.
@@ -79,8 +79,6 @@ let emptyDictionary = [String: Float]()
 shoppingList = []
 occupations = [:]
 
-
-
 //: See [License](License) for this sample's licensing information.
-//: 
+//:
 //: [Next](@next)

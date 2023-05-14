@@ -8,16 +8,15 @@
 
 import RxSwift
 
-extension ObservableConvertibleType {
+public extension ObservableConvertibleType {
     /**
      Converts observable sequence to `Signal` trait.
 
      - parameter onErrorJustReturn: Element to return in case of error and after that complete the sequence.
      - returns: Signal trait.
      */
-    public func asSignal(onErrorJustReturn: Element) -> Signal<Element> {
-        let source = self
-            .asObservable()
+    func asSignal(onErrorJustReturn: Element) -> Signal<Element> {
+        let source = asObservable()
             .observeOn(SignalSharingStrategy.scheduler)
             .catchErrorJustReturn(onErrorJustReturn)
         return Signal(source)
@@ -29,9 +28,8 @@ extension ObservableConvertibleType {
      - parameter onErrorDriveWith: Driver that continues to drive the sequence in case of error.
      - returns: Signal trait.
      */
-    public func asSignal(onErrorSignalWith: Signal<Element>) -> Signal<Element> {
-        let source = self
-            .asObservable()
+    func asSignal(onErrorSignalWith: Signal<Element>) -> Signal<Element> {
+        let source = asObservable()
             .observeOn(SignalSharingStrategy.scheduler)
             .catchError { _ in
                 onErrorSignalWith.asObservable()
@@ -45,9 +43,8 @@ extension ObservableConvertibleType {
      - parameter onErrorRecover: Calculates driver that continues to drive the sequence in case of error.
      - returns: Signal trait.
      */
-    public func asSignal(onErrorRecover: @escaping (_ error: Swift.Error) -> Signal<Element>) -> Signal<Element> {
-        let source = self
-            .asObservable()
+    func asSignal(onErrorRecover: @escaping (_ error: Swift.Error) -> Signal<Element>) -> Signal<Element> {
+        let source = asObservable()
             .observeOn(SignalSharingStrategy.scheduler)
             .catchError { error in
                 onErrorRecover(error).asObservable()

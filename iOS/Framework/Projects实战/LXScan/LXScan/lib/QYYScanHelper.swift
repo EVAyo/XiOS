@@ -5,9 +5,9 @@
 //  Created by 启业云03 on 2021/6/28.
 //
 
-import UIKit
 import AVFoundation
 import Photos
+import UIKit
 
 // MARK: - 权限
 
@@ -106,9 +106,9 @@ extension UIColor {
     ///   - green: G
     ///   - blue: B
     convenience init(R: UInt, G: UInt, B: UInt, A: CGFloat = 1.0) {
-        let newRed = CGFloat(R)/255
-        let newGreen = CGFloat(G)/255
-        let newBlue = CGFloat(B)/255
+        let newRed = CGFloat(R) / 255
+        let newGreen = CGFloat(G) / 255
+        let newBlue = CGFloat(B) / 255
         self.init(red: newRed,
                   green: newGreen,
                   blue: newBlue,
@@ -147,7 +147,6 @@ func localizedString(_ key: String) -> String {
     guard let path = tmp?.path(forResource: fileNamePrefix, ofType: "lproj") else { return key }
     let bundle = Bundle(path: path)
 
-    
     guard let localizedString = bundle?.localizedString(forKey: key, value: nil, table: "Localizable"), localizedString.count > 0 else {
         return key
     }

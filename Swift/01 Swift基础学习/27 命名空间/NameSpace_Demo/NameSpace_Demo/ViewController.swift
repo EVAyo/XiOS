@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         MyClass.hello()
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_: Set<UITouch>, with _: UIEvent?) {
         // 简单的命名空间测试
         let myBtn = UIButton()
         myBtn.nameSpace.hello()
@@ -48,7 +48,7 @@ struct ButtonNameSpace {
     }
 
     func hello() {
-        let title = self.button.title(for: .normal) ?? ""
+        let title = button.title(for: .normal) ?? ""
         print("Hello!!! \(title)")
     }
 }
@@ -74,7 +74,7 @@ struct MyNameSpace<Base> {
 // extension MyNameSpace where Base == String {  } 这样也可以
 extension MyNameSpace where Base: UIButton {
     func hello() {
-        let title = self.base.title(for: .normal) ?? ""
+        let title = base.title(for: .normal) ?? ""
         print("Hello \(title)")
     }
 }
@@ -89,7 +89,7 @@ extension UIButton {
 
 extension MyNameSpace where Base: UIImage {
     func hello() {
-        let title = self.base.accessibilityHint ?? ""
+        let title = base.accessibilityHint ?? ""
         print("Hello \(title)")
     }
 }
@@ -129,10 +129,10 @@ extension String: JTWrappable {}
 // String 命名空间 jt 中的函数
 public extension JTKit where Base == String {
     var testMethod: String {
-        return self.base + "namespace"
+        return base + "namespace"
     }
 
     func method(str: String) -> String {
-        return self.base + str
+        return base + str
     }
 }

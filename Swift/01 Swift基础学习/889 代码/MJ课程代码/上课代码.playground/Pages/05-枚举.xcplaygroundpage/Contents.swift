@@ -1,12 +1,12 @@
 var age = 10
 
-//MemoryLayout<Int>.size
-//MemoryLayout<Int>.stride
-//MemoryLayout<Int>.alignment
+// MemoryLayout<Int>.size
+// MemoryLayout<Int>.stride
+// MemoryLayout<Int>.alignment
 
-//MemoryLayout.size(ofValue: age)
-//MemoryLayout.stride(ofValue: age)
-//MemoryLayout.alignment(ofValue: age)
+// MemoryLayout.size(ofValue: age)
+// MemoryLayout.stride(ofValue: age)
+// MemoryLayout.alignment(ofValue: age)
 
 enum Password {
     case number(Int, Int, Int, Int) // 32
@@ -24,11 +24,11 @@ MemoryLayout<Password>.size // 33
 MemoryLayout<Password>.stride // 40
 MemoryLayout<Password>.alignment // 8
 
-
-enum Season : Int {
+enum Season: Int {
     // 0 1 2 3
     case spring = 1, summer, autumn, winter
 }
+
 var s = Season.spring // 0
 var s1 = Season.spring // 0
 var s2 = Season.spring // 0

@@ -49,9 +49,9 @@ public protocol ReactiveCompatible {
     var rx: Reactive<ReactiveBase> { get set }
 }
 
-extension ReactiveCompatible {
+public extension ReactiveCompatible {
     /// Reactive extensions.
-    public static var rx: Reactive<Self>.Type {
+    static var rx: Reactive<Self>.Type {
         get {
             return Reactive<Self>.self
         }
@@ -61,7 +61,7 @@ extension ReactiveCompatible {
     }
 
     /// Reactive extensions.
-    public var rx: Reactive<Self> {
+    var rx: Reactive<Self> {
         get {
             return Reactive(self)
         }
@@ -74,4 +74,4 @@ extension ReactiveCompatible {
 import class Foundation.NSObject
 
 /// Extend NSObject with `rx` proxy.
-extension NSObject: ReactiveCompatible { }
+extension NSObject: ReactiveCompatible {}

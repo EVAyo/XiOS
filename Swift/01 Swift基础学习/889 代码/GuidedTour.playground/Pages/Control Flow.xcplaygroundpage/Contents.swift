@@ -11,6 +11,7 @@ for score in individualScores {
         teamScore += 1
     }
 }
+
 print(teamScore)
 
 //: In an `if` statement, the conditional must be a Boolean expression—this means that code such as `if score { ... }` is an error, not an implicit comparison to zero.
@@ -41,14 +42,14 @@ let informalGreeting = "Hi \(nickname ?? fullName)"
 //:
 let vegetable = "red pepper"
 switch vegetable {
-    case "celery":
-        print("Add some raisins and make ants on a log.")
-    case "cucumber", "watercress":
-        print("That would make a good tea sandwich.")
-    case let x where x.hasSuffix("pepper"):
-        print("Is it a spicy \(x)?")
-    default:
-        print("Everything tastes good in soup.")
+case "celery":
+    print("Add some raisins and make ants on a log.")
+case "cucumber", "watercress":
+    print("That would make a good tea sandwich.")
+case let x where x.hasSuffix("pepper"):
+    print("Is it a spicy \(x)?")
+default:
+    print("Everything tastes good in soup.")
 }
 
 //: - Experiment:
@@ -73,6 +74,7 @@ for (_, numbers) in interestingNumbers {
         }
     }
 }
+
 print(largest)
 
 //: - Experiment:
@@ -84,6 +86,7 @@ var n = 2
 while n < 100 {
     n *= 2
 }
+
 print(n)
 
 var m = 2
@@ -95,13 +98,13 @@ print(m)
 //: You can keep an index in a loop by using `..<` to make a range of indexes.
 //:
 var total = 0
-for i in 0..<4 {
+for i in 0 ..< 4 {
     total += i
 }
+
 print(total)
 
 //: Use `..<` to make a range that omits its upper value, and use `...` to make a range that includes both values.
 //:
-
 
 //: [Previous](@previous) | [Next](@next)

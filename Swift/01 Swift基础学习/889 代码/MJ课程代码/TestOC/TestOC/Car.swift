@@ -8,6 +8,4 @@
 
 import Cocoa
 
-class Car: NSObject {
-
-}
+class Car: NSObject {}
