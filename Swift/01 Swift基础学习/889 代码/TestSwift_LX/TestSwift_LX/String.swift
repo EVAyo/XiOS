@@ -23,7 +23,7 @@ class StringTest {
         // 1.可以发现内存地址对应了 0 - 9 ASCII码（30 31 32 ... 39）；
         // 2.0xea占用一位标识 a表示有十个字符，猜想：此类最多15个字符；
         // 3.这与OC中的 "Tagged Pointer" 类似。
-        
+
         var second = "0123456789ABCDEF"
         print("0123456789ABCDEF占用内存大小：\(MemoryLayout.stride(ofValue: second))")
         print("0123456789ABCDEF内存地址：\(Mems.memStr(ofVal: &second))")
@@ -31,7 +31,7 @@ class StringTest {
         // 0123456789ABCDEF占用内存大小：16
         // 0123456789ABCDEF内存地址：0xd000000000000010 0x80000001000073b0
         //
-        
+
         print("String内存测试结束！！！")
         print("")
     }

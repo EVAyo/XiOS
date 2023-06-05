@@ -1,14 +1,14 @@
-//var num = 10
-//num += 20
-//num += 30
-//let age = num
-//print(age)
+// var num = 10
+// num += 20
+// num += 30
+// let age = num
+// print(age)
 
-//func getAge() -> Int {
+// func getAge() -> Int {
 //    return 10
-//}
-//let age = getAge()
-//print(age)
+// }
+// let age = getAge()
+// print(age)
 
 var age: Int = 10
 print(Int16.min)

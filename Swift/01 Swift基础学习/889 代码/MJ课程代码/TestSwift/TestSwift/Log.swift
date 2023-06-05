@@ -11,11 +11,10 @@ import Foundation
 func log<T>(_ msg: T,
             file: NSString = #file,
             line: Int = #line,
-            fn: String = #function) {
+            fn: String = #function)
+{
     #if DEBUG
-    let prefix = "\(file.lastPathComponent)_\(line)_\(fn):"
-    print(prefix, msg)
+        let prefix = "\(file.lastPathComponent)_\(line)_\(fn):"
+        print(prefix, msg)
     #endif
 }
-
-

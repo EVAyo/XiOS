@@ -1,3 +1,9 @@
+**基本概念**
+
+- [rvm](https://link.zhihu.com/?target=https%3A//rvm.io/)：ruby 版本管理工具，可以设置当前版本/安装/卸载
+- [gem](https://link.zhihu.com/?target=https%3A//rubygems.org/): 全称 RubyGems，是 ruby 的软件包管理工具
+- [brew](https://link.zhihu.com/?target=https%3A//brew.sh/): 全称 Homebrew，macos 的软件包管理工具
+
 
 
 # 第一部分、Mac安装CocoaPods详解
@@ -76,6 +82,15 @@ $ curl -L https://get.rvm.io | bash -s stable
 期间可能会问你sudo管理员密码，以及自动通过homebrew安装依赖包，等待一段时间后就可以成功安装好 RVM。
 
 然后，载入 RVM 环境（新开 Termal 就不用这么做了，会自动重新载入的）
+
+验证是否安装成功：
+
+```
+$ rvm -v
+zsh: command not found: rvm
+```
+
+启用rvm指令
 
 ```
 $ source ~/.rvm/scripts/rvm
@@ -210,6 +225,22 @@ $ sudo gem install cocoapods
 ```
 
 等待一小段时间，安装完成！！
+
+
+
+> 2023 更新
+>
+> `$sudo gem install cocoapods` 这个命令默认安装的应该是最新版本，如果想安装指定版本的cocoapods，
+>
+> 请使用以下命令：
+>
+> `$sudo gem install cocoapods -v 1.0.1 ` 备注：如果苹果系统升级到OS X EL Capitan，以上命令无效，
+>
+> 使用如下命令：
+>
+> `$sudo gem install -n /usr/local/bin cocoapods`
+
+
 
 验证是否安装成功：
 

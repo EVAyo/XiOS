@@ -85,7 +85,7 @@ class ViewController: UIViewController {
                 print(index)
                 print(array)
                 array.remove(at: index)
-                
+
                 // OC 写法，❎ 崩溃
                 // array.removeObject(item)
             }

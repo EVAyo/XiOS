@@ -1,14 +1,14 @@
 
 
-//var age: Int? = 10
+// var age: Int? = 10
 //
-//age = age! + 20
+// age = age! + 20
 
 var num1: Int? = 5
 num1? = 10
 print(num1 ?? 100)
 
-var num2: Int? = nil
+var num2: Int?
 num2? = 10
 print(num2 ?? 100)
 
@@ -32,6 +32,7 @@ class Person {
         self.name = name
         print("\(name) is being initialized")
     }
+
     deinit {
         print("\(name) is being deinitialized")
     }

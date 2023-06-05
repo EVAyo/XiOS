@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import QYYIconFont_Base
+// import QYYIconFont_Base
 
 private let scanner_borderWidth: CGFloat = 1.0 // 扫描器边框宽度
 private let scanner_cornerWidth: CGFloat = 3.0 // 扫描器棱角宽度
@@ -23,7 +23,7 @@ private let scannerLineAnmationKey = "ScannerLineAnmationKey" // 扫描线条动
 protocol QYYScanViewDelegate: AnyObject {
     /// 闪光灯点击事件
     func ScanViewFlashLightBtnClick(_ status: Bool)
-    
+
     /// 相册点击事件
     func ScanViewAlbumBtnClick()
 }
@@ -41,38 +41,38 @@ class QYYScanView: UIView {
     var config: ScanConfig!
     // 声明delegate
     weak var delegate: QYYScanViewDelegate?
-    
+
     init(frame: CGRect, config: ScanConfig) {
         super.init(frame: frame)
-        
+
         scanner_Width = self.frame.size.width * 0.7
         scanner_x = (bounds.width - scanner_Width) / 2
         scanner_y = (bounds.height - scanner_Width) / 2 - 50
-        
+
         self.config = config
-        
+
         p_setupUI()
     }
-    
+
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func p_setupUI() {
         backgroundColor = .clear
-        
+
         addSubview(scannerLine)
         _addScannerLineAnimation()
-        
+
         addSubview(tipLab)
-        
+
         addSubview(tipLab)
         addSubview(flashlightBtn)
         // addSubview(flashlightLab)
         addSubview(albumBtn)
     }
-    
+
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         // 半透明区域
@@ -93,7 +93,7 @@ class QYYScanView: UIView {
             let tempPath = UIBezierPath()
             tempPath.lineWidth = scanner_cornerWidth
             config.cornerColor.set()
-            
+
             switch index {
             case 0:
                 // 左上角
@@ -122,14 +122,14 @@ class QYYScanView: UIView {
             tempPath.stroke() // 根据坐标点连线，fill()是填充
         }
     }
-    
+
     // 扫描线条
     private lazy var scannerLine: UIImageView = {
         let tempScannerLine = UIImageView(frame: CGRect(x: scanner_x, y: scanner_y, width: scanner_Width, height: scanner_lineHeight))
         tempScannerLine.image = _imageNamed("scan_line")
         return tempScannerLine
     }()
-    
+
     lazy var tipLab: UILabel = {
         let tempLab = UILabel(frame: CGRect(x: 0,
                                             y: scanner_y + scanner_Width,
@@ -143,7 +143,7 @@ class QYYScanView: UIView {
         tempLab.text = localizedString("将\(title)放入框内，即可自动扫描")
         return tempLab
     }()
-    
+
     // 手电筒开关
     private lazy var flashlightBtn: UIButton = {
         let tempFlashlightBtn = UIButton(type: .custom)
@@ -161,7 +161,7 @@ class QYYScanView: UIView {
         tempFlashlightBtn.layer.masksToBounds = true
         return tempFlashlightBtn
     }()
-    
+
     // 手电筒提示文字
     private lazy var flashlightLab: UILabel = {
         let tempFlashlightLab = UILabel(frame: CGRect(x: scanner_x,
@@ -174,7 +174,7 @@ class QYYScanView: UIView {
         tempFlashlightLab.textAlignment = .center
         return tempFlashlightLab
     }()
-    
+
     // 手电筒开关
     private lazy var albumBtn: UIButton = {
         let tempAlbumBtn = UIButton(type: .custom)
@@ -183,7 +183,7 @@ class QYYScanView: UIView {
                                     y: scanner_y + scanner_Width + 60,
                                     width: albumBtn_Width,
                                     height: albumBtn_Width)
-        tempAlbumBtn.addTarget(self, action: #selector(albumBtnClicked(button:)), for: .touchUpInside)        
+        tempAlbumBtn.addTarget(self, action: #selector(albumBtnClicked(button:)), for: .touchUpInside)
 //        let off = QYYIconFont_Base.QYYFontImage.icon(name: "zhaopian", fontSize: 25, color: _DarkColor(0xFFFFFF, 0xC4C4C4))
 //        let on = QYYIconFont_Base.QYYFontImage.icon(name: "zhaopian", fontSize: 25, color: _DarkColor(0xFFFFFF, 0xC4C4C4))
         tempAlbumBtn.setImage(nil, for: .normal)
@@ -192,14 +192,14 @@ class QYYScanView: UIView {
         tempAlbumBtn.layer.masksToBounds = true
         return tempAlbumBtn
     }()
-    
+
     // MARK: - Click
-    
+
     @objc func flashlightBtnClicked(button: UIButton) {
         delegate?.ScanViewFlashLightBtnClick(!button.isSelected)
     }
-    
-    @objc func albumBtnClicked(button: UIButton) {
+
+    @objc func albumBtnClicked(button _: UIButton) {
         delegate?.ScanViewAlbumBtnClick()
     }
 }
@@ -211,7 +211,7 @@ extension QYYScanView {
     func _addScannerLineAnimation() {
         // 若已添加动画，则先移除动画再添加
         scannerLine.layer.removeAllAnimations()
-        
+
         let lineAnimation = CABasicAnimation(keyPath: "transform")
         lineAnimation.toValue = NSValue(caTransform3D: CATransform3DMakeTranslation(0, scanner_Width - scanner_lineHeight, 1))
         lineAnimation.duration = 4
@@ -220,7 +220,7 @@ extension QYYScanView {
         // 重置动画运行速度为1.0
         scannerLine.layer.speed = 1.0
     }
-    
+
     // 暂停扫描器动画
     func _pauseScannerLineAnimation() {
         // 取出当前时间，转成动画暂停的时间
@@ -255,7 +255,7 @@ extension QYYScanView {
         }
         activityIndicator.startAnimating()
     }
-    
+
     // 移除指示器
     func _removeActivityIndicator() {
         if activityIndicator != nil {

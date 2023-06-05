@@ -1,14 +1,13 @@
 var age = 10
 
-for _ in 0...3 {
+for _ in 0 ... 3 {
     print("123")
 }
 
 let str = "a"
 let a: Character = "a"
 let z: Character = "z"
-let range = a...z
-
+let range = a ... z
 
 switch age {
 case 1:

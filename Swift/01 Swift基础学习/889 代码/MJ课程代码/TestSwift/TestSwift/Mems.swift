@@ -8,24 +8,25 @@
 
 import Foundation
 
-public enum MemAlign : Int {
+public enum MemAlign: Int {
     case one = 1, two = 2, four = 4, eight = 8
 }
 
 private let _EMPTY_PTR = UnsafeRawPointer(bitPattern: 0x1)!
 
 /// 辅助查看内存的小工具类
-public struct Mems<T> {
+public enum Mems<T> {
     private static func _memStr(_ ptr: UnsafeRawPointer,
                                 _ size: Int,
-                                _ aligment: Int) ->String {
+                                _ aligment: Int) -> String
+    {
         if ptr == _EMPTY_PTR { return "" }
-        
+
         var rawPtr = ptr
         var string = ""
         let fmt = "0x%0\(aligment << 1)lx"
         let count = size / aligment
-        for i in 0..<count {
+        for i in 0 ..< count {
             if i > 0 {
                 string.append(" ")
                 rawPtr += aligment
@@ -45,28 +46,29 @@ public struct Mems<T> {
         }
         return string
     }
-    
+
     private static func _memBytes(_ ptr: UnsafeRawPointer,
-                                  _ size: Int) -> [UInt8] {
+                                  _ size: Int) -> [UInt8]
+    {
         var arr: [UInt8] = []
         if ptr == _EMPTY_PTR { return arr }
-        for i in 0..<size {
+        for i in 0 ..< size {
             arr.append((ptr + i).load(as: UInt8.self))
         }
         return arr
     }
-    
+
     /// 获得变量的内存数据（字节数组格式）
     public static func memBytes(ofVal v: inout T) -> [UInt8] {
         return _memBytes(ptr(ofVal: &v), MemoryLayout.stride(ofValue: v))
     }
-    
+
     /// 获得引用所指向的内存数据（字节数组格式）
     public static func memBytes(ofRef v: T) -> [UInt8] {
         let p = ptr(ofRef: v)
         return _memBytes(p, malloc_size(p))
     }
-    
+
     /// 获得变量的内存数据（字符串格式）
     ///
     /// - Parameter alignment: 决定了多少个字节为一组
@@ -75,7 +77,7 @@ public struct Mems<T> {
         return _memStr(p, MemoryLayout.stride(ofValue: v),
                        alignment != nil ? alignment!.rawValue : MemoryLayout.alignment(ofValue: v))
     }
-    
+
     /// 获得引用所指向的内存数据（字符串格式）
     ///
     /// - Parameter alignment: 决定了多少个字节为一组
@@ -84,19 +86,20 @@ public struct Mems<T> {
         return _memStr(p, malloc_size(p),
                        alignment != nil ? alignment!.rawValue : MemoryLayout.alignment(ofValue: v))
     }
-    
+
     /// 获得变量的内存地址
     public static func ptr(ofVal v: inout T) -> UnsafeRawPointer {
         return MemoryLayout.size(ofValue: v) == 0 ? _EMPTY_PTR : withUnsafePointer(to: &v) {
             UnsafeRawPointer($0)
         }
     }
-    
+
     /// 获得引用所指向内存的地址
     public static func ptr(ofRef v: T) -> UnsafeRawPointer {
-        if v is Array<Any>
+        if v is [Any]
             || Swift.type(of: v) is AnyClass
-            || v is AnyClass {
+            || v is AnyClass
+        {
             return UnsafeRawPointer(bitPattern: unsafeBitCast(v, to: UInt.self))!
         } else if v is String {
             var mstr = v as! String
@@ -108,34 +111,34 @@ public struct Mems<T> {
             return _EMPTY_PTR
         }
     }
-    
+
     /// 获得变量所占用的内存大小
     public static func size(ofVal v: inout T) -> Int {
         return MemoryLayout.size(ofValue: v) > 0 ? MemoryLayout.stride(ofValue: v) : 0
     }
-    
+
     /// 获得引用所指向内存的大小
     public static func size(ofRef v: T) -> Int {
         return malloc_size(ptr(ofRef: v))
     }
 }
 
-public enum StringMemType : UInt8 {
+public enum StringMemType: UInt8 {
     /// TEXT段（常量区）
-    case text = 0xd0
+    case text = 0xD0
     /// taggerPointer
-    case tagPtr = 0xe0
+    case tagPtr = 0xE0
     /// 堆空间
-    case heap = 0xf0
+    case heap = 0xF0
     /// 未知
-    case unknow = 0xff
+    case unknow = 0xFF
 }
 
-extension String {
-    mutating public func memType() -> StringMemType {
+public extension String {
+    mutating func memType() -> StringMemType {
         let ptr = Mems.ptr(ofVal: &self)
-        return StringMemType(rawValue: (ptr + 15).load(as: UInt8.self) & 0xf0)
-            ?? StringMemType(rawValue: (ptr + 7).load(as: UInt8.self) & 0xf0)
+        return StringMemType(rawValue: (ptr + 15).load(as: UInt8.self) & 0xF0)
+            ?? StringMemType(rawValue: (ptr + 7).load(as: UInt8.self) & 0xF0)
             ?? .unknow
     }
 }

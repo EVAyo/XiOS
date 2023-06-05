@@ -4,11 +4,12 @@
 //:
 func makeArray<Item>(repeating item: Item, numberOfTimes: Int) -> [Item] {
     var result = [Item]()
-    for _ in 0..<numberOfTimes {
-         result.append(item)
+    for _ in 0 ..< numberOfTimes {
+        result.append(item)
     }
     return result
 }
+
 makeArray(repeating: "knock", numberOfTimes: 4)
 
 //: You can make generic forms of functions and methods, as well as classes, enumerations, and structures.
@@ -18,6 +19,7 @@ enum OptionalValue<Wrapped> {
     case none
     case some(Wrapped)
 }
+
 var possibleInteger: OptionalValue<Int> = .none
 possibleInteger = .some(100)
 
@@ -33,8 +35,9 @@ func anyCommonElements<T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> Bool
             }
         }
     }
-   return false
+    return false
 }
+
 anyCommonElements([1, 2, 3], [3])
 
 //: - Experiment:
@@ -42,6 +45,5 @@ anyCommonElements([1, 2, 3], [3])
 //:
 //: Writing `<T: Equatable>` is the same as writing `<T> ... where T: Equatable`.
 //:
-
 
 //: [Previous](@previous) | [Next](@next)

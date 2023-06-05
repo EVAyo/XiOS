@@ -8,7 +8,7 @@
 
 import RxSwift
 
-extension ObservableType {
+public extension ObservableType {
     /**
      Creates new subscription and sends elements to publish relay(s).
      In case error occurs in debug mode, `fatalError` will be raised.
@@ -16,7 +16,7 @@ extension ObservableType {
      - parameter to: Target publish relays for sequence elements.
      - returns: Disposable object that can be used to unsubscribe the observer.
      */
-    public func bind(to relays: PublishRelay<Element>...) -> Disposable {
+    func bind(to relays: PublishRelay<Element>...) -> Disposable {
         return bind(to: relays)
     }
 
@@ -29,8 +29,8 @@ extension ObservableType {
      - parameter to: Target publish relays for sequence elements.
      - returns: Disposable object that can be used to unsubscribe the observer.
      */
-    public func bind(to relays: PublishRelay<Element?>...) -> Disposable {
-        return self.map { $0 as Element? }.bind(to: relays)
+    func bind(to relays: PublishRelay<Element?>...) -> Disposable {
+        return map { $0 as Element? }.bind(to: relays)
     }
 
     /**
@@ -62,8 +62,8 @@ extension ObservableType {
      - parameter to: Target behavior relay for sequence elements.
      - returns: Disposable object that can be used to unsubscribe the observer.
      */
-    public func bind(to relays: BehaviorRelay<Element>...) -> Disposable {
-        return self.bind(to: relays)
+    func bind(to relays: BehaviorRelay<Element>...) -> Disposable {
+        return bind(to: relays)
     }
 
     /**
@@ -75,8 +75,8 @@ extension ObservableType {
      - parameter to: Target behavior relay for sequence elements.
      - returns: Disposable object that can be used to unsubscribe the observer.
      */
-    public func bind(to relays: BehaviorRelay<Element?>...) -> Disposable {
-        return self.map { $0 as Element? }.bind(to: relays)
+    func bind(to relays: BehaviorRelay<Element?>...) -> Disposable {
+        return map { $0 as Element? }.bind(to: relays)
     }
 
     /**

@@ -9,19 +9,20 @@ enum Rank: Int {
 
     func simpleDescription() -> String {
         switch self {
-            case .ace:
-                return "ace"
-            case .jack:
-                return "jack"
-            case .queen:
-                return "queen"
-            case .king:
-                return "king"
-            default:
-                return String(self.rawValue)
+        case .ace:
+            return "ace"
+        case .jack:
+            return "jack"
+        case .queen:
+            return "queen"
+        case .king:
+            return "king"
+        default:
+            return String(rawValue)
         }
     }
 }
+
 let ace = Rank.ace
 let aceRawValue = ace.rawValue
 
@@ -43,17 +44,18 @@ enum Suit {
 
     func simpleDescription() -> String {
         switch self {
-            case .spades:
-                return "spades"
-            case .hearts:
-                return "hearts"
-            case .diamonds:
-                return "diamonds"
-            case .clubs:
-                return "clubs"
+        case .spades:
+            return "spades"
+        case .hearts:
+            return "hearts"
+        case .diamonds:
+            return "diamonds"
+        case .clubs:
+            return "clubs"
         }
     }
 }
+
 let hearts = Suit.hearts
 let heartsDescription = hearts.simpleDescription()
 
@@ -73,10 +75,10 @@ let success = ServerResponse.result("6:00 am", "8:09 pm")
 let failure = ServerResponse.failure("Out of cheese.")
 
 switch success {
-    case let .result(sunrise, sunset):
-        print("Sunrise is at \(sunrise) and sunset is at \(sunset).")
-    case let .failure(message):
-        print("Failure...  \(message)")
+case let .result(sunrise, sunset):
+    print("Sunrise is at \(sunrise) and sunset is at \(sunset).")
+case let .failure(message):
+    print("Failure...  \(message)")
 }
 
 //: - Experiment:
@@ -93,12 +95,12 @@ struct Card {
         return "The \(rank.simpleDescription()) of \(suit.simpleDescription())"
     }
 }
+
 let threeOfSpades = Card(rank: .three, suit: .spades)
 let threeOfSpadesDescription = threeOfSpades.simpleDescription()
 
 //: - Experiment:
 //: Write a function that returns an array containing a full deck of cards, with one card of each combination of rank and suit.
 //:
-
 
 //: [Previous](@previous) | [Next](@next)

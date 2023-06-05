@@ -5,8 +5,8 @@
 //  Created by 启业云03 on 2021/6/28.
 //
 
-import UIKit
 import AVFoundation
+import UIKit
 
 open class QYYScanViewController: UIViewController {
     /// 点击曝光
@@ -14,17 +14,17 @@ open class QYYScanViewController: UIViewController {
     /// 回调
     public typealias ClosureType = (_ isSucc: Bool, _ value: String, _ vc: QYYScanViewController) -> Void
     @objc open var scanClosure: ClosureType?
-    
+
     private var config = ScanConfig()
-    
+
     private var device: AVCaptureDevice!
-    
+
     private lazy var session = AVCaptureSession()
-    
+
     private lazy var previewLayer = AVCaptureVideoPreviewLayer(session: session)
 
     private let sessionQueue = DispatchQueue(label: "Session Queue")
-    
+
     /// A range to determine minimum and maximum zoom factor.
     ///
     /// This value will be intersected with `AVCaptureDevice.minAvailableVideoZoomFactor` and `AVCaptureDevice.maxAvailableVideoZoomFactor` before being applied.
@@ -34,22 +34,22 @@ open class QYYScanViewController: UIViewController {
 
     /// 限制最大缩放
     private let maxZoomFactor: CGFloat = 3.0
-    
+
     /// 标记是否为第一次进入页面，区分Push还是Pop
     private var isFirstEnter = true
-    
+
     // MARK: - LifeCycle
 
     override open func viewDidLoad() {
         super.viewDidLoad()
         title = localizedString("扫一扫")
-                
+
         p_setupUI()
 
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(applicationWillResignActive), name: UIApplication.willResignActiveNotification, object: nil)
     }
-    
+
     override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if isFirstEnter {
@@ -58,38 +58,38 @@ open class QYYScanViewController: UIViewController {
             p_resumeScanning()
         }
     }
-    
+
     override open func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         p_pauseScanning()
     }
-    
+
     /// 从后台进入前台
     @objc func applicationDidBecomeActive() {
         p_resumeScanning()
     }
-    
+
     /// 从前台进入后台
     @objc func applicationWillResignActive() {
         p_pauseScanning()
     }
-    
+
     deinit {
         // print("LXScanViewController - deinit")
     }
-    
+
     // MARK: - UI
 
     func p_setupUI() {
-        view.backgroundColor = _DarkColor(0xffffff, 0x1e1e1e)
-        
+        view.backgroundColor = _DarkColor(0xFFFFFF, 0x1E1E1E)
+
 //        let leftItem = UIBarButtonItem(title: localizedString("返回"), style: .plain, target: self, action: #selector(p_dismiss))
 //        let leftItem = UIBarButtonItem(image: UIImage(named: "scan_back_normal"), style: .plain, target: self, action: #selector(p_dismiss))
 //        leftItem.tintColor = _DarkColor(0xffffff, 0xffffff)
 //        navigationItem.leftBarButtonItems = [leftItem]
-        
+
         view.addSubview(scannerView)
-        
+
         _checkCameraAuth { (granted: Bool) in
             DispatchQueue.main.async { [self] in
                 if granted {
@@ -100,7 +100,7 @@ open class QYYScanViewController: UIViewController {
             }
         }
     }
-    
+
     private func p_setupScanner() {
         // 拍摄设备初始化
         guard let tempDevice = AVCaptureDevice.default(for: .video) else {
@@ -108,25 +108,25 @@ open class QYYScanViewController: UIViewController {
             return
         }
         device = tempDevice
- 
+
         // 初始化session对象
         if let deviceInput = try? AVCaptureDeviceInput(device: device) {
             let metadataOutput = AVCaptureMetadataOutput()
             metadataOutput.setMetadataObjectsDelegate(self, queue: .main)
-            
+
             if config.scanArea == .PartScreen {
                 let kW = view.frame.size.width
                 let kH = view.frame.size.height
                 // 可扫描区域设置，计算rectOfInterest 注意x,y交换位置
-                metadataOutput.rectOfInterest = CGRect(x: scannerView.scanner_y/kH,
-                                                       y: scannerView.scanner_x/kW,
-                                                       width: scannerView.scanner_Width/kH,
-                                                       height: scannerView.scanner_Width/kW)
+                metadataOutput.rectOfInterest = CGRect(x: scannerView.scanner_y / kH,
+                                                       y: scannerView.scanner_x / kW,
+                                                       width: scannerView.scanner_Width / kH,
+                                                       height: scannerView.scanner_Width / kW)
             }
-            
+
             let videoDataOutput = AVCaptureVideoDataOutput()
             videoDataOutput.setSampleBufferDelegate(self, queue: .main)
-            
+
             // Session设置
             if UIScreen.main.bounds.size.height < 500 {
                 session.sessionPreset = .vga640x480
@@ -135,7 +135,7 @@ open class QYYScanViewController: UIViewController {
             if session.canAddInput(deviceInput) { session.addInput(deviceInput) }
             if session.canAddOutput(metadataOutput) { session.addOutput(metadataOutput) }
             if session.canAddOutput(videoDataOutput) { session.addOutput(videoDataOutput) }
-            
+
             // 支持扫码类型:https://developer.apple.com/documentation/avfoundation/avmetadatamachinereadablecodeobject/machine-readable_object_types?language=objc
             switch config.scanType {
             case .Line:
@@ -145,16 +145,16 @@ open class QYYScanViewController: UIViewController {
             default:
                 metadataOutput.metadataObjectTypes = [.qr, .ean8, .ean13, .upce, .code39, .code39Mod43, .code93, .code128, .pdf417]
             }
-            
+
             // 预览图层
             previewLayer.videoGravity = .resizeAspectFill
             previewLayer.frame = view.layer.bounds
             // 将图层插入当前视图
             view.layer.insertSublayer(previewLayer, at: 0)
-            
+
             // 开始扫描
             p_resumeScanning()
-            
+
             // 点击手势
             let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
             singleTap.numberOfTapsRequired = 1
@@ -169,16 +169,16 @@ open class QYYScanViewController: UIViewController {
             view.addGestureRecognizer(pinch)
         }
     }
-    
+
     private func p_showAlert(_ message: String, handler: ((UIAlertAction) -> Void)? = nil) {
         let alertVC = UIAlertController(title: localizedString("提醒"), message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: localizedString("知道了"), style: .cancel, handler: handler)
         alertVC.addAction(cancelAction)
         present(alertVC, animated: true, completion: nil)
     }
-    
+
     // MARK: - Action
-    
+
     @objc func handleTap(_ tap: UITapGestureRecognizer) {
         let point = tap.location(in: view)
         let devicePoint = previewLayer.captureDevicePointConverted(fromLayerPoint: point)
@@ -205,8 +205,8 @@ open class QYYScanViewController: UIViewController {
             self.device.unlockForConfiguration()
         }
     }
-    
-    @objc func handleDoubleTap(_ tap: UITapGestureRecognizer) {
+
+    @objc func handleDoubleTap(_: UITapGestureRecognizer) {
         if #available(iOS 11.0, *) {
             let availableMaxScale = min(maxZoomFactor, device.maxAvailableVideoZoomFactor)
             if self.device.videoZoomFactor >= availableMaxScale {
@@ -217,12 +217,12 @@ open class QYYScanViewController: UIViewController {
                     }
                     // 差值
                     let differ = availableMaxScale - 1.0
-                    let percent = differ/8
+                    let percent = differ / 8
                     var newScale = availableMaxScale
-                    
+
                     let timer = DispatchSource.makeTimerSource(flags: [], queue: .main)
                     var count = 8
-                    timer.schedule(deadline: .now(), repeating: 0.25/8)
+                    timer.schedule(deadline: .now(), repeating: 0.25 / 8)
                     timer.setEventHandler {
                         count -= 1
                         do {
@@ -248,12 +248,12 @@ open class QYYScanViewController: UIViewController {
             } else {
                 // 差值
                 let differ = availableMaxScale - self.device.videoZoomFactor
-                let percent = differ/8
+                let percent = differ / 8
                 var newScale: CGFloat = 1.0
-                
+
                 let timer = DispatchSource.makeTimerSource(flags: [], queue: .main)
                 var count = 8
-                timer.schedule(wallDeadline: .now(), repeating: 0.25/8)
+                timer.schedule(wallDeadline: .now(), repeating: 0.25 / 8)
                 timer.setEventHandler {
                     count -= 1
                     do {
@@ -278,7 +278,7 @@ open class QYYScanViewController: UIViewController {
             // Fallback on earlier versions
         }
     }
-    
+
     @objc func handlePinch(_ pinch: UIPinchGestureRecognizer) {
         switch pinch.state {
         case .began:
@@ -290,16 +290,16 @@ open class QYYScanViewController: UIViewController {
                 minAvailableZoomScale = device.minAvailableVideoZoomFactor
                 maxAvailableZoomScale = device.maxAvailableVideoZoomFactor
             }
-            
+
             if maxAvailableZoomScale > maxZoomFactor {
                 maxAvailableZoomScale = maxZoomFactor
             }
-            
+
             let availableZoomScaleRange = minAvailableZoomScale ... maxAvailableZoomScale
             let resolvedZoomScaleRange = zoomScaleRange.clamped(to: availableZoomScaleRange)
-            
+
             let resolvedScale = max(resolvedZoomScaleRange.lowerBound, min(pinch.scale * initialScale, resolvedZoomScaleRange.upperBound))
-            
+
             do {
                 try device.lockForConfiguration()
                 defer {
@@ -309,12 +309,12 @@ open class QYYScanViewController: UIViewController {
             } catch {
                 print(error)
             }
-                
+
         default:
             return
         }
     }
-    
+
     @objc func p_dismiss() {
         let controllers = navigationController?.viewControllers
         if controllers != nil, controllers!.count > 1 {
@@ -325,7 +325,7 @@ open class QYYScanViewController: UIViewController {
             dismiss(animated: true, completion: nil)
         }
     }
-    
+
     // 打开相册
     @objc func showPhotoAlbum() {
         _checkPhotoAlbum { (granted: Bool) in
@@ -347,7 +347,7 @@ open class QYYScanViewController: UIViewController {
         tempView.delegate = self
         return tempView
     }()
-    
+
     lazy var imagePicker: UIImagePickerController = {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .photoLibrary
@@ -369,7 +369,7 @@ extension QYYScanViewController {
             p_resumeScanning()
         }
     }
-    
+
     // Just for test
     func p_handlerResult_Test(value: String) {
         // show Indicator
@@ -397,7 +397,7 @@ extension QYYScanViewController {
             scannerView._addScannerLineAnimation()
         }
     }
-    
+
     /// 暂停扫一扫功能
     private func p_pauseScanning() {
         if session.isRunning {
@@ -410,7 +410,7 @@ extension QYYScanViewController {
 // MARK: - 扫描结果处理
 
 extension QYYScanViewController: AVCaptureMetadataOutputObjectsDelegate {
-    public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+    public func metadataOutput(_: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from _: AVCaptureConnection) {
         if metadataObjects.count > 0 {
             //
             p_pauseScanning()
@@ -433,7 +433,7 @@ extension QYYScanViewController: UIImagePickerControllerDelegate & UINavigationC
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
+
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         picker.dismiss(animated: true, completion: nil)
         /// 识别二维码
@@ -459,7 +459,7 @@ extension QYYScanViewController: UIImagePickerControllerDelegate & UINavigationC
 // MARK: - 监听光线亮度
 
 extension QYYScanViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
-    public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+    public func captureOutput(_: AVCaptureOutput, didOutput _: CMSampleBuffer, from _: AVCaptureConnection) {
         /*
          let metadataDict = CMCopyDictionaryOfAttachments(allocator: nil, target: sampleBuffer, attachmentMode: kCMAttachmentMode_ShouldPropagate)
          if let metadata = metadataDict as? [AnyHashable: Any] {
@@ -490,8 +490,8 @@ extension QYYScanViewController: QYYScanViewDelegate {
         }
         if device.hasFlash, device.hasTorch {
             try? device.lockForConfiguration()
-            device.torchMode = status ? .on:.off
-            device.flashMode = status ? .on:.off
+            device.torchMode = status ? .on : .off
+            device.flashMode = status ? .on : .off
             device.unlockForConfiguration()
             // 改变按钮状态
             scannerView.changeFlashlightBtnStatus(status)
@@ -499,7 +499,7 @@ extension QYYScanViewController: QYYScanViewDelegate {
             p_showAlert(localizedString("暂无设备"))
         }
     }
-    
+
     /// 相册
     func ScanViewAlbumBtnClick() {
         showPhotoAlbum()

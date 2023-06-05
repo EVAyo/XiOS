@@ -10,7 +10,7 @@ enum PrinterError: Error {
 
 //: Use `throw` to throw an error and `throws` to mark a function that can throw an error. If you throw an error in a function, the function returns immediately and the code that called the function handles the error.
 //:
-func send(job: Int, toPrinter printerName: String) throws -> String {
+func send(job _: Int, toPrinter printerName: String) throws -> String {
     if printerName == "Never Has Toner" {
         throw PrinterError.noToner
     }
@@ -64,9 +64,8 @@ func fridgeContains(_ food: String) -> Bool {
     let result = fridgeContent.contains(food)
     return result
 }
+
 fridgeContains("banana")
 print(fridgeIsOpen)
-
-
 
 //: [Previous](@previous) | [Next](@next)

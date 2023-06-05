@@ -11,17 +11,17 @@
     import Cocoa
     import RxSwift
 
-    extension Reactive where Base: NSView {
+    public extension Reactive where Base: NSView {
         /// Bindable sink for `hidden` property.
-        public var isHidden:  Binder<Bool> {
-            return Binder(self.base) { view, value in
+        var isHidden: Binder<Bool> {
+            return Binder(base) { view, value in
                 view.isHidden = value
             }
         }
 
         /// Bindable sink for `alphaValue` property.
-        public var alpha: Binder<CGFloat> {
-            return Binder(self.base) { view, value in
+        var alpha: Binder<CGFloat> {
+            return Binder(base) { view, value in
                 view.alphaValue = value
             }
         }
