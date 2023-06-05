@@ -255,7 +255,7 @@ static struct /*_method_list_t*/ {
 } _OBJC_$_CATEGORY_INSTANCE_METHODS_Person_$_DD __attribute__ ((used, section ("__DATA,__objc_const"))) = {
 	sizeof(_objc_method),
 	7,
-	/*{{(struct objc_selector *)"setHeight:", "v24@0:8@16", (void *)_I_Person_DD_setHeight_},*/
+	{{(struct objc_selector *)"setHeight:", "v24@0:8@16", (void *)_I_Person_DD_setHeight_},
 	{(struct objc_selector *)"height", "@16@0:8", (void *)_I_Person_DD_height},
 	{(struct objc_selector *)"setWeight:", "v24@0:8@16", (void *)_I_Person_DD_setWeight_},
 	{(struct objc_selector *)"weight", "@16@0:8", (void *)_I_Person_DD_weight},
