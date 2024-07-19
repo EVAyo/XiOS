@@ -68,6 +68,149 @@ copy修饰NSString
 
 
 
+# 这个写法会出什么问题：@property (copy) NSMutableArray *arr;
+
+1. atomic 属性会影响性能；
+2. 由于copy复制了一个不可变的NSArray对象，如果对arr进行添加、删除、修改数组内部元素的时候，程序找不到对应的方法而崩溃；
+
+
+
+```objc
+@property (nonatomic, copy) NSMutableString *testStr;
+
+- (void)mutableString_copy {
+    NSMutableString *mStr = [NSMutableString stringWithString:@"张三"];
+
+    self.testStr = mStr;
+
+    NSLog(@"使用copy第一次得到的名字：%@", self.testStr);
+
+    [mStr appendString:@"丰"];
+
+    NSLog(@"使用copy第二次得到的名字：%@", self.testStr);
+    
+    [self.testStr appendString:@"123"];
+    
+    NSLog(@"使用copy第三次得到的名字：%@", self.testStr);
+}
+
+// 输出
+使用copy第一次得到的名字：张三
+使用copy第一次得到的名字：张三
+Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: 'Attempt to mutate immutable object with appendString:'.........
+
+// 崩溃原因
+由于copy复制了一个不可变的NSArray对象，如果对arr进行添加、删除、修改数组内部元素的时候，程序找不到对应的方法而崩溃。
+```
+
+
+
+
+
+# 如何让自己的类用 copy 修饰符？
+
+1. 需要声明该类遵从NSCopying 或 NSMutableCopying协议；
+
+2. 实现NSCopying协议，该协议只有一个方法：`-(id)copyWithZone:(NSZone *)zone;`
+
+* **拓展**
+
+    copy：不可变拷贝,遵循NSCopying协议，需要对应实现copyWithZone方法；
+
+    mutableCopy：可变拷贝，遵循NSMutableCopying协议，需要对应实现mutableCopyWithZone:方法；
+
+
+
+
+
+# 对于深拷贝和浅拷贝的理解
+
+系统对象 NSString/NSMutableString/NSArray/NSMutableArray 的 copy 与 mutableCopy 方法。
+
+
+
+在 iOS 开发中，`NSString`、`NSMutableString`、`NSArray` 和 `NSMutableArray` 都是非常常用的对象。这些对象都有 `copy` 和 `mutableCopy` 方法，用于创建不可变副本或可变副本。理解这些方法的行为对于正确处理对象的拷贝和内存管理至关重要。
+
+### `copy` 与 `mutableCopy` 方法
+
+- **`copy`**：创建对象的不可变副本。如果对象本身是不可变的，那么 `copy` 方法通常会返回对象本身。
+- **`mutableCopy`**：创建对象的可变副本，不论对象本身是否可变。
+
+### NSString 和 NSMutableString
+
+#### NSString
+
+- `copy`：返回对象本身，因为 `NSString` 是不可变的。
+- `mutableCopy`：返回一个新的 `NSMutableString` 对象。
+
+```objc
+NSString *originalString = @"Hello, World!";
+NSString *stringCopy = [originalString copy]; // 返回原对象本身
+NSMutableString *mutableStringCopy = [originalString mutableCopy]; // 返回新的 NSMutableString 对象
+```
+
+![](images/001.png)
+
+#### NSMutableString
+
+- `copy`：返回一个新的 `NSString` 对象，因为 `NSMutableString` 是可变的。
+- `mutableCopy`：返回一个新的 `NSMutableString` 对象。
+
+```objc
+NSMutableString *originalMutableString = [NSMutableString stringWithString:@"Hello, World!"];
+NSString *stringCopy = [originalMutableString copy]; // 返回新的 NSString 对象
+NSMutableString *mutableStringCopy = [originalMutableString mutableCopy]; // 返回新的 NSMutableString 对象
+```
+
+![](images/002.png)
+
+
+
+### NSArray 和 NSMutableArray
+
+#### NSArray
+
+- `copy`：返回对象本身，因为 `NSArray` 是不可变的。
+- `mutableCopy`：返回一个新的 `NSMutableArray` 对象。
+
+```objc
+NSArray *originalArray = @[@"One", @"Two", @"Three"];
+NSArray *arrayCopy = [originalArray copy]; // 返回原对象本身
+NSMutableArray *mutableArrayCopy = [originalArray mutableCopy]; // 返回新的 NSMutableArray 对象
+```
+
+![](images/003.png)
+
+
+
+#### NSMutableArray
+
+- `copy`：返回一个新的 `NSArray` 对象，因为 `NSMutableArray` 是可变的。
+- `mutableCopy`：返回一个新的 `NSMutableArray` 对象。
+
+```objc
+NSMutableArray *originalMutableArray = [NSMutableArray arrayWithArray:@[@"One", @"Two", @"Three"]];
+NSArray *arrayCopy = [originalMutableArray copy]; // 返回新的 NSArray 对象
+NSMutableArray *mutableArrayCopy = [originalMutableArray mutableCopy]; // 返回新的 NSMutableArray 对象
+```
+
+![](images/004.png)
+
+
+
+### 总结
+
+- 对于不可变对象（如 `NSString` 和 `NSArray`），`copy` 方法返回原对象本身，而 `mutableCopy` 方法返回一个新的可变对象。
+- 对于可变对象（如 `NSMutableString` 和 `NSMutableArray`），`copy` 方法返回一个新的不可变对象，而 `mutableCopy` 方法返回一个新的可变对象。
+
+这种行为确保了对象的拷贝操作能够正确地维护对象的可变性属性，从而避免不必要的副本创建和内存消耗。
+
+
+
+
+
+
+
 
 
 

@@ -13,6 +13,8 @@
 
 @property (nonatomic, copy) NSString *title;
 
+@property (nonatomic, copy) NSMutableString *testStr;
+
 @end
 
 @implementation AA
@@ -40,6 +42,24 @@
     [mStr appendString:@"丰"];
 
     NSLog(@"使用copy第二次得到的名字：%@", self.title);
+}
+
+- (void)mutableString_copy {
+    NSMutableString *mStr = [NSMutableString stringWithString:@"张三"];
+
+    self.testStr = mStr;
+
+    NSLog(@"使用copy第一次得到的名字：%@", self.testStr);
+
+    [mStr appendString:@"丰"];
+
+    NSLog(@"使用copy第二次得到的名字：%@", self.testStr);
+    
+// 崩溃：由于copy复制了一个不可变的NSArray对象，如果对arr进行添加、删除、修改数组内部元素的时候，程序找不到对应的方法而崩溃。
+//    [self.testStr appendString:@"123"];
+    
+//    NSLog(@"使用copy第三次得到的名字：%@", self.testStr);
+
 }
 
 @end

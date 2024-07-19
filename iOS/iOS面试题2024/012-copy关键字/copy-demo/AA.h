@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)string_copy;
 
+- (void)mutableString_copy;
+
 @end
 
 NS_ASSUME_NONNULL_END

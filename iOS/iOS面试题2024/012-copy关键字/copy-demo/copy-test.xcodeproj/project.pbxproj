@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		99DCF00D2C490D5600348686 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DCF00C2C490D5600348686 /* main.m */; };
 		99DCF0152C490F4000348686 /* AA.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DCF0142C490F4000348686 /* AA.m */; };
+		99DCF0182C4A4BD500348686 /* BB.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DCF0172C4A4BD500348686 /* BB.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		99DCF00C2C490D5600348686 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		99DCF0132C490F4000348686 /* AA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AA.h; sourceTree = "<group>"; };
 		99DCF0142C490F4000348686 /* AA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AA.m; sourceTree = "<group>"; };
+		99DCF0162C4A4BD500348686 /* BB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BB.h; sourceTree = "<group>"; };
+		99DCF0172C4A4BD500348686 /* BB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BB.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +47,8 @@
 		99DCF0002C490D5600348686 = {
 			isa = PBXGroup;
 			children = (
+				99DCF0162C4A4BD500348686 /* BB.h */,
+				99DCF0172C4A4BD500348686 /* BB.m */,
 				99DCF0132C490F4000348686 /* AA.h */,
 				99DCF0142C490F4000348686 /* AA.m */,
 				99DCF00B2C490D5600348686 /* copy-test */,
@@ -124,6 +129,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99DCF0182C4A4BD500348686 /* BB.m in Sources */,
 				99DCF00D2C490D5600348686 /* main.m in Sources */,
 				99DCF0152C490F4000348686 /* AA.m in Sources */,
 			);
