@@ -1,5 +1,9 @@
 
 
+[wireshark - docs](https://www.wireshark.org/docs/wsug_html_chunked/index.html)
+
+
+
 常见协议
 
 * ARP
@@ -174,7 +178,7 @@ en8: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
 
 ## lo0
 
-> lo0: loopback 回环地址一般是127.0.0.0
+> lo0: loopback 回环地址一般是127.0.0.1
 >
 > loopback指本地环回接口（或地址），亦称回送地址()。此类接口是应用最为广泛的一种虚接口，几乎在每台路由器上都会使用。
 
