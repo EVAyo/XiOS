@@ -1,27 +1,46 @@
+[vimium - github](https://github.com/philc/vimium)
+
+[vimium - gitcode](https://gitcode.com/gh_mirrors/vi/vimium/overview?utm_source=csdn_github_accelerator)
+
 [Chrome插件Vimium使用教程](https://zhuanlan.zhihu.com/p/113316942)
 
 
 
-# 两种状态
+# 一、两种状态
 
 * 可用
+
+    ![](media_Vimium/002.png)
+
 * 不可用
 
+    ![](media_Vimium/003.png)
+
+    
 
 
-# 三种模式
+
+# 二、三种模式
 
 * 普通模式：`ESC`
 * 插入模式：`i`
 * 可视模式（选择模式）：`v`
 
+**Normal 模式**：用于网页导航和操作。
+
+**Insert 模式**：用于文本输入时，禁用快捷键。
+
+**Visual 模式**：用于选择和复制网页上的文本。
 
 
-# 帮助 ?
+
+# 三、帮助 ?
 
 ![](media_Vimium/001.png)
 
 
+
+# 四、快捷键
 
 ## 导航历史
 
